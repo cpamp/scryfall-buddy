@@ -2,6 +2,7 @@
   "name": "scryfall-plugin",
   "private": true,
   "scripts": {
+    "fetch:tags": "node tools/fetch-tagger-tags.js",
     "build": "node scripts/build.js",
     "build:watch": "node scripts/build.js --watch"
   },

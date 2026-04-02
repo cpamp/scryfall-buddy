@@ -13,6 +13,7 @@ export const OTAG_DROPDOWN_POPUP_TITLE = "Prototype otag: suggestions";
 export const otagDropdownConfig = {
   applySelection: applyOtagSelection,
   getInputs: getScryfallSearchInputs,
+  getItemLabel: (item) => item.name,
   getItems: ({ context }) => filterOtagItems(context.rawQuery),
   getPopupTitle: () => OTAG_DROPDOWN_POPUP_TITLE,
   inputSelector: SCRYFALL_SEARCH_INPUT_SELECTOR,
