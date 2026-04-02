@@ -4,7 +4,7 @@ This repository builds a Chrome/Firefox WebExtension that adds `otag:` suggestio
 
 ## Features
 
-- Scryfall search-oriented pages (`/`, `/search`, `/advanced`) get the `otag:` dropdown.
+- Scryfall search-oriented pages (`/`, `/search`, `/advanced`) get the `otag:` dropdown when typing `otag:`, `function:`, or `oracletag:`.
 - Selecting a suggestion inserts the chosen `otag:<slug>` token into the active or primary Scryfall search input.
 - UI styling is shipped through extension-owned CSS.
 

@@ -6,7 +6,9 @@ function getOtagItemName(item) {
 }
 
 export function formatOtagSelection(item, context) {
-  return `${context.negation}${OTAG_OPERATOR}:"${getOtagItemName(item)}"`;
+  const operatorName = context?.matchedOperatorName || OTAG_OPERATOR;
+
+  return `${context.negation}${operatorName}:"${getOtagItemName(item)}"`;
 }
 
 export function applyOtagSelection({ context, input, item }) {

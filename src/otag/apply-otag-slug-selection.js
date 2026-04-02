@@ -2,8 +2,12 @@ import { replaceInputToken } from "../shared/text-input/replace-input-token.js";
 import { OTAG_OPERATOR } from "./constants.js";
 import { getOtagContext } from "./get-otag-context.js";
 
-export function formatOtagSlugSelection(slug, negation = "") {
-  return `${negation}${OTAG_OPERATOR}:${slug}`;
+export function formatOtagSlugSelection(
+  slug,
+  negation = "",
+  operatorName = OTAG_OPERATOR,
+) {
+  return `${negation}${operatorName}:${slug}`;
 }
 
 function insertTextAtSelection(input, text) {
@@ -32,7 +36,11 @@ function insertTextAtSelection(input, text) {
 
 export function applyOtagSlugSelection({ input, slug }) {
   const context = document.activeElement === input ? getOtagContext(input) : null;
-  const replacement = formatOtagSlugSelection(slug, context?.negation || "");
+  const replacement = formatOtagSlugSelection(
+    slug,
+    context?.negation || "",
+    context?.matchedOperatorName || OTAG_OPERATOR,
+  );
 
   if (context) {
     replaceInputToken(input, context, replacement);
