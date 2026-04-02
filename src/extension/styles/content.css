@@ -285,13 +285,13 @@
   color: var(--scryfall-plugin-dark-muted) !important;
 }
 
-:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo) svg,
+:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo):not(.homepage-logo) svg,
 :root[data-scryfall-plugin-theme="dark"] button svg,
 :root[data-scryfall-plugin-theme="dark"] .button-n svg {
   color: currentColor !important;
 }
 
-:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo) svg path,
+:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo):not(.homepage-logo) svg path,
 :root[data-scryfall-plugin-theme="dark"] button svg path,
 :root[data-scryfall-plugin-theme="dark"] .button-n svg path {
   fill: currentColor !important;
