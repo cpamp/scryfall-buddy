@@ -1,48 +1,12 @@
-import { ensureDocumentStyleSheet } from "../shared/ui/ensure-document-style-sheet.js";
-
-const CARD_PAGE_TAGS_STYLE_KEY = "scryfall-card-page-tags";
 const CARD_PAGE_TAGS_SECTION_CLASS = "scryfall-card-page-tags";
 const CARD_PAGE_TAGS_DESCRIPTION_CLASS = "scryfall-card-page-tags__description";
 const CARD_PAGE_TAGS_STATUS_CLASS = "scryfall-card-page-tags__status";
 const CARD_PAGE_TAGS_STATUS_ERROR_CLASS = "is-error";
 const CARD_PAGE_TAGS_CONTENT_CLASS = "scryfall-card-page-tags__content";
 const CARD_PAGE_TAGS_TAG_LIST_CLASS = "scryfall-card-page-tags__list";
+const CARD_PAGE_TAGS_LOAD_BUTTON_CLASS = "scryfall-card-page-tags__load-button";
 const CARD_PAGE_TAGS_TAG_BUTTON_CLASS = "scryfall-card-page-tags__tag-button";
 const CARD_PAGE_TAGS_EMPTY_CLASS = "scryfall-card-page-tags__empty";
-
-function ensureCardPageTagsStyles() {
-  ensureDocumentStyleSheet(
-    CARD_PAGE_TAGS_STYLE_KEY,
-    `
-.${CARD_PAGE_TAGS_SECTION_CLASS} {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-.${CARD_PAGE_TAGS_DESCRIPTION_CLASS},
-.${CARD_PAGE_TAGS_STATUS_CLASS},
-.${CARD_PAGE_TAGS_EMPTY_CLASS},
-.${CARD_PAGE_TAGS_CONTENT_CLASS} {
-  margin-top: 0.6rem;
-}
-
-.${CARD_PAGE_TAGS_TAG_LIST_CLASS} {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.${CARD_PAGE_TAGS_TAG_BUTTON_CLASS} {
-  border-radius: 999px;
-}
-
-.${CARD_PAGE_TAGS_STATUS_CLASS}.${CARD_PAGE_TAGS_STATUS_ERROR_CLASS} {
-  color: #9b1c1c;
-}
-    `.trim(),
-  );
-}
 
 function createSectionRoot(sectionId) {
   const root = document.createElement("section");
@@ -78,7 +42,7 @@ function createStatusNode() {
 function createLoadButton(label) {
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "button-n";
+  button.className = `button-n ${CARD_PAGE_TAGS_LOAD_BUTTON_CLASS}`;
   button.textContent = label;
 
   return button;
@@ -198,12 +162,7 @@ export function createCardPageTagsController({
       console.error("Failed to load card tags from Scryfall Tagger.", error);
       button.disabled = false;
       button.textContent = loadButtonLabel;
-      setStatus(
-        error?.code === "SCRYFALL_TAGGER_FETCH_BLOCKED"
-          ? error.message
-          : "Could not load Scryfall Tagger card tags.",
-        "error",
-      );
+      setStatus(error?.message || "Could not load Scryfall Tagger card tags.", "error");
     } finally {
       if (abortController === requestController) {
         abortController = null;
@@ -218,7 +177,6 @@ export function createCardPageTagsController({
       return { cleanup };
     }
 
-    ensureCardPageTagsStyles();
     root = createSectionRoot(sectionId);
     content = document.createElement("div");
     content.className = CARD_PAGE_TAGS_CONTENT_CLASS;

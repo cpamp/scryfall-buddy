@@ -1,82 +1,85 @@
-function loadTaggerPageHtmlViaBridge(url, signal, bridge) {
-  return Promise.resolve(bridge(url, { signal })).then((result) => {
-    if (typeof result !== "string") {
-      throw new Error("The configured Tagger bridge must resolve to an HTML string.");
-    }
+import { FETCH_TAGGER_CARD_HTML } from "../extension/messaging/message-types.js";
+import { sendRuntimeMessage } from "../extension/runtime/browser-api.js";
+import { normalizeTaggerCardUrl } from "./validate-tagger-card-url.js";
 
-    return result;
-  });
+function createAbortError() {
+  return new DOMException("The operation was aborted.", "AbortError");
 }
 
-function loadTaggerPageHtmlViaGmRequest(url, signal) {
-  return new Promise((resolve, reject) => {
-    const request = GM_xmlhttpRequest({
-      method: "GET",
-      onerror: () => {
-        reject(new Error("GM_xmlhttpRequest could not load the Scryfall Tagger page."));
-      },
-      onload: (response) => {
-        if (response.status < 200 || response.status >= 300) {
-          reject(
-            new Error(
-              `GM_xmlhttpRequest returned ${response.status} for the Scryfall Tagger page.`,
-            ),
-          );
-          return;
-        }
-
-        resolve(response.responseText);
-      },
-      url,
-    });
-
-    signal?.addEventListener(
-      "abort",
-      () => {
-        request.abort();
-        reject(new DOMException("The operation was aborted.", "AbortError"));
-      },
-      { once: true },
-    );
-  });
-}
-
-function createCspBridgeError(error) {
-  const bridgeError = new Error(
-    "Scryfall blocks direct page fetches to tagger.scryfall.com. Provide window.__scryfallPluginFetchText(url) from an extension/userscript bridge, or run this feature outside page CSP.",
+function createRuntimeResponseError(response) {
+  const error = new Error(
+    response?.error?.message || "Could not load Scryfall Tagger card tags.",
   );
 
-  bridgeError.cause = error;
-  bridgeError.code = "SCRYFALL_TAGGER_FETCH_BLOCKED";
-  return bridgeError;
+  error.code = response?.error?.code || "TAGGER_FETCH_FAILED";
+  if (response?.error?.details !== undefined) {
+    error.details = response.error.details;
+  }
+
+  return error;
+}
+
+function createUrlValidationError(validation) {
+  const error = new Error(validation.error.message);
+  error.code = validation.error.code;
+  return error;
+}
+
+function raceWithAbort(promise, signal) {
+  if (!signal) {
+    return promise;
+  }
+
+  if (signal.aborted) {
+    return Promise.reject(createAbortError());
+  }
+
+  return new Promise((resolve, reject) => {
+    const handleAbort = () => {
+      signal.removeEventListener("abort", handleAbort);
+      reject(createAbortError());
+    };
+
+    signal.addEventListener("abort", handleAbort, { once: true });
+    promise.then(
+      (value) => {
+        signal.removeEventListener("abort", handleAbort);
+        resolve(value);
+      },
+      (error) => {
+        signal.removeEventListener("abort", handleAbort);
+        reject(error);
+      },
+    );
+  });
 }
 
 export async function loadTaggerPageHtml(url, signal) {
-  if (typeof globalThis.__scryfallPluginFetchText === "function") {
-    return loadTaggerPageHtmlViaBridge(
-      url,
-      signal,
-      globalThis.__scryfallPluginFetchText,
-    );
+  const validation = normalizeTaggerCardUrl(url);
+  if (!validation.ok) {
+    throw createUrlValidationError(validation);
   }
 
-  if (typeof GM_xmlhttpRequest === "function") {
-    return loadTaggerPageHtmlViaGmRequest(url, signal);
+  const response = await raceWithAbort(
+    sendRuntimeMessage({
+      type: FETCH_TAGGER_CARD_HTML,
+      taggerUrl: validation.value,
+    }),
+    signal,
+  );
+
+  if (!response?.ok) {
+    throw createRuntimeResponseError(response);
   }
 
-  try {
-    const response = await fetch(url, { signal });
-
-    if (!response.ok) {
-      throw new Error(`Tagger request failed with ${response.status}`);
-    }
-
-    return response.text();
-  } catch (error) {
-    if (error?.name === "AbortError") {
-      throw error;
-    }
-
-    throw createCspBridgeError(error);
+  if (typeof response.data?.html !== "string") {
+    throw createRuntimeResponseError({
+      error: {
+        code: "INVALID_BACKGROUND_RESPONSE",
+        message: "Background did not return Tagger HTML.",
+      },
+    });
   }
+
+  return response.data.html;
 }

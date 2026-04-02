@@ -4,8 +4,8 @@ import { getScryfallSearchInputs } from "../platform/scryfall/search-inputs.js";
 import { extractTaggerCardTagsFromHtml } from "../tagger/extract-card-tags-from-html.js";
 import { loadTaggerPageHtml } from "../tagger/load-tagger-page-html.js";
 
-export const CARD_PAGE_TAGS_HANDLE_NAME = "__scryfallCardPageTagsPrototype";
-export const CARD_PAGE_TAGS_SECTION_ID = "scryfall-card-page-tags-prototype";
+export const CARD_PAGE_TAGS_HANDLE_NAME = "__scryfallCardPageTagsExtension";
+export const CARD_PAGE_TAGS_SECTION_ID = "scryfall-card-page-tags-extension";
 export const CARD_PAGE_TAGS_SECTION_TITLE = "Card Tags";
 export const CARD_PAGE_TAGS_SECTION_DESCRIPTION =
   "Load card tags from the linked Scryfall Tagger page, then click one to insert an otag filter into Scryfall search.";
