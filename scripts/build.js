@@ -2,7 +2,7 @@ const path = require("path");
 const esbuild = require("esbuild");
 
 const projectRoot = path.resolve(__dirname, "..");
-const outputFile = path.join(projectRoot, "dist", "main.js");
+const outputDir = path.join(projectRoot, "dist");
 const watchMode = process.argv.includes("--watch");
 
 const banner = [
@@ -10,8 +10,13 @@ const banner = [
 ].join("\n");
 
 const buildOptions = {
-  entryPoints: [path.join(projectRoot, "src", "otag-dropdown", "main.js")],
-  outfile: outputFile,
+  entryPoints: {
+    main: path.join(projectRoot, "src", "main.js"),
+    "otag-dropdown": path.join(projectRoot, "src", "otag-dropdown", "main.js"),
+    "card-page-tags": path.join(projectRoot, "src", "card-page-tags", "main.js"),
+  },
+  outdir: outputDir,
+  entryNames: "[name]",
   bundle: true,
   format: "iife",
   platform: "browser",
