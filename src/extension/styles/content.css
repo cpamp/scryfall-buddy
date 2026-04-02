@@ -59,34 +59,3 @@
 .scryfall-otag-dropdown-popup__item.is-selected {
   background: #e8f0fe;
 }
-
-.scryfall-card-page-tags {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-.scryfall-card-page-tags__description,
-.scryfall-card-page-tags__content,
-.scryfall-card-page-tags__empty,
-.scryfall-card-page-tags__status {
-  margin-top: 0.6rem;
-}
-
-.scryfall-card-page-tags__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.scryfall-card-page-tags__tag-button {
-  border-radius: 999px;
-}
-
-.scryfall-card-page-tags__status {
-  color: #4b5563;
-}
-
-.scryfall-card-page-tags__status.is-error {
-  color: #9b1c1c;
-}

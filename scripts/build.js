@@ -69,13 +69,6 @@ function createBuildOptions(browser) {
         "content-script",
         "main.js",
       ),
-      background: path.join(
-        projectRoot,
-        "src",
-        "extension",
-        "background",
-        "main.js",
-      ),
     },
     outdir: getOutdir(browser),
     entryNames: "[name]",
