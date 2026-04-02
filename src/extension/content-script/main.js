@@ -1,10 +1,10 @@
 import { mountColorDropdown } from "../../color-dropdown/install.js";
 import { mountOtagDropdown } from "../../otag-dropdown/install.js";
-import { installThemeControls } from "../theme/install.js";
 import { getScryfallSearchInputs } from "../../platform/scryfall/search-inputs.js";
+import { initializeDropdownTheme } from "../../shared/ui/dropdown-theme.js";
 
 export function bootstrapScryfallExtensionContentScript() {
-  installThemeControls();
+  initializeDropdownTheme();
 
   if (getScryfallSearchInputs().length > 0) {
     mountColorDropdown();

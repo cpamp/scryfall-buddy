@@ -1,7 +1,10 @@
+import { createDropdownThemeToggleButton } from "./dropdown-theme.js";
+
 const DROPDOWN_POPUP_CLASS = "scryfall-otag-dropdown-popup";
 const DROPDOWN_POPUP_HIDDEN_CLASS = "is-hidden";
 const DROPDOWN_POPUP_HEADER_CLASS = "scryfall-otag-dropdown-popup__header";
 const DROPDOWN_POPUP_LABEL_CLASS = "scryfall-otag-dropdown-popup__label";
+const DROPDOWN_POPUP_ACTIONS_CLASS = "scryfall-otag-dropdown-popup__actions";
 const DROPDOWN_POPUP_CLOSE_CLASS = "scryfall-otag-dropdown-popup__close";
 const DROPDOWN_POPUP_ITEM_CLASS = "scryfall-otag-dropdown-popup__item";
 const DROPDOWN_POPUP_ITEM_SELECTED_CLASS = "is-selected";
@@ -86,6 +89,10 @@ export function createDropdownPopup({
     label.className = DROPDOWN_POPUP_LABEL_CLASS;
     header.appendChild(label);
 
+    const actions = document.createElement("div");
+    actions.className = DROPDOWN_POPUP_ACTIONS_CLASS;
+    actions.appendChild(createDropdownThemeToggleButton());
+
     const closeButton = document.createElement("button");
     closeButton.type = "button";
     closeButton.textContent = closeButtonLabel;
@@ -95,7 +102,8 @@ export function createDropdownPopup({
       onClose();
     });
 
-    header.appendChild(closeButton);
+    actions.appendChild(closeButton);
+    header.appendChild(actions);
     return header;
   }
 

@@ -7,6 +7,7 @@
   --scryfall-plugin-popup-button-background: #efefef;
   --scryfall-plugin-popup-button-text: #374151;
   --scryfall-plugin-popup-item-hover: #e8f0fe;
+  --scryfall-plugin-popup-focus-ring: rgba(59, 130, 246, 0.45);
 }
 
 .scryfall-otag-dropdown-popup {
@@ -42,6 +43,13 @@
   color: var(--scryfall-plugin-popup-muted);
 }
 
+.scryfall-otag-dropdown-popup__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scryfall-plugin-dropdown-theme-toggle,
 .scryfall-otag-dropdown-popup__close {
   border: 0;
   border-radius: 999px;
@@ -51,6 +59,13 @@
   cursor: pointer;
   font-family: inherit;
   font-size: 12px;
+}
+
+.scryfall-plugin-dropdown-theme-toggle:focus-visible,
+.scryfall-otag-dropdown-popup__close:focus-visible,
+.scryfall-otag-dropdown-popup__item:focus-visible {
+  outline: 2px solid var(--scryfall-plugin-popup-focus-ring);
+  outline-offset: 2px;
 }
 
 .scryfall-otag-dropdown-popup__item {
@@ -94,7 +109,7 @@
   display: none !important;
 }
 
-:root[data-scryfall-plugin-theme="dark"] {
+:root[data-scryfall-plugin-dropdown-theme="dark"] {
   color-scheme: dark;
   --scryfall-plugin-popup-border: rgba(255, 255, 255, 0.14);
   --scryfall-plugin-popup-background: #2a2d2e;
@@ -104,221 +119,5 @@
   --scryfall-plugin-popup-button-background: #35393b;
   --scryfall-plugin-popup-button-text: #eef2f4;
   --scryfall-plugin-popup-item-hover: rgba(255, 255, 255, 0.08);
-  --scryfall-plugin-dark-background: #1d1f20;
-  --scryfall-plugin-dark-surface: #26292b;
-  --scryfall-plugin-dark-surface-strong: #2d3133;
-  --scryfall-plugin-dark-border: rgba(255, 255, 255, 0.1);
-  --scryfall-plugin-dark-text: #eef2f4;
-  --scryfall-plugin-dark-muted: #aeb8be;
-  --scryfall-plugin-dark-link: #8ecfff;
-  --scryfall-plugin-dark-link-hover: #bee4ff;
-  --scryfall-plugin-dark-print-link: #b7a2ff;
-  --scryfall-plugin-dark-accent: #8fd8ff;
-  --scryfall-plugin-dark-accent-strong: #66c8ff;
-  --scryfall-plugin-dark-shadow: none;
-}
-
-.header-control-row > .scryfall-plugin-theme-toggle {
-  margin-left: 12px;
-  white-space: nowrap;
-}
-
-:root[data-scryfall-plugin-theme="dark"],
-:root[data-scryfall-plugin-theme="dark"] body {
-  background: var(--scryfall-plugin-dark-background) !important;
-  color: var(--scryfall-plugin-dark-text) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] body,
-:root[data-scryfall-plugin-theme="dark"] p,
-:root[data-scryfall-plugin-theme="dark"] li,
-:root[data-scryfall-plugin-theme="dark"] dt,
-:root[data-scryfall-plugin-theme="dark"] dd,
-:root[data-scryfall-plugin-theme="dark"] blockquote,
-:root[data-scryfall-plugin-theme="dark"] figcaption,
-:root[data-scryfall-plugin-theme="dark"] label,
-:root[data-scryfall-plugin-theme="dark"] strong,
-:root[data-scryfall-plugin-theme="dark"] em,
-:root[data-scryfall-plugin-theme="dark"] small,
-:root[data-scryfall-plugin-theme="dark"] span,
-:root[data-scryfall-plugin-theme="dark"] div,
-:root[data-scryfall-plugin-theme="dark"] h1,
-:root[data-scryfall-plugin-theme="dark"] h2,
-:root[data-scryfall-plugin-theme="dark"] h3,
-:root[data-scryfall-plugin-theme="dark"] h4,
-:root[data-scryfall-plugin-theme="dark"] h5,
-:root[data-scryfall-plugin-theme="dark"] h6 {
-  color: inherit;
-}
-
-:root[data-scryfall-plugin-theme="dark"] #header,
-:root[data-scryfall-plugin-theme="dark"] .header,
-:root[data-scryfall-plugin-theme="dark"] #main,
-:root[data-scryfall-plugin-theme="dark"] .main,
-:root[data-scryfall-plugin-theme="dark"] #footer,
-:root[data-scryfall-plugin-theme="dark"] .footer,
-:root[data-scryfall-plugin-theme="dark"] .search-controls,
-:root[data-scryfall-plugin-theme="dark"] .search-controls-mobile-options,
-:root[data-scryfall-plugin-theme="dark"] .card-profile,
-:root[data-scryfall-plugin-theme="dark"] .card-text,
-:root[data-scryfall-plugin-theme="dark"] .card-text-box,
-:root[data-scryfall-plugin-theme="dark"] .homepage-news-item,
-:root[data-scryfall-plugin-theme="dark"] .toolbox-column,
-:root[data-scryfall-plugin-theme="dark"] .notification,
-:root[data-scryfall-plugin-theme="dark"] .deck-tray,
-:root[data-scryfall-plugin-theme="dark"] .admin-tray,
-:root[data-scryfall-plugin-theme="dark"] .caster-tray,
-:root[data-scryfall-plugin-theme="dark"] .left-tray,
-:root[data-scryfall-plugin-theme="dark"] .rulings-item,
-:root[data-scryfall-plugin-theme="dark"] .card-legality-item,
-:root[data-scryfall-plugin-theme="dark"] .print-langs-item,
-:root[data-scryfall-plugin-theme="dark"] .form-row-content-band,
-:root[data-scryfall-plugin-theme="dark"] .search-info,
-:root[data-scryfall-plugin-theme="dark"] .prints-table,
-:root[data-scryfall-plugin-theme="dark"] .prints-table thead,
-:root[data-scryfall-plugin-theme="dark"] .prints-table tbody,
-:root[data-scryfall-plugin-theme="dark"] .prints-table tr,
-:root[data-scryfall-plugin-theme="dark"] .prints-table th,
-:root[data-scryfall-plugin-theme="dark"] .prints-table td {
-  background: var(--scryfall-plugin-dark-surface) !important;
-  color: var(--scryfall-plugin-dark-text) !important;
-  border-color: var(--scryfall-plugin-dark-border) !important;
-  box-shadow: var(--scryfall-plugin-dark-shadow) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .search-controls-mobile-options,
-:root[data-scryfall-plugin-theme="dark"] .notification,
-:root[data-scryfall-plugin-theme="dark"] .deck-tray,
-:root[data-scryfall-plugin-theme="dark"] .admin-tray,
-:root[data-scryfall-plugin-theme="dark"] .caster-tray,
-:root[data-scryfall-plugin-theme="dark"] .left-tray {
-  background: var(--scryfall-plugin-dark-surface-strong) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .skip-links a,
-:root[data-scryfall-plugin-theme="dark"] .homepage-form,
-:root[data-scryfall-plugin-theme="dark"] .homepage-news-item,
-:root[data-scryfall-plugin-theme="dark"] .search-controls,
-:root[data-scryfall-plugin-theme="dark"] .search-controls-mobile-option,
-:root[data-scryfall-plugin-theme="dark"] .card-grid-item,
-:root[data-scryfall-plugin-theme="dark"] .card-profile,
-:root[data-scryfall-plugin-theme="dark"] .card-text,
-:root[data-scryfall-plugin-theme="dark"] .toolbox-links a,
-:root[data-scryfall-plugin-theme="dark"] .rulings-item,
-:root[data-scryfall-plugin-theme="dark"] .card-legality-item,
-:root[data-scryfall-plugin-theme="dark"] .print-langs-item,
-:root[data-scryfall-plugin-theme="dark"] .form-row-content-band,
-:root[data-scryfall-plugin-theme="dark"] .search-info,
-:root[data-scryfall-plugin-theme="dark"] .prints-table,
-:root[data-scryfall-plugin-theme="dark"] .prints-table th,
-:root[data-scryfall-plugin-theme="dark"] .prints-table td {
-  border-color: var(--scryfall-plugin-dark-border) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .header-link-divider,
-:root[data-scryfall-plugin-theme="dark"] .mobile-nav-section-spacer,
-:root[data-scryfall-plugin-theme="dark"] hr {
-  border-color: var(--scryfall-plugin-dark-border) !important;
-  background: var(--scryfall-plugin-dark-border) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .button-n,
-:root[data-scryfall-plugin-theme="dark"] button,
-:root[data-scryfall-plugin-theme="dark"] input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
-:root[data-scryfall-plugin-theme="dark"] textarea,
-:root[data-scryfall-plugin-theme="dark"] select,
-:root[data-scryfall-plugin-theme="dark"] .form-input,
-:root[data-scryfall-plugin-theme="dark"] .select-n,
-:root[data-scryfall-plugin-theme="dark"] .homepage-form-field,
-:root[data-scryfall-plugin-theme="dark"] .header-search-field {
-  background: var(--scryfall-plugin-dark-surface-strong) !important;
-  color: var(--scryfall-plugin-dark-text) !important;
-  border: 1px solid var(--scryfall-plugin-dark-border) !important;
-  box-shadow: none !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] input::placeholder,
-:root[data-scryfall-plugin-theme="dark"] textarea::placeholder {
-  color: var(--scryfall-plugin-dark-muted) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] input:focus-visible,
-:root[data-scryfall-plugin-theme="dark"] textarea:focus-visible,
-:root[data-scryfall-plugin-theme="dark"] select:focus-visible,
-:root[data-scryfall-plugin-theme="dark"] button:focus-visible,
-:root[data-scryfall-plugin-theme="dark"] .button-n:focus-visible,
-:root[data-scryfall-plugin-theme="dark"] a:focus-visible {
-  outline: 2px solid rgba(143, 216, 255, 0.85) !important;
-  outline-offset: 2px;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .button-n.primary,
-:root[data-scryfall-plugin-theme="dark"] .button-n.primary-n,
-:root[data-scryfall-plugin-theme="dark"] button.primary,
-:root[data-scryfall-plugin-theme="dark"] button.primary-n,
-:root[data-scryfall-plugin-theme="dark"] input[type="submit"],
-:root[data-scryfall-plugin-theme="dark"] button[type="submit"] {
-  background: linear-gradient(135deg, var(--scryfall-plugin-dark-accent), var(--scryfall-plugin-dark-accent-strong)) !important;
-  color: #102028 !important;
-  border-color: transparent !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .button-n.inverted,
-:root[data-scryfall-plugin-theme="dark"] .button-n.inverted-white,
-:root[data-scryfall-plugin-theme="dark"] .button-n.subdued,
-:root[data-scryfall-plugin-theme="dark"] .button-n.disabled {
-  background: var(--scryfall-plugin-dark-surface-strong) !important;
-  color: var(--scryfall-plugin-dark-text) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .button-n.danger {
-  background: #6e2a2a !important;
-  color: #fee2e2 !important;
-  border-color: rgba(248, 113, 113, 0.35) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] .prints-table a,
-:root[data-scryfall-plugin-theme="dark"] .card-text-artist a {
-  color: var(--scryfall-plugin-dark-print-link) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] input[type="checkbox"],
-:root[data-scryfall-plugin-theme="dark"] input[type="radio"] {
-  accent-color: var(--scryfall-plugin-dark-accent);
-}
-
-:root[data-scryfall-plugin-theme="dark"] option,
-:root[data-scryfall-plugin-theme="dark"] optgroup {
-  background: var(--scryfall-plugin-dark-surface-strong);
-  color: var(--scryfall-plugin-dark-text);
-}
-
-:root[data-scryfall-plugin-theme="dark"] .footer-link,
-:root[data-scryfall-plugin-theme="dark"] .form-row-tip,
-:root[data-scryfall-plugin-theme="dark"] .footer-legal,
-:root[data-scryfall-plugin-theme="dark"] .rulings-item-date,
-:root[data-scryfall-plugin-theme="dark"] .card-text-artist,
-:root[data-scryfall-plugin-theme="dark"] .subdued,
-:root[data-scryfall-plugin-theme="dark"] .search-summary-english,
-:root[data-scryfall-plugin-theme="dark"] .visuallyhidden + * {
-  color: var(--scryfall-plugin-dark-muted) !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo):not(.homepage-logo) svg,
-:root[data-scryfall-plugin-theme="dark"] button svg,
-:root[data-scryfall-plugin-theme="dark"] .button-n svg {
-  color: currentColor !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] a:not(.header-logo):not(.homepage-logo) svg path,
-:root[data-scryfall-plugin-theme="dark"] button svg path,
-:root[data-scryfall-plugin-theme="dark"] .button-n svg path {
-  fill: currentColor !important;
-}
-
-:root[data-scryfall-plugin-theme="dark"] img,
-:root[data-scryfall-plugin-theme="dark"] picture,
-:root[data-scryfall-plugin-theme="dark"] video,
-:root[data-scryfall-plugin-theme="dark"] canvas {
-  background: transparent !important;
+  --scryfall-plugin-popup-focus-ring: rgba(143, 216, 255, 0.85);
 }
