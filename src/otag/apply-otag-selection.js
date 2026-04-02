@@ -1,4 +1,3 @@
-import { replaceInputToken } from "../shared/text-input/replace-input-token.js";
 import { OTAG_OPERATOR } from "./constants.js";
 
 function getOtagItemName(item) {
@@ -9,8 +8,4 @@ export function formatOtagSelection(item, context) {
   const operatorName = context?.matchedOperatorName || OTAG_OPERATOR;
 
   return `${context.negation}${operatorName}:"${getOtagItemName(item)}"`;
-}
-
-export function applyOtagSelection({ context, input, item }) {
-  replaceInputToken(input, context, formatOtagSelection(item, context));
 }

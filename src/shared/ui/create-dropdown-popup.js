@@ -29,6 +29,7 @@ export function createDropdownPopup({
   onClose,
   onHighlight,
   onSelect,
+  renderItemContent,
   title,
 }) {
   const root = createRoot(id);
@@ -102,10 +103,16 @@ export function createDropdownPopup({
     return items.map((item, index) => {
       const option = document.createElement("button");
       option.type = "button";
-      option.textContent = getItemLabel(item);
+      option.setAttribute("aria-label", getItemLabel(item));
       option.className = DROPDOWN_POPUP_ITEM_CLASS;
       if (index === selectedIndex) {
         option.classList.add(DROPDOWN_POPUP_ITEM_SELECTED_CLASS);
+      }
+
+      if (typeof renderItemContent === "function") {
+        renderItemContent(option, item, index);
+      } else {
+        option.textContent = getItemLabel(item);
       }
 
       option.addEventListener("mousedown", (event) => {
@@ -134,10 +141,11 @@ export function createDropdownPopup({
     position(anchorElement);
     root.classList.remove(DROPDOWN_POPUP_HIDDEN_CLASS);
     root.setAttribute("aria-label", titleText);
-    replaceChildren(root, [
-      renderHeader(titleText),
-      ...renderItems(items, selectedIndex),
-    ]);
+    const renderedItems = renderItems(items, selectedIndex);
+    replaceChildren(root, [renderHeader(titleText), ...renderedItems]);
+    renderedItems[selectedIndex]?.scrollIntoView({
+      block: "nearest",
+    });
   }
 
   return {

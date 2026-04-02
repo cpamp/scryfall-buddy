@@ -4,16 +4,29 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-export function getOperatorContext(input, operatorNames) {
+function normalizeList(value) {
+  return Array.isArray(value) ? value : [value];
+}
+
+function buildAlternationPattern(values) {
+  return values
+    .slice()
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join("|");
+}
+
+export function getOperatorContext(input, operatorNames, separators = ":") {
   const tokenRange = getTokenRangeAtCursor(input);
   if (!tokenRange) {
     return null;
   }
 
-  const names = Array.isArray(operatorNames) ? operatorNames : [operatorNames];
+  const names = normalizeList(operatorNames);
+  const operatorSeparators = normalizeList(separators);
   const canonicalOperatorName = names[0];
   const pattern = new RegExp(
-    `^(-?)(${names.map(escapeRegExp).join("|")}):(.*)$`,
+    `^(-?)(${buildAlternationPattern(names)})(${buildAlternationPattern(operatorSeparators)})(.*)$`,
     "i",
   );
   const match = tokenRange.token.match(pattern);
@@ -26,6 +39,7 @@ export function getOperatorContext(input, operatorNames) {
     matchedOperatorName: match[2].toLowerCase(),
     operatorName: canonicalOperatorName,
     negation: match[1],
-    rawQuery: match[3] || "",
+    separator: match[3],
+    rawQuery: match[4] || "",
   };
 }

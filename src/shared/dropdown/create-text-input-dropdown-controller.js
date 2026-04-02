@@ -1,8 +1,10 @@
 import { createBrowserAutocompleteController } from "../autocomplete/create-browser-autocomplete-controller.js";
+import { replaceInputToken } from "../text-input/replace-input-token.js";
 import { createDropdownPopup } from "../ui/create-dropdown-popup.js";
 
 export function createTextInputDropdownController({
   applySelection,
+  getReplacement,
   getInputs,
   getItemLabel,
   getItems,
@@ -10,6 +12,7 @@ export function createTextInputDropdownController({
   inputSelector,
   popupId,
   popupTitle,
+  renderItemContent,
   resolveContext,
 }) {
   const autocomplete = createBrowserAutocompleteController();
@@ -19,6 +22,7 @@ export function createTextInputDropdownController({
     onClose: hide,
     onHighlight: highlightItem,
     onSelect: selectItem,
+    renderItemContent,
     title: popupTitle,
   });
 
@@ -87,7 +91,7 @@ export function createTextInputDropdownController({
     render(context);
   }
 
-  function selectItem(item, index) {
+  function selectItem(item, index, trigger = "click") {
     if (!activeInput) {
       return;
     }
@@ -99,7 +103,22 @@ export function createTextInputDropdownController({
       return;
     }
 
-    applySelection({ context, input: activeInput, item });
+    if (typeof getReplacement === "function") {
+      const replacement = getReplacement({
+        context,
+        input: activeInput,
+        item,
+        trigger,
+      });
+      if (typeof replacement === "string") {
+        replaceInputToken(activeInput, context, replacement, {
+          appendSpaceIfAtEnd: true,
+        });
+      }
+    } else {
+      applySelection({ context, input: activeInput, item, trigger });
+    }
+
     hide();
     activeInput.focus();
   }
@@ -148,7 +167,11 @@ export function createTextInputDropdownController({
 
     if (event.key === "Enter" || event.key === "Tab") {
       event.preventDefault();
-      selectItem(matches[selectedIndex], selectedIndex);
+      selectItem(
+        matches[selectedIndex],
+        selectedIndex,
+        event.key === "Tab" ? "tab" : "enter",
+      );
       return;
     }
 

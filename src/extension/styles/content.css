@@ -66,6 +66,25 @@
   text-align: left;
 }
 
+.scryfall-otag-dropdown-popup__item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.scryfall-otag-dropdown-popup__item-label {
+  min-width: 0;
+}
+
+.scryfall-otag-dropdown-popup__item-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .scryfall-otag-dropdown-popup__item:hover,
 .scryfall-otag-dropdown-popup__item.is-selected {
   background: var(--scryfall-plugin-popup-item-hover);
