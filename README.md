@@ -26,9 +26,13 @@ npm run build:watch
 - `dist/chrome/manifest.json`
 - `dist/chrome/content-script.js`
 - `dist/chrome/content.css`
+- `dist/chrome.zip`
 - `dist/firefox/manifest.json`
 - `dist/firefox/content-script.js`
 - `dist/firefox/content.css`
+- `dist/firefox.zip`
+
+The zip archives place `manifest.json`, `content-script.js`, and `content.css` at the root of the archive.
 
 ## Load In Chrome
 

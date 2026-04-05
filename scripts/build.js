@@ -33,6 +33,152 @@ function getOutdir(browser) {
   return path.join(outputDir, browser.name);
 }
 
+function getZipPath(browser) {
+  return path.join(outputDir, `${browser.name}.zip`);
+}
+
+function createCrc32Table() {
+  const table = new Uint32Array(256);
+
+  for (let index = 0; index < table.length; index += 1) {
+    let value = index;
+
+    for (let bit = 0; bit < 8; bit += 1) {
+      if ((value & 1) === 1) {
+        value = 0xedb88320 ^ (value >>> 1);
+      } else {
+        value >>>= 1;
+      }
+    }
+
+    table[index] = value >>> 0;
+  }
+
+  return table;
+}
+
+const crc32Table = createCrc32Table();
+
+function getCrc32(buffer) {
+  let value = 0xffffffff;
+
+  for (const byte of buffer) {
+    value = crc32Table[(value ^ byte) & 0xff] ^ (value >>> 8);
+  }
+
+  return (value ^ 0xffffffff) >>> 0;
+}
+
+function getDosDateTime(date) {
+  const year = Math.max(date.getFullYear(), 1980);
+  const dosTime =
+    ((date.getHours() & 0x1f) << 11) |
+    ((date.getMinutes() & 0x3f) << 5) |
+    Math.floor(date.getSeconds() / 2);
+  const dosDate =
+    (((year - 1980) & 0x7f) << 9) |
+    (((date.getMonth() + 1) & 0x0f) << 5) |
+    (date.getDate() & 0x1f);
+
+  return {
+    dosDate,
+    dosTime,
+  };
+}
+
+function createZipBuffer(files) {
+  const localFileChunks = [];
+  const centralDirectoryChunks = [];
+  let offset = 0;
+
+  for (const file of files) {
+    const fileNameBuffer = Buffer.from(file.name, "utf8");
+    const { dosDate, dosTime } = getDosDateTime(file.date);
+    const crc32 = getCrc32(file.contents);
+
+    const localHeader = Buffer.alloc(30 + fileNameBuffer.length);
+    localHeader.writeUInt32LE(0x04034b50, 0);
+    localHeader.writeUInt16LE(20, 4);
+    localHeader.writeUInt16LE(0, 6);
+    localHeader.writeUInt16LE(0, 8);
+    localHeader.writeUInt16LE(dosTime, 10);
+    localHeader.writeUInt16LE(dosDate, 12);
+    localHeader.writeUInt32LE(crc32, 14);
+    localHeader.writeUInt32LE(file.contents.length, 18);
+    localHeader.writeUInt32LE(file.contents.length, 22);
+    localHeader.writeUInt16LE(fileNameBuffer.length, 26);
+    fileNameBuffer.copy(localHeader, 30);
+
+    localFileChunks.push(localHeader, file.contents);
+
+    const centralHeader = Buffer.alloc(46 + fileNameBuffer.length);
+    centralHeader.writeUInt32LE(0x02014b50, 0);
+    centralHeader.writeUInt16LE(20, 4);
+    centralHeader.writeUInt16LE(20, 6);
+    centralHeader.writeUInt16LE(0, 8);
+    centralHeader.writeUInt16LE(0, 10);
+    centralHeader.writeUInt16LE(dosTime, 12);
+    centralHeader.writeUInt16LE(dosDate, 14);
+    centralHeader.writeUInt32LE(crc32, 16);
+    centralHeader.writeUInt32LE(file.contents.length, 20);
+    centralHeader.writeUInt32LE(file.contents.length, 24);
+    centralHeader.writeUInt16LE(fileNameBuffer.length, 28);
+    centralHeader.writeUInt16LE(0, 30);
+    centralHeader.writeUInt16LE(0, 32);
+    centralHeader.writeUInt16LE(0, 34);
+    centralHeader.writeUInt16LE(0, 36);
+    centralHeader.writeUInt32LE(0, 38);
+    centralHeader.writeUInt32LE(offset, 42);
+    fileNameBuffer.copy(centralHeader, 46);
+
+    centralDirectoryChunks.push(centralHeader);
+    offset += localHeader.length + file.contents.length;
+  }
+
+  const centralDirectoryBuffer = Buffer.concat(centralDirectoryChunks);
+  const endOfCentralDirectory = Buffer.alloc(22);
+  endOfCentralDirectory.writeUInt32LE(0x06054b50, 0);
+  endOfCentralDirectory.writeUInt16LE(0, 4);
+  endOfCentralDirectory.writeUInt16LE(0, 6);
+  endOfCentralDirectory.writeUInt16LE(files.length, 8);
+  endOfCentralDirectory.writeUInt16LE(files.length, 10);
+  endOfCentralDirectory.writeUInt32LE(centralDirectoryBuffer.length, 12);
+  endOfCentralDirectory.writeUInt32LE(offset, 16);
+  endOfCentralDirectory.writeUInt16LE(0, 20);
+
+  return Buffer.concat([
+    ...localFileChunks,
+    centralDirectoryBuffer,
+    endOfCentralDirectory,
+  ]);
+}
+
+async function writeExtensionZip(browser) {
+  const browserOutputDir = getOutdir(browser);
+  const files = (
+    await Promise.all(
+      (await fs.readdir(browserOutputDir))
+        .filter((fileName) => !fileName.endsWith(".zip"))
+        .sort()
+        .map(async (fileName) => {
+          const filePath = path.join(browserOutputDir, fileName);
+          const stats = await fs.stat(filePath);
+          if (!stats.isFile()) {
+            return null;
+          }
+
+          return {
+            name: fileName,
+            contents: await fs.readFile(filePath),
+            date: stats.mtime,
+          };
+        }),
+    )
+  ).filter(Boolean);
+
+  await fs.writeFile(getZipPath(browser), createZipBuffer(files));
+}
+
 async function writeExtensionAssets(browser) {
   const browserOutputDir = getOutdir(browser);
   await fs.mkdir(browserOutputDir, { recursive: true });
@@ -42,6 +188,7 @@ async function writeExtensionAssets(browser) {
     `${JSON.stringify(createManifest(browser.name), null, 2)}\n`,
     "utf8",
   );
+  await writeExtensionZip(browser);
 }
 
 function createWriteAssetsPlugin(browser) {

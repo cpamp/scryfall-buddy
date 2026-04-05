@@ -1,4 +1,5 @@
 const packageJson = require("../../../package.json");
+const FIREFOX_EXTENSION_ID = "scryfall-plugin@cpamp.dev";
 
 function createBaseManifest() {
   return {
@@ -18,9 +19,27 @@ function createBaseManifest() {
   };
 }
 
+function createFirefoxManifest() {
+  return {
+    ...createBaseManifest(),
+    browser_specific_settings: {
+      gecko: {
+        id: FIREFOX_EXTENSION_ID,
+        data_collection_permissions: {
+          required: ["none"],
+        },
+      },
+    },
+  };
+}
+
 function createManifest(target) {
-  if (target === "chrome" || target === "firefox") {
+  if (target === "chrome") {
     return createBaseManifest();
+  }
+
+  if (target === "firefox") {
+    return createFirefoxManifest();
   }
 
   throw new Error(`Unsupported extension target: ${target}`);
