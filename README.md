@@ -4,24 +4,8 @@ This repository builds a Chrome/Firefox WebExtension that adds `otag:` suggestio
 
 ## Features
 
-- Scryfall search-oriented pages (`/`, `/search`, `/advanced`) get the `otag:` dropdown when typing `otag:`, `function:`, or `oracletag:`.
-- Color query operators (`c`, `color`, `id`, `commander`) get dropdown suggestions for named color identities and mana combinations across `:`, `=`, `<`, `>`, `<=`, and `>=`.
-- Selecting a suggestion inserts the chosen `otag:<slug>` token into the active or primary Scryfall search input.
-- UI styling is shipped through extension-owned CSS.
-- Plugin dropdowns share a persisted dark-mode toggle in their header, and the setting applies across all plugin dropdowns.
-
-## Source Layout
-
-- `src/extension/content-script/main.js`: content-script bootstrap for Scryfall pages
-- `src/extension/manifests/create-manifest.js`: browser-specific manifest generation
-- `src/extension/styles/content.css`: extension-owned UI styling
-- `src/color-dropdown/`: color query dropdown mounting and page integration
-- `src/color/`: color query parsing, matching, rendering, and token insertion
-- `src/otag-dropdown/`: dropdown mounting and page integration
-- `src/otag/`: otag parsing, matching, and token insertion
-- `src/platform/scryfall/search-inputs.js`: Scryfall search input selectors
-- `src/shared/`: reusable dropdown, autocomplete, and text-input helpers
-- `research/html/`: saved HTML fixtures
+- Color dropdowns
+- OTag dropdowns
 
 ## Build
 

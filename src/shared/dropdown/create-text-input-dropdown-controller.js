@@ -30,6 +30,7 @@ export function createTextInputDropdownController({
   let matches = [];
   let mounted = false;
   let selectedIndex = 0;
+  let suppressedRefreshInput = null;
 
   function isTargetInput(node) {
     return Boolean(node?.matches?.(inputSelector));
@@ -44,6 +45,19 @@ export function createTextInputDropdownController({
     popup.hide();
     resetState();
     autocomplete.restoreAll(getInputs());
+  }
+
+  function suppressNextRefresh(input) {
+    suppressedRefreshInput = input;
+  }
+
+  function shouldSkipRefresh(event) {
+    if (!suppressedRefreshInput || event.target !== suppressedRefreshInput) {
+      return false;
+    }
+
+    suppressedRefreshInput = null;
+    return event.type === "keyup";
   }
 
   function render(context) {
@@ -103,6 +117,10 @@ export function createTextInputDropdownController({
       return;
     }
 
+    const shouldSuppressKeyboardRefresh =
+      (trigger === "enter" || trigger === "tab") &&
+      context.end < activeInput.value.length;
+
     if (typeof getReplacement === "function") {
       const replacement = getReplacement({
         context,
@@ -120,6 +138,9 @@ export function createTextInputDropdownController({
     }
 
     hide();
+    if (shouldSuppressKeyboardRefresh) {
+      suppressNextRefresh(activeInput);
+    }
     activeInput.focus();
   }
 
@@ -133,12 +154,18 @@ export function createTextInputDropdownController({
       return;
     }
 
+    shouldSkipRefresh(event);
+
     activeInput = event.target;
     refresh();
   }
 
   function onInputEvent(event) {
     if (!isTargetInput(event.target)) {
+      return;
+    }
+
+    if (shouldSkipRefresh(event)) {
       return;
     }
 
@@ -214,6 +241,7 @@ export function createTextInputDropdownController({
       hide();
       popup.destroy();
       activeInput = null;
+      suppressedRefreshInput = null;
       mounted = false;
     },
     mount() {
