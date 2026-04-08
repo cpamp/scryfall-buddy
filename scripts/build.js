@@ -1,6 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 const esbuild = require("esbuild");
+const { version } = require("../package.json");
 const { createManifest } = require("../src/extension/manifests/create-manifest.js");
 
 const projectRoot = path.resolve(__dirname, "..");
@@ -34,7 +35,7 @@ function getOutdir(browser) {
 }
 
 function getZipPath(browser) {
-  return path.join(outputDir, `${browser.name}.zip`);
+  return path.join(outputDir, `${browser.name}-${version}.zip`);
 }
 
 function createCrc32Table() {
