@@ -1,6 +1,6 @@
 import {
   formatColorTabSelection,
-} from "../color/apply-color-selection.js";
+} from "../color/format-color-selection.js";
 import { filterColorItems } from "../color/filter-color-items.js";
 import { COLOR_TRIGGER_OPERATORS } from "../color/constants.js";
 import { getColorContext } from "../color/get-color-context.js";

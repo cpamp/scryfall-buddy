@@ -1,4 +1,4 @@
-import { formatOtagSelection } from "../otag/apply-otag-selection.js";
+import { formatOtagSelection } from "../otag/format-otag-selection.js";
 import { OTAG_TRIGGER_OPERATORS } from "../otag/constants.js";
 import { filterOtagItems } from "../otag/filter-otag-items.js";
 import { getOtagContext } from "../otag/get-otag-context.js";
