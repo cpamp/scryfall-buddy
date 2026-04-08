@@ -1,9 +1,14 @@
 import { createBrowserAutocompleteController } from "../autocomplete/create-browser-autocomplete-controller.js";
 import { replaceInputToken } from "../text-input/replace-input-token.js";
 import { createDropdownPopup } from "../ui/create-dropdown-popup.js";
+import {
+  registerDropdownTarget,
+  triggerDropdown,
+} from "./dropdown-target-registry.js";
 
 export function createTextInputDropdownController({
   applySelection,
+  dropdownKey,
   getReplacement,
   getInputs,
   getItemLabel,
@@ -31,6 +36,7 @@ export function createTextInputDropdownController({
   let mounted = false;
   let selectedIndex = 0;
   let suppressedRefreshInput = null;
+  let unregisterDropdownTarget = null;
 
   function isTargetInput(node) {
     return Boolean(node?.matches?.(inputSelector));
@@ -75,10 +81,12 @@ export function createTextInputDropdownController({
     autocomplete.suppress(activeInput);
   }
 
-  function refresh() {
-    const focusedInput = isTargetInput(document.activeElement)
-      ? document.activeElement
-      : activeInput;
+  function refresh(nextInput = null) {
+    const focusedInput = isTargetInput(nextInput)
+      ? nextInput
+      : isTargetInput(document.activeElement)
+        ? document.activeElement
+        : activeInput;
 
     if (!focusedInput) {
       hide();
@@ -122,18 +130,44 @@ export function createTextInputDropdownController({
       context.end < activeInput.value.length;
 
     if (typeof getReplacement === "function") {
-      const replacement = getReplacement({
+      const replacementResult = getReplacement({
         context,
         input: activeInput,
         item,
         trigger,
       });
-      if (typeof replacement === "string") {
-        replaceInputToken(activeInput, context, replacement, {
-          appendSpaceIfAtEnd: true,
+      const replacement =
+        typeof replacementResult === "string"
+          ? {
+              appendSpaceIfAtEnd: true,
+              nextDropdownKey: null,
+              shouldTriggerMatchingDropdown: false,
+              value: replacementResult,
+            }
+          : replacementResult;
+
+      if (typeof replacement?.value === "string") {
+        replaceInputToken(activeInput, context, replacement.value, {
+          appendSpaceIfAtEnd: replacement.appendSpaceIfAtEnd !== false,
         });
       }
-    } else {
+      hide();
+      if (shouldSuppressKeyboardRefresh) {
+        suppressNextRefresh(activeInput);
+      }
+      activeInput.focus();
+
+      if (replacement?.shouldTriggerMatchingDropdown === true) {
+        triggerDropdown(activeInput, {
+          dropdownKey: replacement.nextDropdownKey,
+          exceptKey: replacement.nextDropdownKey ? null : dropdownKey,
+        });
+      }
+
+      return;
+    }
+
+    if (typeof applySelection === "function") {
       applySelection({ context, input: activeInput, item, trigger });
     }
 
@@ -242,6 +276,8 @@ export function createTextInputDropdownController({
       popup.destroy();
       activeInput = null;
       suppressedRefreshInput = null;
+      unregisterDropdownTarget?.();
+      unregisterDropdownTarget = null;
       mounted = false;
     },
     mount() {
@@ -258,6 +294,12 @@ export function createTextInputDropdownController({
       window.addEventListener("resize", onWindowChange);
       window.addEventListener("scroll", onWindowChange, true);
 
+      unregisterDropdownTarget = registerDropdownTarget({
+        hide,
+        key: dropdownKey,
+        refresh,
+        resolveContext,
+      });
       mounted = true;
       refresh();
       return this;
