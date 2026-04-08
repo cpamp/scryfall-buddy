@@ -1,16 +1,15 @@
 import {
-  SCRYFALL_SEARCH_INPUT_SELECTOR,
-  getScryfallSearchInputs,
-} from "../platform/scryfall/search-inputs.js";
-import {
   formatColorTabSelection,
 } from "../color/apply-color-selection.js";
 import { filterColorItems } from "../color/filter-color-items.js";
+import { COLOR_TRIGGER_OPERATORS } from "../color/constants.js";
 import { getColorContext } from "../color/get-color-context.js";
+import { createScryfallSearchDropdownDefinition } from "../shared/dropdown/create-scryfall-search-dropdown-definition.js";
 
 export const COLOR_DROPDOWN_HANDLE_NAME = "__scryfallColorDropdownExtension";
+export const COLOR_DROPDOWN_KEY = "color";
 export const COLOR_DROPDOWN_POPUP_ID = "scryfall-color-extension-dropdown";
-export const COLOR_DROPDOWN_POPUP_TITLE = "color suggestions";
+export const COLOR_DROPDOWN_POPUP_TITLE = "colors";
 
 const MANA_SYMBOL_TITLES = {
   b: "one black mana",
@@ -49,14 +48,19 @@ export function renderColorItemContent(option, item) {
 }
 
 export const colorDropdownConfig = {
-  getInputs: getScryfallSearchInputs,
   getItemLabel: (item) => item.name,
   getItems: ({ context }) => filterColorItems(context.rawQuery),
   getPopupTitle: () => COLOR_DROPDOWN_POPUP_TITLE,
   getReplacement: ({ context, item }) => formatColorTabSelection(item, context),
-  inputSelector: SCRYFALL_SEARCH_INPUT_SELECTOR,
   popupId: COLOR_DROPDOWN_POPUP_ID,
   popupTitle: COLOR_DROPDOWN_POPUP_TITLE,
   renderItemContent: renderColorItemContent,
   resolveContext: getColorContext,
 };
+
+export const colorDropdownDefinition = createScryfallSearchDropdownDefinition({
+  config: colorDropdownConfig,
+  handleName: COLOR_DROPDOWN_HANDLE_NAME,
+  key: COLOR_DROPDOWN_KEY,
+  routeOperators: COLOR_TRIGGER_OPERATORS,
+});

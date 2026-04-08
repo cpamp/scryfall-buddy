@@ -1,14 +1,13 @@
-import { mountColorDropdown } from "../../color-dropdown/install.js";
-import { mountOtagDropdown } from "../../otag-dropdown/install.js";
 import { getScryfallSearchInputs } from "../../platform/scryfall/search-inputs.js";
+import { DROPDOWN_DEFINITIONS } from "../../shared/dropdown/dropdown-definitions.js";
+import { mountDropdownDefinitions } from "../../shared/dropdown/mount-dropdown-definition.js";
 import { initializeDropdownTheme } from "../../shared/ui/dropdown-theme.js";
 
 export function bootstrapScryfallExtensionContentScript() {
   initializeDropdownTheme();
 
   if (getScryfallSearchInputs().length > 0) {
-    mountColorDropdown();
-    mountOtagDropdown();
+    mountDropdownDefinitions(DROPDOWN_DEFINITIONS);
   }
 }
 

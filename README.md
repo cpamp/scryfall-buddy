@@ -1,10 +1,11 @@
 # Scryfall Plugin WebExtension
 
-This repository builds a Chrome/Firefox WebExtension that adds `otag:` suggestions and color-query suggestions to Scryfall search pages.
+This repository builds a Chrome/Firefox WebExtension that adds operator, `otag:`, and color-query suggestions to Scryfall search pages.
 
 ## Features
 
 - Color dropdowns
+- Operator dropdowns
 - OTag dropdowns
 
 ## Build

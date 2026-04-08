@@ -1,3 +1,5 @@
+import { createSearchAliases } from "../shared/search/text-match.js";
+
 const COLOR_DEFINITIONS = [
   ["Colorless", "c"],
   ["White", "w"],
@@ -38,14 +40,6 @@ const COLOR_CODE_ORDER_MAP = new Map(
   COLOR_CODE_ORDER.map((symbol, index) => [symbol, index]),
 );
 
-function normalizeName(text = "") {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-}
-
-function compactName(text = "") {
-  return normalizeName(text).replace(/\s+/g, "");
-}
-
 export function canonicalizeColorCode(text = "") {
   const symbols = new Set();
 
@@ -68,10 +62,7 @@ function createAliases(name, code) {
     aliases.push("5-color", "5color", "five color", "five-color", "fivecolor");
   }
 
-  return aliases.map((alias) => ({
-    compact: compactName(alias),
-    normalized: normalizeName(alias),
-  }));
+  return createSearchAliases(aliases);
 }
 
 export const COLOR_ITEMS = COLOR_DEFINITIONS.map(([name, code], index) => ({

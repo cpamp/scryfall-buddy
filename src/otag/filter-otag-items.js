@@ -1,8 +1,5 @@
 import { DEFAULT_OTAG_ITEMS, OTAG_ITEMS } from "./tag-data.js";
-
-function normalize(text) {
-  return text.trim().toLowerCase();
-}
+import { normalizeSearchQuery } from "../shared/search/text-match.js";
 
 const MAX_MATCHES = 50;
 
@@ -41,7 +38,7 @@ function getMatchScore(item, needle) {
 }
 
 export function filterOtagItems(query, items = OTAG_ITEMS) {
-  const needle = normalize(query).replace(/^"+|"+$/g, "");
+  const needle = normalizeSearchQuery(query);
   if (!needle) {
     return DEFAULT_OTAG_ITEMS.slice();
   }
