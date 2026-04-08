@@ -1,5 +1,9 @@
-import { DEFAULT_OTAG_ITEMS, OTAG_ITEMS } from "./tag-data.js";
-import { normalizeSearchQuery } from "../shared/search/text-match.js";
+import { DEFAULT_OTAG_ITEMS, OTAG_ITEMS } from "./items.js";
+import {
+  compactSearchText,
+  getAliasMatchScore,
+  normalizeSearchQuery,
+} from "../shared/search/text-match.js";
 
 const MAX_MATCHES = 50;
 
@@ -15,38 +19,27 @@ function compareMatches(a, b) {
   return a.item.name.localeCompare(b.item.name);
 }
 
-function getMatchScore(item, needle) {
-  if (item.normalizedName === needle || item.normalizedSlug === needle) {
-    return 3;
-  }
-
-  if (
-    item.normalizedName.startsWith(needle) ||
-    item.normalizedSlug.startsWith(needle)
-  ) {
-    return 2;
-  }
-
-  if (
-    item.normalizedName.includes(needle) ||
-    item.normalizedSlug.includes(needle)
-  ) {
-    return 1;
-  }
-
-  return 0;
-}
-
 export function filterOtagItems(query, items = OTAG_ITEMS) {
-  const needle = normalizeSearchQuery(query);
-  if (!needle) {
+  const normalizedNeedle = normalizeSearchQuery(query);
+  if (!normalizedNeedle) {
     return DEFAULT_OTAG_ITEMS.slice();
   }
+
+  const compactNeedle = compactSearchText(normalizedNeedle);
 
   return items
     .map((item) => ({
       item,
-      score: getMatchScore(item, needle),
+      score: getAliasMatchScore(
+        item.searchAliases,
+        normalizedNeedle,
+        compactNeedle,
+        {
+          contains: 1,
+          exact: 3,
+          prefix: 2,
+        },
+      ),
     }))
     .filter(({ score }) => score > 0)
     .sort(compareMatches)
