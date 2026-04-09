@@ -263,11 +263,7 @@ export function createSearchBuilderSuggestionsController({
 
   function highlightSuggestion(index) {
     suggestionState.selectedIndex = index;
-    if (!suggestionState.input) {
-      return;
-    }
-
-    refresh(suggestionState.input.dataset.focusKey);
+    suggestionPopup.setSelectedIndex(index);
   }
 
   function selectSuggestion(item, index) {

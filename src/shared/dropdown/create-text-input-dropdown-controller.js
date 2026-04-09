@@ -180,7 +180,7 @@ export function createTextInputDropdownController({
 
   function highlightItem(index) {
     selectedIndex = index;
-    refresh();
+    popup.setSelectedIndex(index);
   }
 
   function onInputFocus(event) {
