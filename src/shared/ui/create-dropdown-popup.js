@@ -36,6 +36,8 @@ export function createDropdownPopup({
   title,
 }) {
   const root = createRoot(id);
+  let renderedItems = [];
+  let selectedItemIndex = 0;
 
   function position(anchorElement) {
     if (!anchorElement) {
@@ -76,8 +78,23 @@ export function createDropdownPopup({
 
   function hide() {
     root.classList.add(DROPDOWN_POPUP_HIDDEN_CLASS);
+    renderedItems = [];
+    selectedItemIndex = 0;
     replaceChildren(root);
     detach();
+  }
+
+  function updateSelectedItem(index) {
+    renderedItems.forEach((item, itemIndex) => {
+      item.classList.toggle(
+        DROPDOWN_POPUP_ITEM_SELECTED_CLASS,
+        itemIndex === index,
+      );
+    });
+    selectedItemIndex = index;
+    renderedItems[index]?.scrollIntoView({
+      block: "nearest",
+    });
   }
 
   function renderHeader(titleText) {
@@ -110,6 +127,7 @@ export function createDropdownPopup({
   function renderItems(items, selectedIndex) {
     return items.map((item, index) => {
       const option = document.createElement("button");
+      let selectedOnPointerDown = false;
       option.type = "button";
       option.setAttribute("aria-label", getItemLabel(item));
       option.className = DROPDOWN_POPUP_ITEM_CLASS;
@@ -123,9 +141,24 @@ export function createDropdownPopup({
         option.textContent = getItemLabel(item);
       }
 
-      option.addEventListener("mousedown", (event) => {
+      option.addEventListener("pointerdown", (event) => {
+        if (event.button !== 0) {
+          return;
+        }
+
         event.preventDefault();
-        onSelect(item, index);
+        selectedOnPointerDown = true;
+        onSelect(item, index, "pointerdown");
+      });
+
+      option.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (selectedOnPointerDown) {
+          selectedOnPointerDown = false;
+          return;
+        }
+
+        onSelect(item, index, "click");
       });
 
       option.addEventListener("mouseenter", () => {
@@ -149,11 +182,9 @@ export function createDropdownPopup({
     position(anchorElement);
     root.classList.remove(DROPDOWN_POPUP_HIDDEN_CLASS);
     root.setAttribute("aria-label", titleText);
-    const renderedItems = renderItems(items, selectedIndex);
+    renderedItems = renderItems(items, selectedIndex);
     replaceChildren(root, [renderHeader(titleText), ...renderedItems]);
-    renderedItems[selectedIndex]?.scrollIntoView({
-      block: "nearest",
-    });
+    updateSelectedItem(selectedIndex);
   }
 
   return {
@@ -174,6 +205,13 @@ export function createDropdownPopup({
       }
 
       position(anchor);
+    },
+    setSelectedIndex(index) {
+      if (renderedItems.length === 0 || index === selectedItemIndex) {
+        return;
+      }
+
+      updateSelectedItem(index);
     },
     show,
   };
