@@ -4,7 +4,7 @@ const FIREFOX_EXTENSION_ID = "scryfall-plugin@cpamp.dev";
 function createBaseManifest() {
   return {
     manifest_version: 3,
-    name: "Scryfall Plugin",
+    name: "Scryfall Buddy",
     version: packageJson.version || "0.1.0",
     description:
       "Adds search suggestions, a visual builder, and synced favorites on Scryfall search pages.",
