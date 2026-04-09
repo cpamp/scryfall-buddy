@@ -4,6 +4,7 @@ import { createSearchBuilderModal } from "./create-search-builder-modal.js";
 const SEARCH_BUILDER_LAUNCHER_CLASS = "scryfall-search-builder-launcher";
 const SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS = "is-hidden";
 const SEARCH_BUILDER_LINKS_SELECTOR = ".header-links";
+const SEARCH_BUILDER_MOBILE_NAV_SELECTOR = ".mobile-nav";
 
 function isInputVisible(input) {
   const rect = input.getBoundingClientRect();
@@ -27,15 +28,13 @@ function resolveActiveSearchInput() {
   return inputs.find((input) => isInputVisible(input)) || inputs[0] || null;
 }
 
-function createLauncherButton(modal) {
+function createLauncherButton(modal, options = {}) {
   const button = document.createElement("a");
   button.href = "#";
-  button.className = `header-link double-pad-left ${SEARCH_BUILDER_LAUNCHER_CLASS}`;
+  button.className = `${options.className || ""} ${SEARCH_BUILDER_LAUNCHER_CLASS}`.trim();
   button.setAttribute("aria-label", "Open the visual search builder");
   button.setAttribute("title", "Open the visual search builder");
-  button.innerHTML = `
-    <span>Builder</span>
-  `;
+  button.textContent = options.label || "Builder";
   button.addEventListener("mousedown", (event) => {
     event.preventDefault();
   });
@@ -48,25 +47,52 @@ function createLauncherButton(modal) {
 
 export function mountSearchBuilder() {
   const modal = createSearchBuilderModal();
-  const button = createLauncherButton(modal);
+  const headerButton = createLauncherButton(modal, {
+    className: "header-link double-pad-left",
+  });
+  const mobileButton = createLauncherButton(modal, {
+    className: "button-n inverted align-left",
+    label: "Search Builder",
+  });
 
   function syncLaunchers() {
-    const container = document.querySelector(SEARCH_BUILDER_LINKS_SELECTOR);
+    const headerContainer = document.querySelector(SEARCH_BUILDER_LINKS_SELECTOR);
+    const mobileContainer = document.querySelector(SEARCH_BUILDER_MOBILE_NAV_SELECTOR);
     const activeInput = resolveActiveSearchInput();
 
-    if (!container || !activeInput) {
-      button.classList.add(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
-      button.remove();
+    if (!activeInput) {
+      headerButton.classList.add(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+      mobileButton.classList.add(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+      headerButton.remove();
+      mobileButton.remove();
       return;
     }
 
-    if (button.parentElement !== container) {
-      container.prepend(button);
-    } else if (container.firstElementChild !== button) {
-      container.prepend(button);
+    if (!headerContainer) {
+      headerButton.classList.add(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+      headerButton.remove();
+    } else {
+      if (headerButton.parentElement !== headerContainer) {
+        headerContainer.prepend(headerButton);
+      } else if (headerContainer.firstElementChild !== headerButton) {
+        headerContainer.prepend(headerButton);
+      }
+
+      headerButton.classList.remove(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
     }
 
-    button.classList.remove(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+    if (!mobileContainer) {
+      mobileButton.classList.add(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+      mobileButton.remove();
+    } else {
+      if (mobileButton.parentElement !== mobileContainer) {
+        mobileContainer.prepend(mobileButton);
+      } else if (mobileContainer.firstElementChild !== mobileButton) {
+        mobileContainer.prepend(mobileButton);
+      }
+
+      mobileButton.classList.remove(SEARCH_BUILDER_LAUNCHER_HIDDEN_CLASS);
+    }
   }
 
   const mutationObserver = new MutationObserver(() => {
@@ -83,7 +109,8 @@ export function mountSearchBuilder() {
   return {
     cleanup() {
       mutationObserver.disconnect();
-      button.remove();
+      headerButton.remove();
+      mobileButton.remove();
       modal.destroy();
     },
   };

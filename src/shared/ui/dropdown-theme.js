@@ -36,7 +36,7 @@ function resolveInitialTheme() {
 
 function updateThemeToggleButton(button, theme = getActiveDropdownTheme()) {
   const darkModeEnabled = theme === DROPDOWN_THEME_DARK;
-  button.textContent = darkModeEnabled ? "Dark: On" : "Dark: Off";
+  button.textContent = darkModeEnabled ? "Dark" : "Light";
   button.setAttribute("aria-pressed", darkModeEnabled ? "true" : "false");
   button.setAttribute(
     "aria-label",
