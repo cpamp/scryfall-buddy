@@ -7,7 +7,8 @@ function createBaseManifest() {
     name: "Scryfall Plugin",
     version: packageJson.version || "0.1.0",
     description:
-      "Adds otag suggestions on Scryfall search pages.",
+      "Adds search suggestions, a visual builder, and synced favorites on Scryfall search pages.",
+    permissions: ["storage"],
     content_scripts: [
       {
         matches: ["https://scryfall.com/*"],
@@ -26,7 +27,7 @@ function createFirefoxManifest() {
       gecko: {
         id: FIREFOX_EXTENSION_ID,
         data_collection_permissions: {
-          required: ["none"],
+          required: ["searchTerms"],
         },
       },
     },

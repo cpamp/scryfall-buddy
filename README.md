@@ -1,12 +1,14 @@
 # Scryfall Plugin WebExtension
 
-This repository builds a Chrome/Firefox WebExtension that adds operator, `otag:`, and color-query suggestions to Scryfall search pages.
+This repository builds a Chrome/Firefox WebExtension that adds operator, `otag:`, and color-query suggestions plus a visual search builder to Scryfall search pages.
 
 ## Features
 
 - Color dropdowns
 - Operator dropdowns
 - OTag dropdowns
+- Visual search builder
+- Saved search-builder favorites synced through browser extension sync storage
 
 ## Build
 
@@ -53,3 +55,10 @@ The zip archives place `manifest.json`, `content-script.js`, and `content.css` a
 ## Permissions
 
 - `https://scryfall.com/*`: runs the content script on Scryfall pages.
+- `storage`: stores extension settings and saved search-builder favorites in browser extension storage.
+
+## Privacy And Stored Data
+
+- The extension stores user preferences and saved search-builder favorites in browser extension storage.
+- Search-builder favorites are stored in browser sync storage when it is available, so they can sync through the user's browser account.
+- Favorites stay local to the browser's extension storage and are not sent to any separate remote service operated by this project.
