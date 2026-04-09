@@ -1,260 +1,26 @@
-import { filterColorItems } from "../color/filter-color-items.js";
-import { COLOR_TRIGGER_OPERATORS } from "../color/constants.js";
-import { renderColorItemContent } from "../color-dropdown/config.js";
-import { filterOperatorItems } from "../operator/filter-operator-items.js";
-import { OTAG_TRIGGER_OPERATORS } from "../otag/constants.js";
-import { filterOtagItems } from "../otag/filter-otag-items.js";
-import { filterPropertyItems } from "../property/filter-property-items.js";
-import { PROPERTY_TRIGGER_OPERATORS } from "../property/constants.js";
-import { createBrowserAutocompleteController } from "../shared/autocomplete/create-browser-autocomplete-controller.js";
-import {
-  compactSearchText,
-  createSearchAliases,
-  getAliasMatchScore,
-  normalizeSearchQuery,
-} from "../shared/search/text-match.js";
-import { createDropdownPopup } from "../shared/ui/create-dropdown-popup.js";
-import { createDropdownThemeToggleButton } from "../shared/ui/dropdown-theme.js";
-import { setInputValue } from "../shared/text-input/set-input-value.js";
-import {
-  deleteSearchBuilderFavorite,
-  listSearchBuilderFavorites,
-  renameSearchBuilderFavorite,
-  saveSearchBuilderFavorite,
-} from "./favorites-storage.js";
+import { createSearchBuilderFavoritesController } from "./create-search-builder-favorites-controller.js";
+import { createSearchBuilderSuggestionsController } from "./create-search-builder-suggestions-controller.js";
+import { createSearchBuilderTreeElement } from "./create-search-builder-tree-view.js";
+import { createButton } from "./dom.js";
 import {
   SEARCH_BUILDER_COMPARATOR_OPTIONS,
   SEARCH_BUILDER_PROPERTY_SET,
-  SEARCH_BUILDER_TEXT_PROPERTY_VALUE,
-  getSearchBuilderPropertyDisplayValue,
-  resolveSearchBuilderPropertyValue,
 } from "./config.js";
 import {
-  SEARCH_BUILDER_CONDITION_KIND_FIELD,
-  SEARCH_BUILDER_CONDITION_KIND_TEXT,
-  SEARCH_BUILDER_GROUP_MODE_ALL,
-  SEARCH_BUILDER_GROUP_MODE_ANY,
-  createDefaultSearchBuilderCondition,
-  createDefaultSearchBuilderGroup,
   parseSearchBuilderQuery,
   serializeSearchBuilderTree,
   validateSearchBuilderTree,
 } from "./query-language.js";
+import { getQueryStateStatusMetadata } from "./status.js";
+import { findNodeAndParent } from "./tree-utils.js";
+import { createDropdownThemeToggleButton } from "../shared/ui/dropdown-theme.js";
+import { setInputValue } from "../shared/text-input/set-input-value.js";
 
 const SEARCH_BUILDER_MODAL_CLASS = "scryfall-search-builder-modal";
 const SEARCH_BUILDER_MODAL_HIDDEN_CLASS = "is-hidden";
 const SEARCH_BUILDER_MODAL_PANEL_CLASS = "scryfall-search-builder-modal__panel";
 const SEARCH_BUILDER_SUGGESTION_POPUP_ID = "scryfall-search-builder-modal-suggestions";
 const SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY = "favorites-form-name";
-const SEARCH_BUILDER_COLOR_FIELD_SET = new Set(
-  COLOR_TRIGGER_OPERATORS.map((operator) => operator.toLowerCase()),
-);
-const SEARCH_BUILDER_PROPERTY_FIELD_SET = new Set(
-  PROPERTY_TRIGGER_OPERATORS.map((operator) => operator.toLowerCase()),
-);
-const SEARCH_BUILDER_OTAG_FIELD_SET = new Set(
-  OTAG_TRIGGER_OPERATORS.map((operator) => operator.toLowerCase()),
-);
-const SEARCH_BUILDER_TEXT_PROPERTY_ITEM = {
-  display: "Free Text Search",
-  searchAliases: createSearchAliases([
-    SEARCH_BUILDER_TEXT_PROPERTY_VALUE,
-    "free text",
-    "free text search",
-    "plain text",
-  ]),
-  token: SEARCH_BUILDER_TEXT_PROPERTY_VALUE,
-};
-
-function createButton(label, className, onClick, options = {}) {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = className;
-  button.textContent = label;
-
-  if (options.ariaLabel) {
-    button.setAttribute("aria-label", options.ariaLabel);
-  }
-
-  if (options.disabled) {
-    button.disabled = true;
-  }
-
-  button.addEventListener("click", onClick);
-  return button;
-}
-
-function createActionLink(label, className, onClick, options = {}) {
-  const link = document.createElement("a");
-  link.href = "#";
-  link.className = className;
-  link.textContent = label;
-
-  if (options.ariaLabel) {
-    link.setAttribute("aria-label", options.ariaLabel);
-  }
-
-  if (options.ariaExpanded === true || options.ariaExpanded === false) {
-    link.setAttribute("aria-expanded", options.ariaExpanded ? "true" : "false");
-  }
-
-  link.addEventListener("mousedown", (event) => {
-    event.preventDefault();
-  });
-
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    onClick(event);
-  });
-
-  return link;
-}
-
-function createOption(value, label) {
-  const option = document.createElement("option");
-  option.value = value;
-  option.textContent = label;
-  return option;
-}
-
-function renderOperatorLikeItemContent(option, item) {
-  const content = document.createElement("span");
-  content.className = "scryfall-otag-dropdown-popup__item-content";
-
-  const label = document.createElement("span");
-  label.className = "scryfall-otag-dropdown-popup__item-label";
-  label.textContent = item.token;
-
-  const meta = document.createElement("span");
-  meta.className = "scryfall-otag-dropdown-popup__item-meta";
-  meta.textContent = item.display;
-
-  content.append(label, meta);
-  option.append(content);
-}
-
-function renderOtagItemContent(option, item) {
-  const content = document.createElement("span");
-  content.className = "scryfall-otag-dropdown-popup__item-content";
-
-  const label = document.createElement("span");
-  label.className = "scryfall-otag-dropdown-popup__item-label";
-  label.textContent = item.name;
-
-  const meta = document.createElement("span");
-  meta.className = "scryfall-otag-dropdown-popup__item-meta";
-  meta.textContent = item.slug;
-
-  content.append(label, meta);
-  option.append(content);
-}
-
-function getPropertyTextItemScore(query) {
-  const normalizedNeedle = normalizeSearchQuery(query);
-  if (!normalizedNeedle) {
-    return 1;
-  }
-
-  return getAliasMatchScore(
-    SEARCH_BUILDER_TEXT_PROPERTY_ITEM.searchAliases,
-    normalizedNeedle,
-    compactSearchText(normalizedNeedle),
-  );
-}
-
-function filterSearchBuilderPropertyItems(query) {
-  const matches = filterOperatorItems(query);
-
-  if (getPropertyTextItemScore(query) > 0) {
-    return [SEARCH_BUILDER_TEXT_PROPERTY_ITEM, ...matches];
-  }
-
-  return matches;
-}
-
-function findNodeAndParent(node, nodeId, parent = null) {
-  if (!node) {
-    return null;
-  }
-
-  if (node.id === nodeId) {
-    return {
-      node,
-      parent,
-    };
-  }
-
-  if (node.type !== "group") {
-    return null;
-  }
-
-  for (const child of node.children) {
-    const match = findNodeAndParent(child, nodeId, node);
-    if (match) {
-      return match;
-    }
-  }
-
-  return null;
-}
-
-function createUnsupportedQueryStateMessage(message) {
-  return message || "This query cannot be edited in the visual builder.";
-}
-
-function createFavoriteNameSuggestion(rawQuery) {
-  const compactQuery = String(rawQuery ?? "").replace(/\s+/g, " ").trim();
-  if (!compactQuery) {
-    return "Favorite query";
-  }
-
-  return compactQuery.length > 48 ? `${compactQuery.slice(0, 48).trimEnd()}...` : compactQuery;
-}
-
-function createFavoriteQueryPreview(rawQuery) {
-  const compactQuery = String(rawQuery ?? "").replace(/\s+/g, " ").trim();
-  if (!compactQuery) {
-    return "Empty query";
-  }
-
-  return compactQuery.length > 120 ? `${compactQuery.slice(0, 120).trimEnd()}...` : compactQuery;
-}
-
-function getQueryStateStatusMetadata(queryState, builderValidation) {
-  if (queryState.status === "invalid") {
-    return {
-      badgeClassName: "scryfall-search-builder-modal__status-badge is-error",
-      badgeLabel: "Invalid",
-      builderAvailable: false,
-      message: queryState.message,
-    };
-  }
-
-  if (queryState.status === "not-representable") {
-    return {
-      badgeClassName: "scryfall-search-builder-modal__status-badge is-warning",
-      badgeLabel: "GUI Unavailable",
-      builderAvailable: false,
-      message: createUnsupportedQueryStateMessage(queryState.message),
-    };
-  }
-
-  if (!builderValidation.isValid) {
-    return {
-      badgeClassName: "scryfall-search-builder-modal__status-badge is-warning",
-      badgeLabel: "Incomplete",
-      builderAvailable: true,
-      message: builderValidation.message,
-    };
-  }
-
-  return {
-    badgeClassName: "scryfall-search-builder-modal__status-badge is-valid",
-    badgeLabel: "Valid",
-    builderAvailable: true,
-    message: "The visual builder and raw query are in sync.",
-  };
-}
 
 export function createSearchBuilderModal() {
   const parseOptions = {
@@ -263,7 +29,6 @@ export function createSearchBuilderModal() {
     ),
     supportedFields: SEARCH_BUILDER_PROPERTY_SET,
   };
-  const autocomplete = createBrowserAutocompleteController();
   const root = document.createElement("div");
   root.className = `${SEARCH_BUILDER_MODAL_CLASS} ${SEARCH_BUILDER_MODAL_HIDDEN_CLASS}`;
 
@@ -282,145 +47,33 @@ export function createSearchBuilderModal() {
   const state = {
     activeInput: null,
     collapsedGroupIds: new Set(),
-    favoriteFormMode: null,
-    favoriteFormName: "",
-    favoriteFormTargetId: null,
-    favorites: [],
-    favoritesExpanded: false,
-    favoritesLoading: false,
-    favoritesNoticeMessage: "",
-    favoritesNoticeTone: "info",
-    favoritesOperationPending: false,
-    favoritesRequestId: 0,
-    favoritesStorageUnavailable: false,
     initialQuery: "",
     isOpen: false,
     lastFocusedElement: null,
     lastKnownValidQuery: null,
-    pendingFocusKey: null,
     queryState: parseSearchBuilderQuery("", parseOptions),
     rawQuery: "",
   };
-  let suppressedSuggestionRefreshKey = null;
-  const suggestionState = {
-    getItemLabel: (item) => String(item),
-    input: null,
-    items: [],
-    renderItemContent: null,
-    selectItem: null,
-    selectedIndex: 0,
-    title: "Suggestions",
-  };
-  const suggestionPopup = createDropdownPopup({
-    getItemLabel: (item) => suggestionState.getItemLabel(item),
-    id: SEARCH_BUILDER_SUGGESTION_POPUP_ID,
-    onClose: hideSuggestions,
-    onHighlight: highlightSuggestion,
-    onSelect: selectSuggestion,
-    renderItemContent(option, item, index) {
-      if (typeof suggestionState.renderItemContent === "function") {
-        suggestionState.renderItemContent(option, item, index);
-        return;
-      }
 
-      option.textContent = suggestionState.getItemLabel(item);
-    },
-    title: suggestionState.title,
+  const favorites = createSearchBuilderFavoritesController({
+    getRawQuery: () => state.rawQuery,
+    isOpen: () => state.isOpen,
+    nameFocusKey: SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY,
+    onLoadQuery: updateRawQuery,
+    requestRender: render,
+  });
+  const suggestions = createSearchBuilderSuggestionsController({
+    getConditionById,
+    isOpen: () => state.isOpen,
+    panel,
+    popupId: SEARCH_BUILDER_SUGGESTION_POPUP_ID,
+    updateNode,
   });
 
   function ensureMounted() {
     if (root.parentElement !== document.body) {
       document.body.append(root);
     }
-  }
-
-  function hideSuggestions() {
-    suggestionPopup.hide();
-    autocomplete.restore(suggestionState.input);
-    suggestionState.getItemLabel = (item) => String(item);
-    suggestionState.input = null;
-    suggestionState.items = [];
-    suggestionState.renderItemContent = null;
-    suggestionState.selectItem = null;
-    suggestionState.selectedIndex = 0;
-    suggestionState.title = "Suggestions";
-  }
-
-  function setFavoritesNotice(message, tone = "info") {
-    state.favoritesNoticeMessage = message || "";
-    state.favoritesNoticeTone = tone;
-  }
-
-  function clearFavoritesNotice() {
-    setFavoritesNotice("", "info");
-  }
-
-  function resetFavoriteForm() {
-    state.favoriteFormMode = null;
-    state.favoriteFormName = "";
-    state.favoriteFormTargetId = null;
-  }
-
-  function syncFavoriteFormState() {
-    if (
-      state.favoriteFormMode === "rename" &&
-      !state.favorites.some((favorite) => favorite.id === state.favoriteFormTargetId)
-    ) {
-      resetFavoriteForm();
-    }
-  }
-
-  function updateFavoritesCollection(favorites) {
-    state.favorites = Array.isArray(favorites) ? favorites : [];
-    syncFavoriteFormState();
-  }
-
-  async function loadFavorites(options = {}) {
-    const requestId = state.favoritesRequestId + 1;
-    state.favoritesRequestId = requestId;
-
-    if (options.showLoading === true) {
-      state.favoritesLoading = true;
-      state.favoritesStorageUnavailable = false;
-      if (state.isOpen) {
-        render();
-      }
-    }
-
-    const favoritesResult = await listSearchBuilderFavorites();
-    if (requestId !== state.favoritesRequestId) {
-      return;
-    }
-
-    state.favoritesLoading = false;
-
-    if (favoritesResult.ok) {
-      updateFavoritesCollection(favoritesResult.favorites);
-      state.favoritesStorageUnavailable = false;
-      if (state.isOpen) {
-        render();
-      }
-      return;
-    }
-
-    updateFavoritesCollection([]);
-    state.favoritesStorageUnavailable = favoritesResult.unavailable === true;
-    setFavoritesNotice(
-      favoritesResult.errorMessage || "Favorites are unavailable right now.",
-      "error",
-    );
-
-    if (state.isOpen) {
-      render();
-    }
-  }
-
-  function repositionSuggestions() {
-    if (!suggestionState.input || !suggestionPopup.isVisible()) {
-      return;
-    }
-
-    suggestionPopup.reposition(suggestionState.input);
   }
 
   function getBuilderTree() {
@@ -431,10 +84,6 @@ export function createSearchBuilderModal() {
     return validateSearchBuilderTree(getBuilderTree(), {
       supportedFields: SEARCH_BUILDER_PROPERTY_SET,
     });
-  }
-
-  function getFavoriteById(favoriteId) {
-    return state.favorites.find((favorite) => favorite.id === favoriteId) || null;
   }
 
   function captureFocusState() {
@@ -509,184 +158,6 @@ export function createSearchBuilderModal() {
     render();
   }
 
-  function summarizeGroupChildren(group) {
-    const nestedGroupCount = group.children.filter((child) => child.type === "group").length;
-    const ruleCount = group.children.length - nestedGroupCount;
-    const summary = [];
-
-    if (ruleCount > 0) {
-      summary.push(`${ruleCount} rule${ruleCount === 1 ? "" : "s"}`);
-    }
-
-    if (nestedGroupCount > 0) {
-      summary.push(`${nestedGroupCount} group${nestedGroupCount === 1 ? "" : "s"}`);
-    }
-
-    return summary.length > 0 ? summary.join(", ") : "Empty group";
-  }
-
-  function getSuggestionDescriptor(input) {
-    if (!input?.dataset?.conditionId || !input.dataset.suggestionKind) {
-      return null;
-    }
-
-    const condition = getConditionById(input.dataset.conditionId);
-    if (!condition || condition.type !== "condition") {
-      return null;
-    }
-
-    if (input.dataset.suggestionKind === "property") {
-      return {
-        getItemLabel: (item) => item.token,
-        items: filterSearchBuilderPropertyItems(input.value),
-        renderItemContent: renderOperatorLikeItemContent,
-        selectItem(item) {
-          updateNode(condition.id, (node) => {
-            if (item.token === SEARCH_BUILDER_TEXT_PROPERTY_VALUE) {
-              node.kind = SEARCH_BUILDER_CONDITION_KIND_TEXT;
-              node.field = "";
-              node.comparator = ":";
-              return;
-            }
-
-            node.kind = SEARCH_BUILDER_CONDITION_KIND_FIELD;
-            node.field = item.token;
-            if (!SEARCH_BUILDER_COMPARATOR_OPTIONS.some((option) => option.value === node.comparator)) {
-              node.comparator = ":";
-            }
-          });
-        },
-        title: "operators",
-      };
-    }
-
-    if (input.dataset.suggestionKind !== "value" || condition.kind !== SEARCH_BUILDER_CONDITION_KIND_FIELD) {
-      return null;
-    }
-
-    const normalizedField = condition.field.toLowerCase();
-
-    if (SEARCH_BUILDER_PROPERTY_FIELD_SET.has(normalizedField)) {
-      return {
-        getItemLabel: (item) => item.token,
-        items: filterPropertyItems(input.value),
-        renderItemContent: renderOperatorLikeItemContent,
-        selectItem(item) {
-          updateNode(condition.id, (node) => {
-            node.value = item.token;
-          });
-        },
-        title: "properties",
-      };
-    }
-
-    if (SEARCH_BUILDER_COLOR_FIELD_SET.has(normalizedField)) {
-      return {
-        getItemLabel: (item) => item.name,
-        items: filterColorItems(input.value),
-        renderItemContent: renderColorItemContent,
-        selectItem(item) {
-          updateNode(condition.id, (node) => {
-            node.value = item.code;
-          });
-        },
-        title: "colors",
-      };
-    }
-
-    if (SEARCH_BUILDER_OTAG_FIELD_SET.has(normalizedField)) {
-      return {
-        getItemLabel: (item) => item.name,
-        items: filterOtagItems(input.value),
-        renderItemContent: renderOtagItemContent,
-        selectItem(item) {
-          updateNode(condition.id, (node) => {
-            node.value = item.name;
-          });
-        },
-        title: "oracle tags",
-      };
-    }
-
-    return null;
-  }
-
-  function refreshSuggestions(focusKey = null) {
-    const input = focusKey
-      ? panel.querySelector(`[data-focus-key="${focusKey}"]`)
-      : document.activeElement;
-
-    const descriptor = getSuggestionDescriptor(input);
-    if (!descriptor || descriptor.items.length === 0) {
-      hideSuggestions();
-      return;
-    }
-
-    if (suggestionState.input !== input) {
-      suggestionState.selectedIndex = 0;
-    }
-
-    suggestionState.getItemLabel = descriptor.getItemLabel;
-    suggestionState.input = input;
-    suggestionState.items = descriptor.items;
-    suggestionState.renderItemContent = descriptor.renderItemContent;
-    suggestionState.selectItem = descriptor.selectItem;
-    suggestionState.title = descriptor.title;
-    suggestionState.selectedIndex = Math.min(
-      suggestionState.selectedIndex,
-      descriptor.items.length - 1,
-    );
-
-    suggestionPopup.show({
-      anchor: input,
-      items: descriptor.items,
-      selectedIndex: suggestionState.selectedIndex,
-      titleText: descriptor.title,
-    });
-    autocomplete.suppress(input);
-  }
-
-  function scheduleSuggestionRefresh(focusKey) {
-    window.requestAnimationFrame(() => {
-      if (!state.isOpen) {
-        return;
-      }
-
-      if (suppressedSuggestionRefreshKey === focusKey) {
-        suppressedSuggestionRefreshKey = null;
-        return;
-      }
-
-      refreshSuggestions(focusKey);
-    });
-  }
-
-  function highlightSuggestion(index) {
-    suggestionState.selectedIndex = index;
-    if (!suggestionState.input) {
-      return;
-    }
-
-    refreshSuggestions(suggestionState.input.dataset.focusKey);
-  }
-
-  function selectSuggestion(item, index) {
-    suggestionState.selectedIndex = index;
-    const focusKey = suggestionState.input?.dataset?.focusKey || null;
-    suppressedSuggestionRefreshKey = focusKey;
-    if (typeof suggestionState.selectItem === "function") {
-      suggestionState.selectItem(item);
-    }
-
-    hideSuggestions();
-    if (focusKey) {
-      window.requestAnimationFrame(() => {
-        const nextInput = panel.querySelector(`[data-focus-key="${focusKey}"]`);
-        nextInput?.focus();
-      });
-    }
-  }
-
   function syncRawQueryFromBuilder() {
     const tree = getBuilderTree();
     if (!tree) {
@@ -710,144 +181,6 @@ export function createSearchBuilderModal() {
     render();
   }
 
-  function toggleFavoritesExpanded() {
-    state.favoritesExpanded = !state.favoritesExpanded;
-    if (!state.favoritesExpanded) {
-      resetFavoriteForm();
-    }
-
-    render();
-  }
-
-  function beginCreateFavorite() {
-    if (!state.rawQuery.trim() || state.favoritesStorageUnavailable) {
-      return;
-    }
-
-    state.favoritesExpanded = true;
-    state.favoriteFormMode = "create";
-    state.favoriteFormName = createFavoriteNameSuggestion(state.rawQuery);
-    state.favoriteFormTargetId = null;
-    clearFavoritesNotice();
-    state.pendingFocusKey = SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY;
-    render();
-  }
-
-  function beginRenameFavorite(favoriteId) {
-    const favorite = getFavoriteById(favoriteId);
-    if (!favorite || state.favoritesStorageUnavailable) {
-      return;
-    }
-
-    state.favoritesExpanded = true;
-    state.favoriteFormMode = "rename";
-    state.favoriteFormName = favorite.name;
-    state.favoriteFormTargetId = favorite.id;
-    clearFavoritesNotice();
-    state.pendingFocusKey = SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY;
-    render();
-  }
-
-  function cancelFavoriteForm() {
-    resetFavoriteForm();
-    clearFavoritesNotice();
-    render();
-  }
-
-  async function submitFavoriteForm() {
-    if (state.favoritesOperationPending) {
-      return;
-    }
-
-    const favoriteName = state.favoriteFormName.replace(/\s+/g, " ").trim();
-    if (!favoriteName) {
-      setFavoritesNotice("Favorites need a name before they can be saved.", "error");
-      state.pendingFocusKey = SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY;
-      render();
-      return;
-    }
-
-    state.favoritesOperationPending = true;
-    clearFavoritesNotice();
-    render();
-
-    const isRenameOperation = state.favoriteFormMode === "rename";
-    const favoritesResult =
-      isRenameOperation
-        ? await renameSearchBuilderFavorite(state.favoriteFormTargetId, favoriteName)
-        : await saveSearchBuilderFavorite({
-            name: favoriteName,
-            query: state.rawQuery,
-          });
-
-    state.favoritesOperationPending = false;
-
-    if (favoritesResult.ok) {
-      updateFavoritesCollection(favoritesResult.favorites);
-      resetFavoriteForm();
-      state.favoritesExpanded = true;
-      state.favoritesStorageUnavailable = false;
-      setFavoritesNotice(
-        isRenameOperation ? "Favorite renamed." : "Favorite saved.",
-        "success",
-      );
-      render();
-      return;
-    }
-
-    state.favoritesStorageUnavailable = favoritesResult.unavailable === true;
-    setFavoritesNotice(
-      favoritesResult.errorMessage || "Unable to save that favorite right now.",
-      "error",
-    );
-    state.pendingFocusKey = SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY;
-    render();
-  }
-
-  async function deleteFavorite(favoriteId) {
-    if (state.favoritesOperationPending) {
-      return;
-    }
-
-    state.favoritesOperationPending = true;
-    clearFavoritesNotice();
-    render();
-
-    const favoritesResult = await deleteSearchBuilderFavorite(favoriteId);
-    state.favoritesOperationPending = false;
-
-    if (favoritesResult.ok) {
-      updateFavoritesCollection(favoritesResult.favorites);
-      state.favoritesStorageUnavailable = false;
-      if (state.favoriteFormTargetId === favoriteId) {
-        resetFavoriteForm();
-      }
-      setFavoritesNotice("Favorite deleted.", "success");
-      render();
-      return;
-    }
-
-    state.favoritesStorageUnavailable = favoritesResult.unavailable === true;
-    setFavoritesNotice(
-      favoritesResult.errorMessage || "Unable to delete that favorite right now.",
-      "error",
-    );
-    render();
-  }
-
-  function loadFavorite(favoriteId) {
-    const favorite = getFavoriteById(favoriteId);
-    if (!favorite) {
-      setFavoritesNotice("That favorite could not be found.", "error");
-      render();
-      return;
-    }
-
-    resetFavoriteForm();
-    clearFavoritesNotice();
-    updateRawQuery(favorite.query);
-  }
-
   function updateNode(nodeId, callback) {
     const match = findNodeAndParent(getBuilderTree(), nodeId);
     if (!match?.node) {
@@ -868,454 +201,6 @@ export function createSearchBuilderModal() {
 
     match.parent.children = match.parent.children.filter((child) => child.id !== nodeId);
     syncRawQueryFromBuilder();
-  }
-
-  function createConditionElement(condition) {
-    const row = document.createElement("div");
-    row.className = "scryfall-search-builder-modal__condition";
-
-    const negationToggleLabel = document.createElement("label");
-    negationToggleLabel.className = "scryfall-search-builder-modal__toggle";
-    const negationToggle = document.createElement("input");
-    negationToggle.type = "checkbox";
-    negationToggle.checked = condition.negated === true;
-    negationToggle.dataset.focusKey = `condition-negated-${condition.id}`;
-    negationToggle.addEventListener("change", () => {
-      updateNode(condition.id, (node) => {
-        node.negated = negationToggle.checked;
-      });
-    });
-    const negationText = document.createElement("span");
-    negationText.textContent = "";
-    const negationIndicator = document.createElement("span");
-    negationIndicator.className = `scryfall-search-builder-modal__toggle-indicator ${
-      condition.negated ? "is-negated" : "is-positive"
-    }`;
-    negationIndicator.textContent = condition.negated ? "-" : "+";
-    negationToggleLabel.append(negationToggle, negationIndicator, negationText);
-
-    const propertyInput = document.createElement("input");
-    propertyInput.type = "text";
-    propertyInput.className =
-      "scryfall-search-builder-modal__input scryfall-search-builder-modal__input--property";
-    propertyInput.autocomplete = "off";
-    propertyInput.dataset.focusKey = `condition-property-${condition.id}`;
-    propertyInput.dataset.conditionId = condition.id;
-    propertyInput.dataset.suggestionKind = "property";
-    propertyInput.placeholder = "Search properties";
-    propertyInput.value =
-      condition.kind === SEARCH_BUILDER_CONDITION_KIND_TEXT
-        ? SEARCH_BUILDER_TEXT_PROPERTY_VALUE
-        : getSearchBuilderPropertyDisplayValue(condition.field);
-    propertyInput.addEventListener("input", () => {
-      updateNode(condition.id, (node) => {
-        const nextPropertyValue = resolveSearchBuilderPropertyValue(propertyInput.value);
-        if (nextPropertyValue === SEARCH_BUILDER_TEXT_PROPERTY_VALUE) {
-          node.kind = SEARCH_BUILDER_CONDITION_KIND_TEXT;
-          node.field = "";
-          node.comparator = ":";
-          return;
-        }
-
-        node.kind = SEARCH_BUILDER_CONDITION_KIND_FIELD;
-        node.field = nextPropertyValue;
-        if (!SEARCH_BUILDER_COMPARATOR_OPTIONS.some((option) => option.value === node.comparator)) {
-          node.comparator = ":";
-        }
-      });
-      scheduleSuggestionRefresh(propertyInput.dataset.focusKey);
-    });
-    propertyInput.addEventListener("focus", () => {
-      refreshSuggestions(propertyInput.dataset.focusKey);
-    });
-
-    const comparatorSelect = document.createElement("select");
-    comparatorSelect.className = "scryfall-search-builder-modal__select";
-    comparatorSelect.dataset.focusKey = `condition-comparator-${condition.id}`;
-    SEARCH_BUILDER_COMPARATOR_OPTIONS.forEach((option) => {
-      comparatorSelect.append(createOption(option.value, option.label));
-    });
-    comparatorSelect.value = condition.comparator || ":";
-    comparatorSelect.disabled = condition.kind !== SEARCH_BUILDER_CONDITION_KIND_FIELD;
-    comparatorSelect.addEventListener("change", () => {
-      updateNode(condition.id, (node) => {
-        node.comparator = comparatorSelect.value;
-      });
-    });
-
-    const valueInput = document.createElement("input");
-    valueInput.type = "text";
-    valueInput.className = "scryfall-search-builder-modal__input";
-    valueInput.autocomplete = "off";
-    valueInput.value = condition.value;
-    valueInput.placeholder =
-      condition.kind === SEARCH_BUILDER_CONDITION_KIND_TEXT
-        ? "Search term"
-        : "Value";
-    valueInput.dataset.focusKey = `condition-value-${condition.id}`;
-    valueInput.dataset.conditionId = condition.id;
-    valueInput.dataset.suggestionKind = "value";
-    valueInput.addEventListener("input", () => {
-      updateNode(condition.id, (node) => {
-        node.value = valueInput.value;
-      });
-      scheduleSuggestionRefresh(valueInput.dataset.focusKey);
-    });
-    valueInput.addEventListener("focus", () => {
-      refreshSuggestions(valueInput.dataset.focusKey);
-    });
-
-    const removeButton = createButton(
-      "Remove",
-      "scryfall-search-builder-modal__ghost-button",
-      () => removeNode(condition.id),
-      {
-        ariaLabel: "Remove rule",
-      },
-    );
-
-    row.append(
-      negationToggleLabel,
-      propertyInput,
-      comparatorSelect,
-      valueInput,
-      removeButton,
-    );
-
-    return row;
-  }
-
-  function createGroupElement(group, depth = 0, isRoot = false) {
-    const collapsed = isGroupCollapsed(group.id);
-    const section = document.createElement("section");
-    section.className = "scryfall-search-builder-modal__group";
-    if (collapsed) {
-      section.classList.add("is-collapsed");
-    }
-    section.style.setProperty("--scryfall-search-builder-group-depth", String(depth));
-    section.style.setProperty(
-      "--scryfall-search-builder-group-depth-mobile",
-      String(Math.min(depth, 2)),
-    );
-
-    const header = document.createElement("div");
-    header.className = "scryfall-search-builder-modal__group-header";
-
-    const heading = document.createElement("div");
-    heading.className = "scryfall-search-builder-modal__group-heading";
-
-    const groupTitleLink = createActionLink(
-      isRoot ? "Root group" : "Nested group",
-      "scryfall-search-builder-modal__collapse-link scryfall-search-builder-modal__group-title-link",
-      () => toggleGroupCollapsed(group.id),
-      {
-        ariaLabel: collapsed ? "Expand group" : "Collapse group",
-        ariaExpanded: !collapsed,
-      },
-    );
-    groupTitleLink.dataset.focusKey = `group-collapse-${group.id}`;
-
-    const groupLevel = document.createElement("span");
-    groupLevel.className = "scryfall-search-builder-modal__group-level";
-    groupLevel.textContent = `Level ${depth}`;
-
-    const modeSelect = document.createElement("select");
-    modeSelect.className = "scryfall-search-builder-modal__select";
-    modeSelect.dataset.focusKey = `group-mode-${group.id}`;
-    modeSelect.append(
-      createOption(SEARCH_BUILDER_GROUP_MODE_ALL, "Match all"),
-      createOption(SEARCH_BUILDER_GROUP_MODE_ANY, "Match any"),
-    );
-    modeSelect.value = group.mode;
-    modeSelect.addEventListener("change", () => {
-      updateNode(group.id, (node) => {
-        node.mode = modeSelect.value;
-      });
-    });
-
-    heading.append(groupTitleLink, groupLevel, modeSelect);
-    header.append(heading);
-
-    if (!isRoot) {
-      header.append(
-        createButton(
-          "Remove group",
-          "scryfall-search-builder-modal__ghost-button",
-          () => removeNode(group.id),
-        ),
-      );
-    }
-
-    section.append(header);
-
-    if (collapsed) {
-      const summary = document.createElement("div");
-      summary.className = "scryfall-search-builder-modal__group-summary";
-      summary.textContent = summarizeGroupChildren(group);
-      section.append(summary);
-    }
-
-    const body = document.createElement("div");
-    body.className = "scryfall-search-builder-modal__group-body";
-
-    if (group.children.length === 0) {
-      const emptyState = document.createElement("div");
-      emptyState.className = "scryfall-search-builder-modal__empty-group";
-      emptyState.textContent = "No rules yet. Add a rule or nested group.";
-      body.append(emptyState);
-    } else {
-      group.children.forEach((child) => {
-        body.append(
-          child.type === "group"
-            ? createGroupElement(child, depth + 1, false)
-            : createConditionElement(child),
-        );
-      });
-    }
-
-    if (!collapsed) {
-      section.append(body);
-    }
-
-    const footer = document.createElement("div");
-    footer.className = "scryfall-search-builder-modal__group-footer";
-    footer.append(
-      createButton("Add rule", "scryfall-search-builder-modal__secondary-button", () => {
-        updateNode(group.id, (node) => {
-          node.children.push(createDefaultSearchBuilderCondition());
-        });
-      }),
-      createButton("Add group", "scryfall-search-builder-modal__secondary-button", () => {
-        updateNode(group.id, (node) => {
-          node.children.push(createDefaultSearchBuilderGroup());
-        });
-      }),
-    );
-
-    if (!collapsed) {
-      section.append(footer);
-    }
-    return section;
-  }
-
-  function createFavoritesSection() {
-    const favoritesSection = document.createElement("section");
-    favoritesSection.className =
-      "scryfall-search-builder-modal__section scryfall-search-builder-modal__favorites";
-
-    const favoritesCard = document.createElement("div");
-    favoritesCard.className = "scryfall-search-builder-modal__favorites-card";
-    if (!state.favoritesExpanded) {
-      favoritesCard.classList.add("is-collapsed");
-    }
-
-    const favoritesHeader = document.createElement("div");
-    favoritesHeader.className = "scryfall-search-builder-modal__favorites-header";
-
-    const favoritesHeading = document.createElement("div");
-    favoritesHeading.className = "scryfall-search-builder-modal__favorites-heading";
-
-    const favoritesLabel = createActionLink(
-      "Favorites",
-      "scryfall-search-builder-modal__collapse-link scryfall-search-builder-modal__favorites-title-link",
-      () => toggleFavoritesExpanded(),
-      {
-        ariaLabel: state.favoritesExpanded ? "Collapse favorites" : "Expand favorites",
-        ariaExpanded: state.favoritesExpanded,
-      },
-    );
-    favoritesLabel.dataset.focusKey = "favorites-toggle";
-
-    const favoritesCount = document.createElement("span");
-    favoritesCount.className = "scryfall-search-builder-modal__favorites-count";
-    favoritesCount.textContent = state.favoritesLoading
-      ? "Loading..."
-      : state.favoritesStorageUnavailable
-        ? "Unavailable"
-        : `${state.favorites.length} saved`;
-
-    favoritesHeading.append(favoritesLabel, favoritesCount);
-
-    const favoritesActions = document.createElement("div");
-    favoritesActions.className = "scryfall-search-builder-modal__favorites-actions";
-
-    const saveFavoriteButton = createButton(
-      "Save current",
-      "scryfall-search-builder-modal__secondary-button",
-      () => beginCreateFavorite(),
-      {
-        disabled:
-          state.favoritesOperationPending ||
-          state.favoritesStorageUnavailable ||
-          !state.rawQuery.trim(),
-      },
-    );
-    saveFavoriteButton.dataset.focusKey = "favorites-save-current";
-
-    favoritesActions.append(saveFavoriteButton);
-    favoritesHeader.append(favoritesHeading, favoritesActions);
-    favoritesCard.append(favoritesHeader);
-
-    if (!state.favoritesExpanded) {
-      favoritesSection.append(favoritesCard);
-      return favoritesSection;
-    }
-
-    const favoritesBody = document.createElement("div");
-    favoritesBody.className = "scryfall-search-builder-modal__favorites-body";
-
-    if (state.favoritesNoticeMessage) {
-      const favoritesNotice = document.createElement("div");
-      favoritesNotice.className =
-        `scryfall-search-builder-modal__favorites-notice is-${state.favoritesNoticeTone}`;
-      favoritesNotice.textContent = state.favoritesNoticeMessage;
-      favoritesBody.append(favoritesNotice);
-    }
-
-    if (state.favoriteFormMode) {
-      const favoriteForm = document.createElement("div");
-      favoriteForm.className = "scryfall-search-builder-modal__favorites-form";
-
-      const favoriteFormLabel = document.createElement("span");
-      favoriteFormLabel.className = "scryfall-search-builder-modal__favorites-form-label";
-      favoriteFormLabel.textContent = "Name";
-
-      const favoriteFormRow = document.createElement("div");
-      favoriteFormRow.className = "scryfall-search-builder-modal__favorites-form-row";
-
-      const favoriteNameInput = document.createElement("input");
-      favoriteNameInput.type = "text";
-      favoriteNameInput.className = "scryfall-search-builder-modal__input";
-      favoriteNameInput.value = state.favoriteFormName;
-      favoriteNameInput.placeholder = "Favorite name";
-      favoriteNameInput.dataset.focusKey = SEARCH_BUILDER_FAVORITES_NAME_FOCUS_KEY;
-      favoriteNameInput.addEventListener("input", () => {
-        state.favoriteFormName = favoriteNameInput.value;
-      });
-      favoriteNameInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          submitFavoriteForm();
-        }
-      });
-
-      const favoriteSubmitButton = createButton(
-        state.favoriteFormMode === "rename" ? "Save name" : "Save favorite",
-        "scryfall-search-builder-modal__primary-button",
-        () => submitFavoriteForm(),
-        {
-          disabled: state.favoritesOperationPending,
-        },
-      );
-
-      const favoriteCancelButton = createButton(
-        "Cancel",
-        "scryfall-search-builder-modal__ghost-button",
-        () => cancelFavoriteForm(),
-        {
-          disabled: state.favoritesOperationPending,
-        },
-      );
-
-      favoriteFormRow.append(
-        favoriteNameInput,
-        favoriteSubmitButton,
-        favoriteCancelButton,
-      );
-      favoriteForm.append(favoriteFormLabel, favoriteFormRow);
-      favoritesBody.append(favoriteForm);
-    }
-
-    if (state.favoritesStorageUnavailable) {
-      const unavailableState = document.createElement("div");
-      unavailableState.className = "scryfall-search-builder-modal__favorites-empty-state";
-      unavailableState.textContent =
-        "Sync storage is unavailable in this browser context, so favorites cannot be loaded.";
-      favoritesBody.append(unavailableState);
-      favoritesCard.append(favoritesBody);
-      favoritesSection.append(favoritesCard);
-      return favoritesSection;
-    }
-
-    if (state.favoritesLoading) {
-      const loadingState = document.createElement("div");
-      loadingState.className = "scryfall-search-builder-modal__favorites-empty-state";
-      loadingState.textContent = "Loading saved favorites...";
-      favoritesBody.append(loadingState);
-      favoritesCard.append(favoritesBody);
-      favoritesSection.append(favoritesCard);
-      return favoritesSection;
-    }
-
-    if (state.favorites.length === 0) {
-      const emptyState = document.createElement("div");
-      emptyState.className = "scryfall-search-builder-modal__favorites-empty-state";
-      emptyState.textContent = "No favorites saved yet.";
-      favoritesBody.append(emptyState);
-      favoritesCard.append(favoritesBody);
-      favoritesSection.append(favoritesCard);
-      return favoritesSection;
-    }
-
-    const favoritesList = document.createElement("div");
-    favoritesList.className = "scryfall-search-builder-modal__favorites-list";
-
-    state.favorites.forEach((favorite) => {
-      const favoriteItem = document.createElement("article");
-      favoriteItem.className = "scryfall-search-builder-modal__favorite-item";
-
-      const favoriteInfo = document.createElement("div");
-      favoriteInfo.className = "scryfall-search-builder-modal__favorite-info";
-
-      const favoriteName = document.createElement("div");
-      favoriteName.className = "scryfall-search-builder-modal__favorite-name";
-      favoriteName.textContent = favorite.name;
-
-      const favoriteQuery = document.createElement("div");
-      favoriteQuery.className = "scryfall-search-builder-modal__favorite-query";
-      favoriteQuery.textContent = createFavoriteQueryPreview(favorite.query);
-      favoriteQuery.title = favorite.query;
-
-      favoriteInfo.append(favoriteName, favoriteQuery);
-
-      const favoriteActions = document.createElement("div");
-      favoriteActions.className = "scryfall-search-builder-modal__favorite-actions";
-
-      favoriteActions.append(
-        createButton(
-          "Load",
-          "scryfall-search-builder-modal__secondary-button",
-          () => loadFavorite(favorite.id),
-          {
-            disabled: state.favoritesOperationPending,
-          },
-        ),
-        createButton(
-          "Rename",
-          "scryfall-search-builder-modal__ghost-button",
-          () => beginRenameFavorite(favorite.id),
-          {
-            disabled: state.favoritesOperationPending,
-          },
-        ),
-        createButton(
-          "Delete",
-          "scryfall-search-builder-modal__ghost-button",
-          () => deleteFavorite(favorite.id),
-          {
-            disabled: state.favoritesOperationPending,
-          },
-        ),
-      );
-
-      favoriteItem.append(favoriteInfo, favoriteActions);
-      favoritesList.append(favoriteItem);
-    });
-
-    favoritesBody.append(favoritesList);
-    favoritesCard.append(favoritesBody);
-    favoritesSection.append(favoritesCard);
-    return favoritesSection;
   }
 
   function render() {
@@ -1369,7 +254,7 @@ export function createSearchBuilderModal() {
 
     header.append(titleBlock, headerActions);
     nextPanelChildren.push(header);
-    nextPanelChildren.push(createFavoritesSection());
+    nextPanelChildren.push(favorites.renderSection());
 
     const rawSection = document.createElement("section");
     rawSection.className = "scryfall-search-builder-modal__section";
@@ -1415,7 +300,17 @@ export function createSearchBuilderModal() {
     visualSection.append(visualHeading);
 
     if (status.builderAvailable) {
-      visualSection.append(createGroupElement(getBuilderTree(), 0, true));
+      visualSection.append(
+        createSearchBuilderTreeElement({
+          group: getBuilderTree(),
+          isGroupCollapsed,
+          onRefreshSuggestions: suggestions.refresh,
+          onRemoveNode: removeNode,
+          onScheduleSuggestionRefresh: suggestions.scheduleRefresh,
+          onToggleGroupCollapsed: toggleGroupCollapsed,
+          onUpdateNode: updateNode,
+        }),
+      );
     } else {
       const unavailableState = document.createElement("div");
       unavailableState.className = "scryfall-search-builder-modal__builder-unavailable";
@@ -1430,18 +325,21 @@ export function createSearchBuilderModal() {
 
     panel.replaceChildren(...nextPanelChildren);
     restoreFocusState(focusState);
-    if (state.pendingFocusKey) {
+
+    const pendingFocusKey = favorites.consumePendingFocusKey();
+    if (pendingFocusKey) {
       const pendingFocusTarget = panel.querySelector(
-        `[data-focus-key="${state.pendingFocusKey}"]`,
+        `[data-focus-key="${pendingFocusKey}"]`,
       );
-      state.pendingFocusKey = null;
       pendingFocusTarget?.focus();
       pendingFocusTarget?.select?.();
     }
-    if (focusState?.focusKey?.startsWith("condition-")) {
-      scheduleSuggestionRefresh(focusState.focusKey);
+
+    const nextSuggestionFocusKey = pendingFocusKey || focusState?.focusKey || null;
+    if (nextSuggestionFocusKey?.startsWith("condition-")) {
+      suggestions.scheduleRefresh(nextSuggestionFocusKey);
     } else {
-      hideSuggestions();
+      suggestions.hide();
     }
   }
 
@@ -1450,61 +348,18 @@ export function createSearchBuilderModal() {
       return;
     }
 
-    if (suggestionState.input && event.target === suggestionState.input) {
-      if (event.key === "ArrowDown") {
-        event.preventDefault();
-        suggestionState.selectedIndex =
-          (suggestionState.selectedIndex + 1) % suggestionState.items.length;
-        refreshSuggestions(suggestionState.input.dataset.focusKey);
-        return;
-      }
-
-      if (event.key === "ArrowUp") {
-        event.preventDefault();
-        suggestionState.selectedIndex =
-          (suggestionState.selectedIndex - 1 + suggestionState.items.length) %
-          suggestionState.items.length;
-        refreshSuggestions(suggestionState.input.dataset.focusKey);
-        return;
-      }
-
-      if (event.key === "Enter" || event.key === "Tab") {
-        if (suggestionState.items.length > 0) {
-          event.preventDefault();
-          selectSuggestion(
-            suggestionState.items[suggestionState.selectedIndex],
-            suggestionState.selectedIndex,
-          );
-          return;
-        }
-      }
+    if (suggestions.handleKeyDown(event)) {
+      return;
     }
 
     if (event.key === "Escape") {
       event.preventDefault();
-      if (suggestionState.input) {
-        hideSuggestions();
-        return;
-      }
-
       close();
     }
   }
 
   function onDocumentPointerDown(event) {
-    if (!state.isOpen || !suggestionState.input) {
-      return;
-    }
-
-    if (suggestionPopup.contains(event.target)) {
-      return;
-    }
-
-    if (event.target === suggestionState.input) {
-      return;
-    }
-
-    hideSuggestions();
+    suggestions.handleDocumentPointerDown(event);
   }
 
   function open(input) {
@@ -1523,20 +378,14 @@ export function createSearchBuilderModal() {
       state.queryState.status === "valid" || state.queryState.status === "not-representable"
         ? state.rawQuery
         : null;
-    state.favoritesExpanded = false;
-    state.favoritesLoading = false;
-    state.favoritesOperationPending = false;
-    state.favoritesStorageUnavailable = false;
-    state.pendingFocusKey = null;
-    resetFavoriteForm();
-    clearFavoritesNotice();
+    favorites.resetForOpen();
     root.classList.remove(SEARCH_BUILDER_MODAL_HIDDEN_CLASS);
     document.addEventListener("keydown", onKeyDown, true);
     document.addEventListener("mousedown", onDocumentPointerDown, true);
-    window.addEventListener("resize", repositionSuggestions);
-    panel.addEventListener("scroll", repositionSuggestions, true);
+    window.addEventListener("resize", suggestions.reposition);
+    panel.addEventListener("scroll", suggestions.reposition, true);
     render();
-    loadFavorites({ showLoading: true });
+    favorites.loadFavorites({ showLoading: true });
 
     const rawInput = panel.querySelector('[data-focus-key="raw-query"]');
     rawInput?.focus();
@@ -1592,13 +441,13 @@ export function createSearchBuilderModal() {
       commitLastKnownValidQuery();
     }
 
-    hideSuggestions();
+    suggestions.hide();
     state.isOpen = false;
     root.classList.add(SEARCH_BUILDER_MODAL_HIDDEN_CLASS);
     document.removeEventListener("keydown", onKeyDown, true);
     document.removeEventListener("mousedown", onDocumentPointerDown, true);
-    window.removeEventListener("resize", repositionSuggestions);
-    panel.removeEventListener("scroll", repositionSuggestions, true);
+    window.removeEventListener("resize", suggestions.reposition);
+    panel.removeEventListener("scroll", suggestions.reposition, true);
 
     if (typeof state.lastFocusedElement?.focus === "function") {
       state.lastFocusedElement.focus();
@@ -1616,7 +465,7 @@ export function createSearchBuilderModal() {
   return {
     destroy() {
       close({ commit: false });
-      suggestionPopup.destroy();
+      suggestions.destroy();
       root.remove();
     },
     open,
