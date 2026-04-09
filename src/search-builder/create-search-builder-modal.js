@@ -993,6 +993,10 @@ export function createSearchBuilderModal() {
       section.classList.add("is-collapsed");
     }
     section.style.setProperty("--scryfall-search-builder-group-depth", String(depth));
+    section.style.setProperty(
+      "--scryfall-search-builder-group-depth-mobile",
+      String(Math.min(depth, 2)),
+    );
 
     const header = document.createElement("div");
     header.className = "scryfall-search-builder-modal__group-header";
@@ -1011,6 +1015,10 @@ export function createSearchBuilderModal() {
     );
     groupTitleLink.dataset.focusKey = `group-collapse-${group.id}`;
 
+    const groupLevel = document.createElement("span");
+    groupLevel.className = "scryfall-search-builder-modal__group-level";
+    groupLevel.textContent = `Level ${depth}`;
+
     const modeSelect = document.createElement("select");
     modeSelect.className = "scryfall-search-builder-modal__select";
     modeSelect.dataset.focusKey = `group-mode-${group.id}`;
@@ -1025,7 +1033,7 @@ export function createSearchBuilderModal() {
       });
     });
 
-    heading.append(groupTitleLink, modeSelect);
+    heading.append(groupTitleLink, groupLevel, modeSelect);
     header.append(heading);
 
     if (!isRoot) {
@@ -1332,7 +1340,8 @@ export function createSearchBuilderModal() {
     title.textContent = "Search builder";
 
     const validationRow = document.createElement("div");
-    validationRow.className = "scryfall-search-builder-modal__validation";
+    validationRow.className =
+      "scryfall-search-builder-modal__validation scryfall-search-builder-modal__validation--header";
 
     const statusBadge = document.createElement("span");
     statusBadge.className = status.badgeClassName;
@@ -1349,7 +1358,7 @@ export function createSearchBuilderModal() {
     headerActions.className = "scryfall-search-builder-modal__header-actions";
     headerActions.append(
       createDropdownThemeToggleButton(),
-      createButton("Clear all", "scryfall-search-builder-modal__ghost-button", () => {
+      createButton("Clear", "scryfall-search-builder-modal__ghost-button", () => {
         updateRawQuery("");
       }),
       createButton("Close", "scryfall-search-builder-modal__ghost-button", () => close()),
@@ -1381,7 +1390,20 @@ export function createSearchBuilderModal() {
       updateRawQuery(rawInput.value);
     });
 
-    rawSection.append(rawHeading, rawInput);
+    const rawValidationRow = document.createElement("div");
+    rawValidationRow.className =
+      "scryfall-search-builder-modal__validation scryfall-search-builder-modal__validation--raw";
+
+    const rawStatusBadge = document.createElement("span");
+    rawStatusBadge.className = status.badgeClassName;
+    rawStatusBadge.textContent = status.badgeLabel;
+
+    const rawStatusMessage = document.createElement("p");
+    rawStatusMessage.className = "scryfall-search-builder-modal__status-message";
+    rawStatusMessage.textContent = status.message;
+
+    rawValidationRow.append(rawStatusBadge, rawStatusMessage);
+    rawSection.append(rawHeading, rawInput, rawValidationRow);
     nextPanelChildren.push(rawSection);
 
     const visualSection = document.createElement("section");
