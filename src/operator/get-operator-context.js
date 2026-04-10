@@ -1,10 +1,13 @@
-import { getTokenRangeAtCursor } from "../shared/text-input/token-range.js";
+import {
+  getTokenRangeAtCursor,
+  isCaretOutsideClosingQuote,
+} from "../shared/text-input/token-range.js";
 
 const OPERATOR_TOKEN_PATTERN = /^(-?)([^"':<>=\s]+)$/i;
 
 export function getOperatorDropdownContext(input) {
   const tokenRange = getTokenRangeAtCursor(input);
-  if (!tokenRange) {
+  if (!tokenRange || isCaretOutsideClosingQuote(tokenRange)) {
     return null;
   }
 

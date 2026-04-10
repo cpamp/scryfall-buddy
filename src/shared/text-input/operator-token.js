@@ -1,4 +1,7 @@
-import { getTokenRangeAtCursor } from "./token-range.js";
+import {
+  getTokenRangeAtCursor,
+  isCaretOutsideClosingQuote,
+} from "./token-range.js";
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -18,7 +21,7 @@ function buildAlternationPattern(values) {
 
 export function getOperatorContext(input, operatorNames, separators = ":") {
   const tokenRange = getTokenRangeAtCursor(input);
-  if (!tokenRange) {
+  if (!tokenRange || isCaretOutsideClosingQuote(tokenRange)) {
     return null;
   }
 

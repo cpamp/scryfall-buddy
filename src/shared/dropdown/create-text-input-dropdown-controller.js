@@ -36,6 +36,7 @@ export function createTextInputDropdownController({
   let mounted = false;
   let selectedIndex = 0;
   let suppressedRefreshInput = null;
+  let state = null;
   let unregisterDropdownTarget = null;
 
   function isTargetInput(node) {
@@ -45,6 +46,7 @@ export function createTextInputDropdownController({
   function resetState() {
     matches = [];
     selectedIndex = 0;
+    state = null;
   }
 
   function hide() {
@@ -69,7 +71,7 @@ export function createTextInputDropdownController({
   function render(context) {
     const titleText =
       typeof getPopupTitle === "function"
-        ? getPopupTitle({ context, input: activeInput, matches })
+        ? getPopupTitle({ context, input: activeInput, matches, state })
         : popupTitle;
 
     popup.show({
@@ -100,7 +102,7 @@ export function createTextInputDropdownController({
       return;
     }
 
-    matches = getItems({ context, input: activeInput });
+    matches = getItems({ context, input: activeInput, state });
     if (matches.length === 0) {
       hide();
       return;
@@ -134,6 +136,7 @@ export function createTextInputDropdownController({
         context,
         input: activeInput,
         item,
+        state,
         trigger,
       });
       const replacement =
@@ -146,11 +149,33 @@ export function createTextInputDropdownController({
             }
           : replacementResult;
 
+      if (Object.prototype.hasOwnProperty.call(replacement || {}, "nextState")) {
+        state = replacement.nextState ?? null;
+      }
+
+      if (typeof replacement?.selectedIndex === "number") {
+        selectedIndex = Math.max(0, replacement.selectedIndex);
+      }
+
+      if (typeof replacement?.apply === "function") {
+        replacement.apply({ context, input: activeInput, item, state, trigger });
+      }
+
       if (typeof replacement?.value === "string") {
         replaceInputToken(activeInput, context, replacement.value, {
           appendSpaceIfAtEnd: replacement.appendSpaceIfAtEnd !== false,
         });
       }
+
+      if (replacement?.keepOpen === true) {
+        if (shouldSuppressKeyboardRefresh) {
+          suppressNextRefresh(activeInput);
+        }
+        activeInput.focus();
+        refresh(activeInput);
+        return;
+      }
+
       hide();
       if (shouldSuppressKeyboardRefresh) {
         suppressNextRefresh(activeInput);
@@ -168,7 +193,7 @@ export function createTextInputDropdownController({
     }
 
     if (typeof applySelection === "function") {
-      applySelection({ context, input: activeInput, item, trigger });
+      applySelection({ context, input: activeInput, item, state, trigger });
     }
 
     hide();

@@ -11,6 +11,14 @@ function isUnescapedQuote(value, index) {
   return backslashCount % 2 === 0;
 }
 
+export function isCaretOutsideClosingQuote(tokenRange) {
+  if (!tokenRange || tokenRange.caret !== tokenRange.end || tokenRange.token.length === 0) {
+    return false;
+  }
+
+  return isUnescapedQuote(tokenRange.token, tokenRange.token.length - 1);
+}
+
 export function findTokenRange(value, caret) {
   let inQuotes = false;
   let tokenStart = null;
