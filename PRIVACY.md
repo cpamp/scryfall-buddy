@@ -60,15 +60,25 @@ Scryfall Buddy does not operate its own server for this data.
 
 ## Limited Use Disclosure
 
-Scryfall Buddy uses user data only to provide the extension's user-facing functionality of saving, syncing, displaying, editing, and deleting search terms selected by the user.
+Scryfall Buddy limits its use of user data to the practices described in this policy.
 
-Scryfall Buddy does not use user data for advertising.
+Scryfall Buddy uses user data only to provide and improve the extension's user-facing functionality of saving, syncing, displaying, editing, and deleting search terms selected by the user.
+
+Scryfall Buddy does not collect or use web browsing activity, except as required to provide its user-facing features on Scryfall pages where the extension runs.
+
+Scryfall Buddy does not use user data for advertising, including personalized advertising.
 
 Scryfall Buddy does not sell user data.
 
 Scryfall Buddy does not transfer user data to the developer's own servers or to third parties, other than the browser's built-in sync functionality used to keep extension data available across the user's signed-in browser instances.
 
-The developer of Scryfall Buddy does not access or read users' saved search terms.
+Scryfall Buddy does not transfer or sell user data to advertisers, advertising platforms, data brokers, information resellers, or for credit-worthiness or lending purposes.
+
+The developer of Scryfall Buddy does not access or allow humans to read users' saved search terms, except if required to comply with applicable law or to protect against abuse, fraud, or security threats.
+
+All other transfers, uses, or sale of user data are prohibited.
+
+The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
 
 ## Changes to this policy
 

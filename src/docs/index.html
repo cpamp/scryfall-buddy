@@ -12,57 +12,46 @@
   </head>
   <body>
     <main class="page">
-      <section class="hero">
-        <p class="eyebrow">Scryfall Buddy</p>
-        <nav>
-          <a href="index.html" aria-current="page">Project</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="{{GITHUB_ISSUES_URL}}">GitHub Issues</a>
-        </nav>
-        <h1>Scryfall search help, right where you need it.</h1>
-        <p class="lede">
-          Scryfall Buddy is a lightweight browser extension for Scryfall that adds
-          smarter query suggestions, a visual search builder, and saved favorites
-          backed by your browser's extension storage.
+      <p class="eyebrow">Scryfall Buddy</p>
+      <nav>
+        <a href="index.html" aria-current="page">Project</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="{{GITHUB_ISSUES_URL}}">GitHub Issues</a>
+      </nav>
+
+      <h1>Scryfall Buddy</h1>
+      <p class="lede">
+        Scryfall Buddy is a lightweight browser extension for Scryfall that adds
+        smarter query suggestions, a visual search builder, and saved favorites
+        backed by your browser's extension storage.
+      </p>
+
+      <section class="section">
+        <h2>What it does</h2>
+        <p>
+          Scryfall Buddy adds operator suggestions, otag and color suggestions, and a visual builder for composing searches on
+          Scryfall pages.
         </p>
-        <div class="actions">
-          <section class="card">
-            <h2>What it adds</h2>
-            <p>
-              Operator suggestions, <code>otag:</code> helpers, color-query tools,
-              and a visual builder for composing searches on Scryfall pages.
-            </p>
-          </section>
-          <section class="card">
-            <h2>Need help or want to report a bug?</h2>
-            <p>
-              Use <a href="{{GITHUB_ISSUES_URL}}">GitHub Issues</a> for questions,
-              bug reports, and feature requests.
-            </p>
-          </section>
-          <!--<section class="card">
-            <h2>Chrome extension</h2>
-            <p>
-              <a href="{{CHROME_EXTENSION_URL}}">Chrome Web Store placeholder link</a>
-            </p>
-            <span class="pill">Replace this URL before launch</span>
-          </section>-->
-          <section class="card">
-            <h2>Firefox extension</h2>
-            <p>
-              <a href="{{FIREFOX_EXTENSION_URL}}">Firefox Add-ons placeholder link</a>
-            </p>
-            <span class="pill">Replace this URL before launch</span>
-          </section>
-          <section class="card">
-            <h2>Privacy policy</h2>
-            <p>
-              Read the current <a href="privacy.html">privacy policy</a>, rendered
-              from the repository's <code>PRIVACY.md</code> at build time.
-            </p>
-          </section>
-        </div>
       </section>
+
+      <section class="section">
+        <h2>Links</h2>
+        <ul class="link-list">
+          <li><a href="{{GITHUB_ISSUES_URL}}">GitHub Issues</a></li>
+          <li><a href="{{FIREFOX_EXTENSION_URL}}">Firefox extension</a></li>
+          <!--<li><a href="{{CHROME_EXTENSION_URL}}">Chrome extension</a></li>-->
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Privacy</h2>
+        <p>
+          The published privacy page is rendered from <code>PRIVACY.md</code> at
+          build time so the site stays aligned with the repository source.
+        </p>
+      </section>
+
       <footer>
         Source on <a href="{{REPOSITORY_URL}}">GitHub</a>.
       </footer>
