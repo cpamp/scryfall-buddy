@@ -4,6 +4,7 @@
   "version": "0.2.1",
   "scripts": {
     "fetch:tags": "node tools/fetch-tagger-tags.js",
+    "build:docs": "node scripts/build-docs.js",
     "build": "node scripts/build.js",
     "build:watch": "node scripts/build.js --watch"
   },

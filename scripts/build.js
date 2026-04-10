@@ -3,6 +3,7 @@ const path = require("path");
 const esbuild = require("esbuild");
 const { version } = require("../package.json");
 const { createManifest } = require("../src/extension/manifests/create-manifest.js");
+const { buildDocs } = require("./build-docs.js");
 
 const projectRoot = path.resolve(__dirname, "..");
 const outputDir = path.join(projectRoot, "dist");
@@ -233,6 +234,7 @@ function createBuildOptions(browser) {
 
 async function run() {
   await fs.rm(outputDir, { recursive: true, force: true });
+  await buildDocs();
 
   if (watchMode) {
     const contexts = await Promise.all(
@@ -241,12 +243,15 @@ async function run() {
 
     await Promise.all(contexts.map((context) => context.watch()));
     console.log("Watching extension builds for Chrome and Firefox...");
+    console.log("Generated docs/ via scripts/build-docs.js.");
     return;
   }
 
   await Promise.all(
     browserTargets.map((browser) => esbuild.build(createBuildOptions(browser))),
   );
+
+  console.log("Generated docs/ via scripts/build-docs.js.");
 }
 
 run().catch((error) => {
