@@ -38,7 +38,7 @@
   {
     "name": "activated ability",
     "slug": "activated-ability",
-    "taggingCount": 8978,
+    "taggingCount": 9013,
     "description": null
   },
   {
@@ -56,13 +56,13 @@
   {
     "name": "activate from graveyard",
     "slug": "activate-from-graveyard",
-    "taggingCount": 191,
+    "taggingCount": 194,
     "description": "Abilities that can be activated from inside a graveyard."
   },
   {
     "name": "activate from hand",
     "slug": "activate-from-hand",
-    "taggingCount": 518,
+    "taggingCount": 521,
     "description": "Activated abilities that can be activated from your hand."
   },
   {
@@ -80,7 +80,7 @@
   {
     "name": "adds multiple mana",
     "slug": "adds-multiple-mana",
-    "taggingCount": 493,
+    "taggingCount": 498,
     "description": "Cards that add more than one mana at a time."
   },
   {
@@ -92,7 +92,7 @@
   {
     "name": "aesthetic counter",
     "slug": "aesthetic-counter",
-    "taggingCount": 287,
+    "taggingCount": 290,
     "description": "Counters that have no rules meaning, just aesthetic."
   },
   {
@@ -152,7 +152,7 @@
   {
     "name": "affinity for creatures",
     "slug": "affinity-for-creatures",
-    "taggingCount": 6,
+    "taggingCount": 7,
     "description": null
   },
   {
@@ -242,12 +242,18 @@
   {
     "name": "affinity for spells",
     "slug": "affinity-for-spells",
-    "taggingCount": 7,
+    "taggingCount": 8,
     "description": "Costs 1 less to cast for each instant or sorcery card in your graveyard"
   },
   {
     "name": "affinity for spirits",
     "slug": "affinity-for-spirits",
+    "taggingCount": 1,
+    "description": null
+  },
+  {
+    "name": "affinity for tokens",
+    "slug": "affinity-for-tokens",
     "taggingCount": 1,
     "description": null
   },
@@ -278,13 +284,13 @@
   {
     "name": "aikido",
     "slug": "aikido",
-    "taggingCount": 148,
+    "taggingCount": 149,
     "description": "Effects that turn your opponent's strength against them."
   },
   {
     "name": "alliteration",
     "slug": "alliteration",
-    "taggingCount": 4072,
+    "taggingCount": 4126,
     "description": "Cards that alliterate, either properly or per Treacherous Trapezist."
   },
   {
@@ -314,7 +320,7 @@
   {
     "name": "alternate-cost-sacrifice",
     "slug": "alternate-cost-sacrifice",
-    "taggingCount": 36,
+    "taggingCount": 30,
     "description": "Cards that let you sacrifice permanents to play them for free/a reduced amount of mana"
   },
   {
@@ -344,7 +350,7 @@
   {
     "name": "amount spent matters",
     "slug": "amount-spent-matters",
-    "taggingCount": 77,
+    "taggingCount": 96,
     "description": "The amount of mana you spent to do the thing matters."
   },
   {
@@ -362,7 +368,7 @@
   {
     "name": "animate artifact",
     "slug": "animate-artifact",
-    "taggingCount": 71,
+    "taggingCount": 72,
     "description": "Cards that can turn other noncreature artifacts into creatures. See also [animate vehicle](/tags/card/animate-vehicle)."
   },
   {
@@ -372,9 +378,15 @@
     "description": null
   },
   {
+    "name": "animate dead-like",
+    "slug": "animate-dead-like",
+    "taggingCount": 7,
+    "description": "Enchantments that put stuff on the battlefield and then become Auras enchanting those things."
+  },
+  {
     "name": "animate enchantment",
     "slug": "animate-enchantment",
-    "taggingCount": 10,
+    "taggingCount": 11,
     "description": "Cards that can turn other noncreature enchantments into creatures."
   },
   {
@@ -398,7 +410,7 @@
   {
     "name": "animate self",
     "slug": "animate-self",
-    "taggingCount": 274,
+    "taggingCount": 275,
     "description": "Noncreatures that can become creatures. For creatures that can stop being creatures, see [deanimate self](deanimate-self)."
   },
   {
@@ -428,7 +440,7 @@
   {
     "name": "anthem",
     "slug": "anthem",
-    "taggingCount": 444,
+    "taggingCount": 448,
     "description": "Your entire team gets +N/+N. Possibly limited to creature types or colors."
   },
   {
@@ -500,31 +512,31 @@
   {
     "name": "attacking matters",
     "slug": "attacking-matters",
-    "taggingCount": 1154,
+    "taggingCount": 1164,
     "description": "Cards that care about you attacking."
   },
   {
     "name": "attacking matters-any",
     "slug": "attacking-matters-any",
-    "taggingCount": 6,
+    "taggingCount": 7,
     "description": "Cards that care about anyone attacking."
   },
   {
     "name": "attacking matters-self",
     "slug": "attacking-matters-self",
-    "taggingCount": 1507,
+    "taggingCount": 1526,
     "description": "Cards that care about themselves attacking."
   },
   {
     "name": "attacking opponents matters",
     "slug": "attacking-opponents-matters",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "Cards that synergize with any attacker, as long as they're attacking an opponent of the card's controller."
   },
   {
     "name": "attack trigger",
     "slug": "attack-trigger",
-    "taggingCount": 1968,
+    "taggingCount": 1993,
     "description": null
   },
   {
@@ -579,7 +591,7 @@
     "name": "banish-hand",
     "slug": "banish-hand",
     "taggingCount": 12,
-    "description": null
+    "description": "Exile one or more cards from a player's hand as long as this remains in play."
   },
   {
     "name": "banish-spell",
@@ -602,7 +614,7 @@
   {
     "name": "bear with set's mechanic",
     "slug": "bear-with-set-s-mechanic",
-    "taggingCount": 284,
+    "taggingCount": 292,
     "description": "A 2/2 for 2 with one of the set's iconic mechanics"
   },
   {
@@ -680,13 +692,13 @@
   {
     "name": "blood artist ability",
     "slug": "blood-artist-ability",
-    "taggingCount": 28,
+    "taggingCount": 29,
     "description": "Cards that have abilities along the lines of: \"Whenever creature dies target/each opponent loses 1 life (and you gain 1 life).\""
   },
   {
     "name": "blood moon effect",
     "slug": "blood-moon-effect",
-    "taggingCount": 19,
+    "taggingCount": 20,
     "description": "Derived from the titular card, this refers to the effect in which lands lose their land type and/or abilities, being replaced by something else. "
   },
   {
@@ -746,7 +758,7 @@
   {
     "name": "bottomless mana sink",
     "slug": "bottomless-mana-sink",
-    "taggingCount": 742,
+    "taggingCount": 763,
     "description": "Repeatable effects that, if an arbitrary amount of mana is dumped into them, will probably win you the game—for example, by drawing your whole deck, creating an arbitrarily large attacker, making an endless army of tokens, gaining infinite life, etc."
   },
   {
@@ -776,7 +788,7 @@
   {
     "name": "bounce-self",
     "slug": "bounce-self",
-    "taggingCount": 158,
+    "taggingCount": 160,
     "description": null
   },
   {
@@ -788,7 +800,7 @@
   {
     "name": "brainstorm",
     "slug": "brainstorm",
-    "taggingCount": 14,
+    "taggingCount": 15,
     "description": "Draw a number of cards, then put cards from your hand on top of your library in any order."
   },
   {
@@ -830,7 +842,7 @@
   {
     "name": "burn any",
     "slug": "burn-any",
-    "taggingCount": 879,
+    "taggingCount": 885,
     "description": "Cards that burn any target: players, creatures, battles, or planeswalkers."
   },
   {
@@ -840,21 +852,27 @@
     "description": null
   },
   {
+    "name": "burn bright with set mechanic",
+    "slug": "burn-bright-with-set-mechanic",
+    "taggingCount": 18,
+    "description": "Cards like [Burn Bright](https://scryfall.com/card/rna/93/burn-bright) or [Trumpet Blast](https://scryfall.com/card/m10/160/trumpet-blast), but with the set's mechanic."
+  },
+  {
     "name": "burn creature",
     "slug": "burn-creature",
-    "taggingCount": 1017,
+    "taggingCount": 1028,
     "description": null
   },
   {
     "name": "burn planeswalker",
     "slug": "burn-planeswalker",
-    "taggingCount": 377,
+    "taggingCount": 380,
     "description": null
   },
   {
     "name": "burn player",
     "slug": "burn-player",
-    "taggingCount": 841,
+    "taggingCount": 848,
     "description": null
   },
   {
@@ -878,7 +896,7 @@
   {
     "name": "burst draw",
     "slug": "burst-draw",
-    "taggingCount": 546,
+    "taggingCount": 558,
     "description": "Card draw effects that can net you a bunch of cards at once. As a rule of thumb, to qualify for this tag, the card should let you draw at least three cards at a time and come out ahead by at least +1."
   },
   {
@@ -932,13 +950,13 @@
   {
     "name": "cantrip",
     "slug": "cantrip",
-    "taggingCount": 624,
+    "taggingCount": 631,
     "description": "Cards which let you draw a card as they resolve or enter the battlefield"
   },
   {
     "name": "card advantage",
     "slug": "card-advantage",
-    "taggingCount": 97,
+    "taggingCount": 101,
     "description": "Things that give you access to more cards.  (The technical meaning of card advantage can be much broader than this, but this is what we're using here.)"
   },
   {
@@ -956,13 +974,13 @@
   {
     "name": "cards in exile matter",
     "slug": "cards-in-exile-matter",
-    "taggingCount": 32,
+    "taggingCount": 19,
     "description": "Mechanics that care about the cards in the exile zone."
   },
   {
     "name": "cards in graveyard matter",
     "slug": "cards-in-graveyard-matter",
-    "taggingCount": 161,
+    "taggingCount": 165,
     "description": "Mechanics that care about the cards in one or more graveyards."
   },
   {
@@ -974,7 +992,7 @@
   {
     "name": "card types in graveyard matter",
     "slug": "card-types-in-graveyard-matter",
-    "taggingCount": 103,
+    "taggingCount": 104,
     "description": null
   },
   {
@@ -986,13 +1004,13 @@
   {
     "name": "castable from exile",
     "slug": "castable-from-exile",
-    "taggingCount": 424,
+    "taggingCount": 423,
     "description": "Cards you can cast or access from exile."
   },
   {
     "name": "castable from graveyard",
     "slug": "castable-from-graveyard",
-    "taggingCount": 386,
+    "taggingCount": 395,
     "description": "Cards you can cast or access from the graveyard."
   },
   {
@@ -1016,7 +1034,7 @@
   {
     "name": "cast on resolution",
     "slug": "cast-on-resolution",
-    "taggingCount": 398,
+    "taggingCount": 399,
     "description": "Spells and abilities that let you cast spells as part of their resolution."
   },
   {
@@ -1040,19 +1058,19 @@
   {
     "name": "cast trigger-self",
     "slug": "cast-trigger-self",
-    "taggingCount": 242,
+    "taggingCount": 247,
     "description": "Cards that have a trigger when they are cast"
   },
   {
     "name": "cast trigger-you",
     "slug": "cast-trigger-you",
-    "taggingCount": 1180,
+    "taggingCount": 1232,
     "description": null
   },
   {
     "name": "catalog",
     "slug": "catalog",
-    "taggingCount": 48,
+    "taggingCount": 49,
     "description": "Draw two cards, then discard a card."
   },
   {
@@ -1064,7 +1082,7 @@
   {
     "name": "catch up",
     "slug": "catch-up",
-    "taggingCount": 89,
+    "taggingCount": 92,
     "description": "Players who have less get more."
   },
   {
@@ -1107,7 +1125,7 @@
     "name": "change name",
     "slug": "change-name",
     "taggingCount": 11,
-    "description": null
+    "description": "Cards that change the name of themselves or other cards. "
   },
   {
     "name": "change target",
@@ -1124,19 +1142,19 @@
   {
     "name": "charm",
     "slug": "charm",
-    "taggingCount": 44,
+    "taggingCount": 46,
     "description": "Modal spells where you pick one option out of three"
   },
   {
     "name": "cheaper than mv",
     "slug": "cheaper-than-mv",
-    "taggingCount": 1335,
+    "taggingCount": 1339,
     "description": "The actual cost you pay for an effect (or for an alternate mode) will often be lower than the card's mana value."
   },
   {
     "name": "cheat death",
     "slug": "cheat-death",
-    "taggingCount": 92,
+    "taggingCount": 93,
     "description": "Return a creature or permanent to the battlefield or to your hand at the moment it dies."
   },
   {
@@ -1172,7 +1190,7 @@
   {
     "name": "clone",
     "slug": "clone",
-    "taggingCount": 69,
+    "taggingCount": 72,
     "description": "Cards that enter as copies of other things"
   },
   {
@@ -1184,7 +1202,7 @@
   {
     "name": "coin flip",
     "slug": "coin-flip",
-    "taggingCount": 89,
+    "taggingCount": 90,
     "description": null
   },
   {
@@ -1202,13 +1220,13 @@
   {
     "name": "color break",
     "slug": "color-break",
-    "taggingCount": 132,
+    "taggingCount": 141,
     "description": "Cards known to break the modern color pie, granting a color access to something it shouldn't be able to do."
   },
   {
     "name": "color change",
     "slug": "color-change",
-    "taggingCount": 159,
+    "taggingCount": 160,
     "description": null
   },
   {
@@ -1280,7 +1298,7 @@
   {
     "name": "combat trick",
     "slug": "combat-trick",
-    "taggingCount": 701,
+    "taggingCount": 703,
     "description": "Effects that can be used during combat to help a creature survive, destroy opposing creatures, or deal additional combat damage."
   },
   {
@@ -1329,7 +1347,7 @@
     "name": "conditional aura",
     "slug": "conditional-aura",
     "taggingCount": 13,
-    "description": null
+    "description": "Auras that have a different effect depending on what is being enchanted. "
   },
   {
     "name": "conditional control",
@@ -1394,7 +1412,7 @@
   {
     "name": "conjure-duplicate",
     "slug": "conjure-duplicate",
-    "taggingCount": 61,
+    "taggingCount": 70,
     "description": "Cards that conjure duplicates instead of named cards or cards from spellbooks."
   },
   {
@@ -1478,7 +1496,7 @@
   {
     "name": "conjure-to-hand",
     "slug": "conjure-to-hand",
-    "taggingCount": 90,
+    "taggingCount": 95,
     "description": "Cards that conjure cards to your hand."
   },
   {
@@ -1490,13 +1508,13 @@
   {
     "name": "consult",
     "slug": "consult",
-    "taggingCount": 31,
+    "taggingCount": 32,
     "description": "Dig through your library until you find a card meeting some criteria."
   },
   {
     "name": "consult-cast",
     "slug": "consult-cast",
-    "taggingCount": 126,
+    "taggingCount": 128,
     "description": "Consult effects that let you cast the card you find."
   },
   {
@@ -1526,7 +1544,7 @@
   {
     "name": "converge",
     "slug": "converge",
-    "taggingCount": 17,
+    "taggingCount": 22,
     "description": "Spells that do something equal to the number of colors spent to cast them."
   },
   {
@@ -1550,7 +1568,7 @@
   {
     "name": "copy-artifact",
     "slug": "copy-artifact",
-    "taggingCount": 63,
+    "taggingCount": 65,
     "description": null
   },
   {
@@ -1562,7 +1580,7 @@
   {
     "name": "copy-creature",
     "slug": "copy-creature",
-    "taggingCount": 341,
+    "taggingCount": 347,
     "description": null
   },
   {
@@ -1580,7 +1598,7 @@
   {
     "name": "copy-instant",
     "slug": "copy-instant",
-    "taggingCount": 150,
+    "taggingCount": 155,
     "description": null
   },
   {
@@ -1592,7 +1610,7 @@
   {
     "name": "copy-legendary",
     "slug": "copy-legendary",
-    "taggingCount": 39,
+    "taggingCount": 40,
     "description": "These cards can give you a copy of a legendary permanent you control that you can actually keep (instead of immediately sacrificing)."
   },
   {
@@ -1610,13 +1628,13 @@
   {
     "name": "copy-permanent",
     "slug": "copy-permanent",
-    "taggingCount": 16,
+    "taggingCount": 17,
     "description": "Effects that allow you to copy any permanent, regardless of its card type."
   },
   {
     "name": "copy-permanent-spell",
     "slug": "copy-permanent-spell",
-    "taggingCount": 40,
+    "taggingCount": 41,
     "description": null
   },
   {
@@ -1628,19 +1646,19 @@
   {
     "name": "copy-self",
     "slug": "copy-self",
-    "taggingCount": 293,
+    "taggingCount": 300,
     "description": "Cards that make a copy of themselves"
   },
   {
     "name": "copy-sorcery",
     "slug": "copy-sorcery",
-    "taggingCount": 145,
+    "taggingCount": 150,
     "description": null
   },
   {
     "name": "copy-spell",
     "slug": "copy-spell",
-    "taggingCount": 140,
+    "taggingCount": 145,
     "description": "Make a copy of a spell on the stack."
   },
   {
@@ -1664,7 +1682,7 @@
   {
     "name": "cost reducer",
     "slug": "cost-reducer",
-    "taggingCount": 153,
+    "taggingCount": 154,
     "description": "Cards that make other spells cost less. (Does not apply to effects that reduce a spell's own cost, like delve.)"
   },
   {
@@ -1736,7 +1754,7 @@
   {
     "name": "cost-reducer-instant-sorcery",
     "slug": "cost-reducer-instant-sorcery",
-    "taggingCount": 38,
+    "taggingCount": 39,
     "description": null
   },
   {
@@ -1790,7 +1808,7 @@
   {
     "name": "counter doubler",
     "slug": "counter-doubler",
-    "taggingCount": 57,
+    "taggingCount": 59,
     "description": null
   },
   {
@@ -1808,7 +1826,7 @@
   {
     "name": "counter fuel-any",
     "slug": "counter-fuel-any",
-    "taggingCount": 32,
+    "taggingCount": 33,
     "description": "Use any type of counter as fuel."
   },
   {
@@ -1910,19 +1928,19 @@
   {
     "name": "counter preservation-self",
     "slug": "counter-preservation-self",
-    "taggingCount": 41,
+    "taggingCount": 43,
     "description": "When this thing leaves, put its counters on something else you control."
   },
   {
     "name": "counters matter",
     "slug": "counters-matter",
-    "taggingCount": 287,
+    "taggingCount": 283,
     "description": null
   },
   {
     "name": "counterspell",
     "slug": "counterspell",
-    "taggingCount": 91,
+    "taggingCount": 93,
     "description": "Spells that counter stuff. See child tags for variants on the behaviour; notably [counterspell-soft](/tags/card/counterspell-soft) which gives the opponent a buyout cost."
   },
   {
@@ -2024,7 +2042,7 @@
   {
     "name": "counterspell-soft",
     "slug": "counterspell-soft",
-    "taggingCount": 136,
+    "taggingCount": 133,
     "description": "A \"soft counterspell\" gives the other player a chance to buy off the counter, such as with a mana payment."
   },
   {
@@ -2076,39 +2094,21 @@
     "description": "Buffs based on the number of artifacts or Equipment you control/in play. See also [armament ability](armament-ability). For the enchantment version, see [ethereal armor](ethereal-armor)."
   },
   {
-    "name": "create-artifact-token",
-    "slug": "create-artifact-token",
-    "taggingCount": 3,
-    "description": null
-  },
-  {
-    "name": "create-land-tokens",
-    "slug": "create-land-tokens",
-    "taggingCount": 5,
-    "description": null
-  },
-  {
-    "name": "create multiple tokens",
-    "slug": "create-multiple-tokens",
-    "taggingCount": 1,
-    "description": null
-  },
-  {
     "name": "creates multiple enchantment",
     "slug": "creates-multiple-enchantment",
-    "taggingCount": 5,
+    "taggingCount": 7,
     "description": null
   },
   {
     "name": "creates oracle copy",
     "slug": "creates-oracle-copy",
-    "taggingCount": 2,
+    "taggingCount": 6,
     "description": "These cards create a copy of an Oracle card by name and cast it. (CR 707.13)"
   },
   {
     "name": "creates oracle token",
     "slug": "creates-oracle-token",
-    "taggingCount": 4,
+    "taggingCount": 24,
     "description": "These cards create a token version of an Oracle card by name (CR 111.11)"
   },
   {
@@ -2126,19 +2126,19 @@
   {
     "name": "creature count matters",
     "slug": "creature-count-matters",
-    "taggingCount": 178,
+    "taggingCount": 179,
     "description": null
   },
   {
     "name": "creaturefall",
     "slug": "creaturefall",
-    "taggingCount": 470,
+    "taggingCount": 471,
     "description": "Cards that care about a creatures entereing the battlefield. Also known as Alliance in New Capenna."
   },
   {
     "name": "creatureland",
     "slug": "creatureland",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": "Lands that can animate themselves."
   },
   {
@@ -2252,7 +2252,7 @@
   {
     "name": "curiosity",
     "slug": "curiosity",
-    "taggingCount": 229,
+    "taggingCount": 232,
     "description": "Draw cards when dealing damage to an opponent"
   },
   {
@@ -4002,6 +4002,12 @@
     "description": null
   },
   {
+    "name": "cycle-clb-u-background",
+    "slug": "cycle-clb-u-background",
+    "taggingCount": 10,
+    "description": null
+  },
+  {
     "name": "cycle-clb-u-d20",
     "slug": "cycle-clb-u-d20",
     "taggingCount": 5,
@@ -5012,7 +5018,7 @@
   {
     "name": "cycle-dual-cycling-land",
     "slug": "cycle-dual-cycling-land",
-    "taggingCount": 3,
+    "taggingCount": 5,
     "description": null
   },
   {
@@ -9321,7 +9327,7 @@
     "name": "cycle-restock-legendary-land",
     "slug": "cycle-restock-legendary-land",
     "taggingCount": 3,
-    "description": null
+    "description": "A mega (multi-set) cycle of lands that restock a specific card type "
   },
   {
     "name": "cycle-reveal-land",
@@ -9864,8 +9870,32 @@
     "description": null
   },
   {
+    "name": "cycle-soc-alt-commander",
+    "slug": "cycle-soc-alt-commander",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
     "name": "cycle-soc-face-commander",
     "slug": "cycle-soc-face-commander",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-soc-guest-lecturer",
+    "slug": "cycle-soc-guest-lecturer",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-soc-octoland",
+    "slug": "cycle-soc-octoland",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-soc-two-color-prepare",
+    "slug": "cycle-soc-two-color-prepare",
     "taggingCount": 5,
     "description": null
   },
@@ -10044,9 +10074,63 @@
     "description": null
   },
   {
+    "name": "cycle-sos-a{a/b}b",
+    "slug": "cycle-sos-a-a-b-b",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
     "name": "cycle-sos-charm",
     "slug": "cycle-sos-charm",
-    "taggingCount": 2,
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-dragon",
+    "slug": "cycle-sos-dragon",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-emeritus",
+    "slug": "cycle-sos-emeritus",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-lesson",
+    "slug": "cycle-sos-lesson",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-mascot",
+    "slug": "cycle-sos-mascot",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-mono-u-legend",
+    "slug": "cycle-sos-mono-u-legend",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-r-2c-legend",
+    "slug": "cycle-sos-r-2c-legend",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-student",
+    "slug": "cycle-sos-student",
+    "taggingCount": 5,
+    "description": null
+  },
+  {
+    "name": "cycle-sos-surveil-dual",
+    "slug": "cycle-sos-surveil-dual",
+    "taggingCount": 5,
     "description": null
   },
   {
@@ -10328,7 +10412,7 @@
   {
     "name": "cycle-tangoland",
     "slug": "cycle-tangoland",
-    "taggingCount": 3,
+    "taggingCount": 5,
     "description": "Lands that enter tapped unless you control two or more basic lands. Named after the phrase \"two to tango\""
   },
   {
@@ -11172,6 +11256,12 @@
     "description": null
   },
   {
+    "name": "cycle-ulg-vertical-phyrexian",
+    "slug": "cycle-ulg-vertical-phyrexian",
+    "taggingCount": 4,
+    "description": null
+  },
+  {
     "name": "cycle-und-enemy-colored-legend",
     "slug": "cycle-und-enemy-colored-legend",
     "taggingCount": 5,
@@ -11271,7 +11361,7 @@
     "name": "cycle-un-psychographics",
     "slug": "cycle-un-psychographics",
     "taggingCount": 4,
-    "description": null
+    "description": "A supercycle of legendary \"gamer\" creatures that are named after different Psychographics of Magic Players."
   },
   {
     "name": "cycle-unspeakable",
@@ -11942,7 +12032,7 @@
   {
     "name": "damage prevention-creature",
     "slug": "damage-prevention-creature",
-    "taggingCount": 159,
+    "taggingCount": 160,
     "description": null
   },
   {
@@ -11960,7 +12050,7 @@
   {
     "name": "damage prevention-player",
     "slug": "damage-prevention-player",
-    "taggingCount": 22,
+    "taggingCount": 23,
     "description": null
   },
   {
@@ -12002,13 +12092,13 @@
   {
     "name": "day zero errata",
     "slug": "day-zero-errata",
-    "taggingCount": 32,
+    "taggingCount": 40,
     "description": "These cards received errata before or immediately after their initial release."
   },
   {
     "name": "deal with the devil",
     "slug": "deal-with-the-devil",
-    "taggingCount": 38,
+    "taggingCount": 40,
     "description": "Black enchantments that come with a major drawback that could doom you. See also [Lich effect](/tags/card/lich-effect)"
   },
   {
@@ -12038,19 +12128,19 @@
   {
     "name": "death trigger",
     "slug": "death-trigger",
-    "taggingCount": 667,
+    "taggingCount": 671,
     "description": "Abilities that trigger from permanents being sent to a graveyard."
   },
   {
     "name": "death trigger opponent",
     "slug": "death-trigger-opponent",
-    "taggingCount": 1,
+    "taggingCount": 2,
     "description": "Cards that trigger when an opponent's permanent is sent to a graveyard."
   },
   {
     "name": "death trigger-self",
     "slug": "death-trigger-self",
-    "taggingCount": 710,
+    "taggingCount": 712,
     "description": "Permanents with abilities that trigger when they die."
   },
   {
@@ -12062,7 +12152,7 @@
   {
     "name": "deck requirement",
     "slug": "deck-requirement",
-    "taggingCount": 27,
+    "taggingCount": 28,
     "description": "Cards that require you to have a deck with specific attributes, or with an effect that requires you to have your deck be built with specific attributes."
   },
   {
@@ -12074,7 +12164,7 @@
   {
     "name": "dehydration with set mechanic",
     "slug": "dehydration-with-set-mechanic",
-    "taggingCount": 12,
+    "taggingCount": 15,
     "description": null
   },
   {
@@ -12098,7 +12188,7 @@
   {
     "name": "delayed trigger",
     "slug": "delayed-trigger",
-    "taggingCount": 1080,
+    "taggingCount": 1088,
     "description": "Create a triggered ability that may trigger later. Similar to a [reflexive trigger](reflexive-trigger)."
   },
   {
@@ -12170,7 +12260,7 @@
   {
     "name": "devour",
     "slug": "devour",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": "Before a creature enters the battlefield, the player may sacrifice a number of permanents and the creature will enter with +1/+1 counters on it in relation to the number of permanents sacrificed. "
   },
   {
@@ -12188,13 +12278,13 @@
   {
     "name": "differently named lands matter",
     "slug": "differently-named-lands-matter",
-    "taggingCount": 7,
+    "taggingCount": 8,
     "description": "These cards want you to have multiple lands with different names."
   },
   {
     "name": "digital-only mechanics",
     "slug": "digital-only-mechanics",
-    "taggingCount": 301,
+    "taggingCount": 295,
     "description": "Cards with mechanics designed for the digital environment of Magic Arena. Includes Unknown and acorn cards with mechanics equivalent to an existing Arena one."
   },
   {
@@ -12218,7 +12308,7 @@
   {
     "name": "discard",
     "slug": "discard",
-    "taggingCount": 559,
+    "taggingCount": 567,
     "description": "Gets cards out of your opponent's hand and into their graveyard."
   },
   {
@@ -12236,7 +12326,7 @@
   {
     "name": "discard outlet",
     "slug": "discard-outlet",
-    "taggingCount": 468,
+    "taggingCount": 478,
     "description": null
   },
   {
@@ -12296,19 +12386,19 @@
   {
     "name": "discount-self",
     "slug": "discount-self",
-    "taggingCount": 186,
+    "taggingCount": 192,
     "description": "Cards that have a way to reduce their own cost"
   },
   {
     "name": "disenchant/naturalize",
     "slug": "disenchant-naturalize",
-    "taggingCount": 236,
+    "taggingCount": 189,
     "description": "Cards that remove artifacts and/or enchantments."
   },
   {
     "name": "disintegrate",
     "slug": "disintegrate",
-    "taggingCount": 59,
+    "taggingCount": 60,
     "description": "Damaged creatures are exiled instead of dying."
   },
   {
@@ -12320,19 +12410,19 @@
   {
     "name": "ditch hand",
     "slug": "ditch-hand",
-    "taggingCount": 134,
+    "taggingCount": 138,
     "description": "Cards that let you get rid of your current hand in some way or other."
   },
   {
     "name": "division",
     "slug": "division",
-    "taggingCount": 49,
+    "taggingCount": 47,
     "description": "Cards that ask for a divided value.\nFor cards that include a fractional value or a number that is not a whole number, see [non-integer](non-integer)."
   },
   {
     "name": "divvy",
     "slug": "divvy",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "Cards that make you choose from two or more piles."
   },
   {
@@ -12374,7 +12464,7 @@
   {
     "name": "dnd spell",
     "slug": "dnd-spell",
-    "taggingCount": 41,
+    "taggingCount": 42,
     "description": "Cards originally from DnD sets that are named after and representing DnD spells."
   },
   {
@@ -12416,13 +12506,13 @@
   {
     "name": "donate rampant growth",
     "slug": "donate-rampant-growth",
-    "taggingCount": 26,
+    "taggingCount": 27,
     "description": "Cards that allow you to ramp another player's mana by putting a land from their deck onto the battlefield."
   },
   {
     "name": "donate token",
     "slug": "donate-token",
-    "taggingCount": 179,
+    "taggingCount": 182,
     "description": "Effects that can create tokens under an opponents control."
   },
   {
@@ -12458,13 +12548,13 @@
   {
     "name": "drain life",
     "slug": "drain-life",
-    "taggingCount": 352,
+    "taggingCount": 361,
     "description": "Hurt your opponent and gain life to match."
   },
   {
     "name": "drain strength",
     "slug": "drain-strength",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": "One thing gets bigger, another gets smaller."
   },
   {
@@ -12476,19 +12566,19 @@
   {
     "name": "drawback",
     "slug": "drawback",
-    "taggingCount": 1370,
+    "taggingCount": 1377,
     "description": "Cards that have some kind of disadvantage. "
   },
   {
     "name": "draw engine",
     "slug": "draw-engine",
-    "taggingCount": 1400,
+    "taggingCount": 1406,
     "description": "Card draw effects that can net you additional cards repeatedly over time. Contrast [Burst Draw](burst-draw), which nets you multiple cards right away."
   },
   {
     "name": "draw hate",
     "slug": "draw-hate",
-    "taggingCount": 57,
+    "taggingCount": 58,
     "description": null
   },
   {
@@ -12500,7 +12590,7 @@
   {
     "name": "draw matters",
     "slug": "draw-matters",
-    "taggingCount": 98,
+    "taggingCount": 99,
     "description": null
   },
   {
@@ -12588,12 +12678,6 @@
     "description": "Cards that respond to an empty library."
   },
   {
-    "name": "enchant change",
-    "slug": "enchant-change",
-    "taggingCount": 3,
-    "description": null
-  },
-  {
     "name": "enchantment engine",
     "slug": "enchantment-engine",
     "taggingCount": 17,
@@ -12626,7 +12710,7 @@
   {
     "name": "energy increaser",
     "slug": "energy-increaser",
-    "taggingCount": 4,
+    "taggingCount": 6,
     "description": "Cards that increase the amount of energy you get."
   },
   {
@@ -12650,7 +12734,7 @@
   {
     "name": "enters in company",
     "slug": "enters-in-company",
-    "taggingCount": 468,
+    "taggingCount": 472,
     "description": "Creatures that come with more creatures attached on ETB without reanimating them."
   },
   {
@@ -12675,7 +12759,7 @@
     "name": "etb-untapper",
     "slug": "etb-untapper",
     "taggingCount": 8,
-    "description": null
+    "description": "Cards that make things enter the battlefield untapped."
   },
   {
     "name": "eternalize",
@@ -12698,7 +12782,7 @@
   {
     "name": "evasion",
     "slug": "evasion",
-    "taggingCount": 4145,
+    "taggingCount": 4242,
     "description": "Creatures that are harder to block through keywords (flying, menace) or other means."
   },
   {
@@ -12734,7 +12818,7 @@
   {
     "name": "exile on resolution",
     "slug": "exile-on-resolution",
-    "taggingCount": 104,
+    "taggingCount": 111,
     "description": "Cards that exile themselves once they've finished all their effects. Commonly seen on extra turn cards."
   },
   {
@@ -12758,7 +12842,7 @@
   {
     "name": "exile with tax",
     "slug": "exile-with-tax",
-    "taggingCount": 16,
+    "taggingCount": 17,
     "description": "Exile something, but let them pay to get it back."
   },
   {
@@ -12766,6 +12850,12 @@
     "slug": "exo-storyline-in-cards",
     "taggingCount": 14,
     "description": null
+  },
+  {
+    "name": "expansion sweeper",
+    "slug": "expansion-sweeper",
+    "taggingCount": 4,
+    "description": "You know how sets sometimes have broken cards? What if you could just delete that set from the game? A mechanism Wizards tried briefly and very firmly deprecated."
   },
   {
     "name": "expertise",
@@ -12776,7 +12866,7 @@
   {
     "name": "exponential",
     "slug": "exponential",
-    "taggingCount": 112,
+    "taggingCount": 113,
     "description": "Effects that involve some amount of exponential growth. This can be an exponential value, or a token creation effect that would be exponential if allowed to progress unhindered. See [quadratic](quadratic) for a different, but similar kind of effect."
   },
   {
@@ -12836,7 +12926,7 @@
   {
     "name": "fact or fiction",
     "slug": "fact-or-fiction",
-    "taggingCount": 21,
+    "taggingCount": 22,
     "description": "Pile/dilemma based card advantage. An opponent is involved in choosing or making the piles."
   },
   {
@@ -12932,7 +13022,7 @@
   {
     "name": "flicker-creature",
     "slug": "flicker-creature",
-    "taggingCount": 123,
+    "taggingCount": 127,
     "description": null
   },
   {
@@ -12980,7 +13070,7 @@
   {
     "name": "flicker-slow",
     "slug": "flicker-slow",
-    "taggingCount": 98,
+    "taggingCount": 100,
     "description": "Exile a card to be brought back after a set time (usually at end of turn)."
   },
   {
@@ -13028,7 +13118,7 @@
   {
     "name": "force attacker",
     "slug": "force-attacker",
-    "taggingCount": 163,
+    "taggingCount": 164,
     "description": null
   },
   {
@@ -13046,7 +13136,7 @@
   {
     "name": "force draw",
     "slug": "force-draw",
-    "taggingCount": 260,
+    "taggingCount": 270,
     "description": "Force an opponent to draw cards, whether they like it or not. The lesser used mode on Ancestral Recall."
   },
   {
@@ -13082,8 +13172,14 @@
   {
     "name": "four plus creature types",
     "slug": "four-plus-creature-types",
-    "taggingCount": 19,
+    "taggingCount": 20,
     "description": "Non-Changeling creatures that have four or more creature types "
+  },
+  {
+    "name": "fourth spell matters",
+    "slug": "fourth-spell-matters",
+    "taggingCount": 2,
+    "description": null
   },
   {
     "name": "fractional life/damage",
@@ -13100,19 +13196,19 @@
   {
     "name": "free-cast-another",
     "slug": "free-cast-another",
-    "taggingCount": 392,
+    "taggingCount": 398,
     "description": "Cast other things without paying their mana cost."
   },
   {
     "name": "free discard outlet",
     "slug": "free-discard-outlet",
-    "taggingCount": 58,
+    "taggingCount": 59,
     "description": "Ways to discard repeatedly that require no additional cost or numerical limit."
   },
   {
     "name": "free sacrifice outlet",
     "slug": "free-sacrifice-outlet",
-    "taggingCount": 171,
+    "taggingCount": 173,
     "description": "Ways to sacrifice a permanent repeatedly that require no additional cost."
   },
   {
@@ -13130,7 +13226,7 @@
   {
     "name": "freeze-creature",
     "slug": "freeze-creature",
-    "taggingCount": 172,
+    "taggingCount": 177,
     "description": "Prevent a creature from untapping for its next N untaps. For effects that prevent untapping indefinitely, see [lockdown](lockdown-creature)."
   },
   {
@@ -13154,7 +13250,7 @@
   {
     "name": "french vanilla",
     "slug": "french-vanilla",
-    "taggingCount": 1512,
+    "taggingCount": 1516,
     "description": "These creatures, vehicles and spacecraft have only keyword abilities."
   },
   {
@@ -13188,6 +13284,12 @@
     "description": "This card was initially futureshifted, and has now received its proper print in its future expansion."
   },
   {
+    "name": "full refund",
+    "slug": "full-refund",
+    "taggingCount": 95,
+    "description": "Cards that give you mana equal to or greater than the amount of mana spent for it, either in the form of a immediately usable mana ability, a ritual effect, or untapped lands "
+  },
+  {
     "name": "fun",
     "slug": "fun",
     "taggingCount": 1,
@@ -13214,14 +13316,14 @@
   {
     "name": "fun ruling",
     "slug": "fun-ruling",
-    "taggingCount": 335,
+    "taggingCount": 340,
     "description": "Cards with rulings where the rules manager is having fun with us. Not necessarily laugh-out-loud funny."
   },
   {
     "name": "future sight engine",
     "slug": "future-sight-engine",
     "taggingCount": 8,
-    "description": "Cards that reveal the top card of your library and let you play from it. See also [precognition engine](/tags/card/precognition-engine) for a more recent variant in this vein."
+    "description": "Cards that reveal the top card of your library and conditionally play it. See also [precognition engine](/tags/card/precognition-engine) for a more recent variant in this vein."
   },
   {
     "name": "gainland",
@@ -13280,7 +13382,7 @@
   {
     "name": "gains double strike",
     "slug": "gains-double-strike",
-    "taggingCount": 59,
+    "taggingCount": 60,
     "description": null
   },
   {
@@ -13316,7 +13418,7 @@
   {
     "name": "gains flying",
     "slug": "gains-flying",
-    "taggingCount": 303,
+    "taggingCount": 304,
     "description": null
   },
   {
@@ -13376,7 +13478,7 @@
   {
     "name": "gains lifelink",
     "slug": "gains-lifelink",
-    "taggingCount": 100,
+    "taggingCount": 102,
     "description": null
   },
   {
@@ -13406,13 +13508,13 @@
   {
     "name": "gains myriad",
     "slug": "gains-myriad",
-    "taggingCount": 1,
+    "taggingCount": 2,
     "description": null
   },
   {
     "name": "gains pp counters",
     "slug": "gains-pp-counters",
-    "taggingCount": 1610,
+    "taggingCount": 1637,
     "description": null
   },
   {
@@ -13574,7 +13676,7 @@
   {
     "name": "giant growth",
     "slug": "giant-growth",
-    "taggingCount": 160,
+    "taggingCount": 165,
     "description": "Combat tricks that give a creature +N/+N. See also [Enlarge](enlarge)."
   },
   {
@@ -13604,7 +13706,7 @@
   {
     "name": "gives affinity",
     "slug": "gives-affinity",
-    "taggingCount": 11,
+    "taggingCount": 12,
     "description": null
   },
   {
@@ -13664,19 +13766,19 @@
   {
     "name": "gives cascade",
     "slug": "gives-cascade",
-    "taggingCount": 17,
+    "taggingCount": 18,
     "description": null
   },
   {
     "name": "gives castable from exile",
     "slug": "gives-castable-from-exile",
-    "taggingCount": 206,
+    "taggingCount": 253,
     "description": null
   },
   {
     "name": "gives castable from graveyard",
     "slug": "gives-castable-from-graveyard",
-    "taggingCount": 112,
+    "taggingCount": 116,
     "description": "Allows you to play other cards from the graveyard."
   },
   {
@@ -13694,7 +13796,7 @@
   {
     "name": "gives casualty",
     "slug": "gives-casualty",
-    "taggingCount": 3,
+    "taggingCount": 4,
     "description": null
   },
   {
@@ -13736,7 +13838,7 @@
   {
     "name": "gives deathtouch",
     "slug": "gives-deathtouch",
-    "taggingCount": 176,
+    "taggingCount": 179,
     "description": null
   },
   {
@@ -13796,7 +13898,7 @@
   {
     "name": "gives double strike",
     "slug": "gives-double-strike",
-    "taggingCount": 147,
+    "taggingCount": 149,
     "description": null
   },
   {
@@ -13904,7 +14006,7 @@
   {
     "name": "gives first strike",
     "slug": "gives-first-strike",
-    "taggingCount": 275,
+    "taggingCount": 276,
     "description": null
   },
   {
@@ -13922,13 +14024,13 @@
   {
     "name": "gives flashback",
     "slug": "gives-flashback",
-    "taggingCount": 18,
-    "description": "Gives the textual flashback effect. For cards that let you cast others out of the graveyard in general, check [Gives castable from graveyard](gives-castable-from-graveyard)"
+    "taggingCount": 19,
+    "description": "Gives the textual flashback effect. For cards that let you cast others out of the graveyard in general, check [gives castable from graveyard](gives-castable-from-graveyard)."
   },
   {
     "name": "gives flying",
     "slug": "gives-flying",
-    "taggingCount": 442,
+    "taggingCount": 445,
     "description": null
   },
   {
@@ -13964,13 +14066,13 @@
   {
     "name": "gives haste",
     "slug": "gives-haste",
-    "taggingCount": 614,
+    "taggingCount": 615,
     "description": null
   },
   {
     "name": "gives hexproof",
     "slug": "gives-hexproof",
-    "taggingCount": 152,
+    "taggingCount": 153,
     "description": null
   },
   {
@@ -13994,7 +14096,7 @@
   {
     "name": "gives indestructible",
     "slug": "gives-indestructible",
-    "taggingCount": 266,
+    "taggingCount": 268,
     "description": null
   },
   {
@@ -14042,7 +14144,7 @@
   {
     "name": "gives lifelink",
     "slug": "gives-lifelink",
-    "taggingCount": 227,
+    "taggingCount": 228,
     "description": null
   },
   {
@@ -14060,7 +14162,7 @@
   {
     "name": "gives mana ability",
     "slug": "gives-mana-ability",
-    "taggingCount": 107,
+    "taggingCount": 109,
     "description": null
   },
   {
@@ -14204,13 +14306,13 @@
   {
     "name": "gives pp counters",
     "slug": "gives-pp-counters",
-    "taggingCount": 1253,
+    "taggingCount": 1279,
     "description": "Cards that give +1/+1 counters"
   },
   {
     "name": "gives pp counters to all",
     "slug": "gives-pp-counters-to-all",
-    "taggingCount": 168,
+    "taggingCount": 174,
     "description": "Put +1/+1 counters on all of your creatures."
   },
   {
@@ -14342,13 +14444,13 @@
   {
     "name": "gives storm",
     "slug": "gives-storm",
-    "taggingCount": 5,
+    "taggingCount": 6,
     "description": null
   },
   {
     "name": "gives sunburst",
     "slug": "gives-sunburst",
-    "taggingCount": 2,
+    "taggingCount": 3,
     "description": null
   },
   {
@@ -14378,7 +14480,7 @@
   {
     "name": "gives tap ability",
     "slug": "gives-tap-ability",
-    "taggingCount": 129,
+    "taggingCount": 131,
     "description": null
   },
   {
@@ -14408,13 +14510,7 @@
   {
     "name": "gives trample",
     "slug": "gives-trample",
-    "taggingCount": 440,
-    "description": null
-  },
-  {
-    "name": "gives triggered ability",
-    "slug": "gives-triggered-ability",
-    "taggingCount": 1,
+    "taggingCount": 444,
     "description": null
   },
   {
@@ -14426,7 +14522,7 @@
   {
     "name": "gives unblockable",
     "slug": "gives-unblockable",
-    "taggingCount": 155,
+    "taggingCount": 156,
     "description": null
   },
   {
@@ -14468,7 +14564,7 @@
   {
     "name": "gives vigilance",
     "slug": "gives-vigilance",
-    "taggingCount": 271,
+    "taggingCount": 273,
     "description": null
   },
   {
@@ -14516,19 +14612,19 @@
   {
     "name": "graveyard fuel",
     "slug": "graveyard-fuel",
-    "taggingCount": 173,
+    "taggingCount": 179,
     "description": "Cards that require exiling other cards in graveyard as a cost for abilities and effects."
   },
   {
     "name": "graveyard fuel-artifact",
     "slug": "graveyard-fuel-artifact",
-    "taggingCount": 26,
+    "taggingCount": 27,
     "description": null
   },
   {
     "name": "graveyard fuel-creature",
     "slug": "graveyard-fuel-creature",
-    "taggingCount": 177,
+    "taggingCount": 180,
     "description": "Exiles creatures from the graveyard for value"
   },
   {
@@ -14546,7 +14642,7 @@
   {
     "name": "graveyard fuel-instant",
     "slug": "graveyard-fuel-instant",
-    "taggingCount": 26,
+    "taggingCount": 27,
     "description": null
   },
   {
@@ -14564,7 +14660,7 @@
   {
     "name": "graveyard fuel-noncreature",
     "slug": "graveyard-fuel-noncreature",
-    "taggingCount": 2,
+    "taggingCount": 3,
     "description": null
   },
   {
@@ -14594,7 +14690,7 @@
   {
     "name": "graveyard fuel-sorcery",
     "slug": "graveyard-fuel-sorcery",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": null
   },
   {
@@ -14654,7 +14750,7 @@
   {
     "name": "group slug",
     "slug": "group-slug",
-    "taggingCount": 607,
+    "taggingCount": 622,
     "description": "Cards that are able to deal damage or otherwise target multiple players at once"
   },
   {
@@ -14696,19 +14792,19 @@
   {
     "name": "hand-negative",
     "slug": "hand-negative",
-    "taggingCount": 191,
+    "taggingCount": 200,
     "description": "Spell and abilities that leave you with less cards in hand after resolving."
   },
   {
     "name": "hand-neutral",
     "slug": "hand-neutral",
-    "taggingCount": 1427,
+    "taggingCount": 1540,
     "description": "Spell and abilities that leave you with the same amount of cards in hand after resolving."
   },
   {
     "name": "hand-positive",
     "slug": "hand-positive",
-    "taggingCount": 849,
+    "taggingCount": 919,
     "description": "Spells and abilities that leave you with more cards in hand after resolving."
   },
   {
@@ -14726,13 +14822,13 @@
   {
     "name": "hand size increase",
     "slug": "hand-size-increase",
-    "taggingCount": 51,
+    "taggingCount": 52,
     "description": "Cards that increase the maximum amount of cards you can hold. "
   },
   {
     "name": "hand size matters",
     "slug": "hand-size-matters",
-    "taggingCount": 117,
+    "taggingCount": 118,
     "description": null
   },
   {
@@ -14762,7 +14858,7 @@
   {
     "name": "hate-activation",
     "slug": "hate-activation",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": null
   },
   {
@@ -14798,7 +14894,7 @@
   {
     "name": "hate-attacker",
     "slug": "hate-attacker",
-    "taggingCount": 356,
+    "taggingCount": 359,
     "description": null
   },
   {
@@ -14912,7 +15008,7 @@
   {
     "name": "hate-color-share",
     "slug": "hate-color-share",
-    "taggingCount": 26,
+    "taggingCount": 27,
     "description": null
   },
   {
@@ -14978,7 +15074,7 @@
   {
     "name": "hate-discard",
     "slug": "hate-discard",
-    "taggingCount": 129,
+    "taggingCount": 130,
     "description": "Your opponent had better think twice before targeting you with that [Mind Rot](https://tagger.scryfall.com/card/ori/281)!"
   },
   {
@@ -15068,7 +15164,7 @@
   {
     "name": "hate-flying",
     "slug": "hate-flying",
-    "taggingCount": 136,
+    "taggingCount": 137,
     "description": null
   },
   {
@@ -15104,7 +15200,7 @@
   {
     "name": "hate-graveyard",
     "slug": "hate-graveyard",
-    "taggingCount": 295,
+    "taggingCount": 301,
     "description": null
   },
   {
@@ -15128,7 +15224,7 @@
   {
     "name": "hate-high-pt",
     "slug": "hate-high-pt",
-    "taggingCount": 162,
+    "taggingCount": 163,
     "description": "Cards that specifically hate on cards with high power or toughness, typically at least 3-4."
   },
   {
@@ -15146,7 +15242,7 @@
   {
     "name": "hate-instant",
     "slug": "hate-instant",
-    "taggingCount": 90,
+    "taggingCount": 92,
     "description": null
   },
   {
@@ -15242,7 +15338,7 @@
   {
     "name": "hate-named",
     "slug": "hate-named",
-    "taggingCount": 7,
+    "taggingCount": 9,
     "description": "Hate a specific card of your choice. Yes, that one."
   },
   {
@@ -15254,7 +15350,7 @@
   {
     "name": "hate-nonbasic-land",
     "slug": "hate-nonbasic-land",
-    "taggingCount": 81,
+    "taggingCount": 82,
     "description": null
   },
   {
@@ -15368,7 +15464,7 @@
   {
     "name": "hate-set-mechanic",
     "slug": "hate-set-mechanic",
-    "taggingCount": 252,
+    "taggingCount": 254,
     "description": "Cards that \"hate\" on one or more mechanics in the set they were printed in."
   },
   {
@@ -15392,7 +15488,7 @@
   {
     "name": "hate-sorcery",
     "slug": "hate-sorcery",
-    "taggingCount": 77,
+    "taggingCount": 79,
     "description": null
   },
   {
@@ -15446,7 +15542,7 @@
   {
     "name": "hate-tapped",
     "slug": "hate-tapped",
-    "taggingCount": 152,
+    "taggingCount": 153,
     "description": null
   },
   {
@@ -15734,7 +15830,7 @@
   {
     "name": "hate-typal-non-choose",
     "slug": "hate-typal-non-choose",
-    "taggingCount": 1,
+    "taggingCount": 6,
     "description": null
   },
   {
@@ -16118,13 +16214,13 @@
   {
     "name": "haven",
     "slug": "haven",
-    "taggingCount": 86,
+    "taggingCount": 87,
     "description": "Exile your permanents to return them at much later point, essentially storing them somewhere safe. Not to be confused with [flicker](/tags/card/flicker)."
   },
   {
     "name": "heckbent",
     "slug": "heckbent",
-    "taggingCount": 10,
+    "taggingCount": 11,
     "description": "Effects that care about having one or fewer cards in hand."
   },
   {
@@ -16148,7 +16244,7 @@
   {
     "name": "heroic",
     "slug": "heroic",
-    "taggingCount": 113,
+    "taggingCount": 124,
     "description": "Whenever you cast a spell targeting your permanent, something good happens."
   },
   {
@@ -16184,7 +16280,7 @@
   {
     "name": "homeward effect",
     "slug": "homeward-effect",
-    "taggingCount": 75,
+    "taggingCount": 76,
     "description": "Regain control of stuff you own."
   },
   {
@@ -16220,7 +16316,7 @@
   {
     "name": "hungry demon",
     "slug": "hungry-demon",
-    "taggingCount": 27,
+    "taggingCount": 29,
     "description": "Cards that make you sacrifice a creature, either automatically or with a downside if you can't or won't."
   },
   {
@@ -16250,7 +16346,7 @@
   {
     "name": "impulse",
     "slug": "impulse",
-    "taggingCount": 63,
+    "taggingCount": 65,
     "description": "Look at the top N cards and put 1+ of them into your hand. Not to be confused with Red's pseudo-card-draw effect, [impulsive draw](/tags/card/impulsive-draw)."
   },
   {
@@ -16310,7 +16406,7 @@
   {
     "name": "impulse-cast",
     "slug": "impulse-cast",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": null
   },
   {
@@ -16328,7 +16424,7 @@
   {
     "name": "impulse-creature",
     "slug": "impulse-creature",
-    "taggingCount": 146,
+    "taggingCount": 149,
     "description": null
   },
   {
@@ -16520,7 +16616,7 @@
   {
     "name": "impulse-land",
     "slug": "impulse-land",
-    "taggingCount": 98,
+    "taggingCount": 101,
     "description": null
   },
   {
@@ -16550,7 +16646,7 @@
   {
     "name": "impulse-onto-battlefield",
     "slug": "impulse-onto-battlefield",
-    "taggingCount": 116,
+    "taggingCount": 118,
     "description": null
   },
   {
@@ -16616,13 +16712,13 @@
   {
     "name": "impulsive draw",
     "slug": "impulsive-draw",
-    "taggingCount": 85,
+    "taggingCount": 87,
     "description": "Cards which let you cast a card for a limited time off the top of a library (via exile). Use it or lose it. Typically a red card advantage mechanic. For the effect seen on the [card Impulse](/card/vis/34), see the [tag impulse](/tags/card/impulse)."
   },
   {
     "name": "impulsive recursion",
     "slug": "impulsive-recursion",
-    "taggingCount": 10,
+    "taggingCount": 12,
     "description": "Sends cards to exile from the graveyard and you can cast them for a limited time. Similar to [Impulsive Draw](/tags/card/impulsive-draw), but from the graveyard, not the library."
   },
   {
@@ -16670,8 +16766,14 @@
   {
     "name": "instant-sorcery-dichotomous",
     "slug": "instant-sorcery-dichotomous",
-    "taggingCount": 15,
+    "taggingCount": 16,
     "description": "Cards that care about instants and sorceries separately."
+  },
+  {
+    "name": "instant speed discard",
+    "slug": "instant-speed-discard",
+    "taggingCount": 20,
+    "description": "Discard effects that can deny the opponent the card they draw each turn"
   },
   {
     "name": "interrupt",
@@ -16682,7 +16784,7 @@
   {
     "name": "intervening if clause",
     "slug": "intervening-if-clause",
-    "taggingCount": 2095,
+    "taggingCount": 2114,
     "description": "At/When/Whenever [event], if [clause], [effect]."
   },
   {
@@ -16713,12 +16815,12 @@
     "name": "jackal pup ability",
     "slug": "jackal-pup-ability",
     "taggingCount": 9,
-    "description": null
+    "description": "Whenever a creature is dealt damage, it deals that much damage to its controller."
   },
   {
     "name": "jump",
     "slug": "jump",
-    "taggingCount": 164,
+    "taggingCount": 165,
     "description": "A creature gains flying until end of turn."
   },
   {
@@ -16736,7 +16838,7 @@
   {
     "name": "keyword anthem",
     "slug": "keyword-anthem",
-    "taggingCount": 461,
+    "taggingCount": 465,
     "description": "Give your entire team a keyword."
   },
   {
@@ -16796,7 +16898,7 @@
   {
     "name": "landfall",
     "slug": "landfall",
-    "taggingCount": 217,
+    "taggingCount": 218,
     "description": "Cards which reward you for playing lands."
   },
   {
@@ -16820,7 +16922,7 @@
   {
     "name": "land or hand",
     "slug": "land-or-hand",
-    "taggingCount": 16,
+    "taggingCount": 17,
     "description": null
   },
   {
@@ -16838,7 +16940,7 @@
   {
     "name": "lands matter",
     "slug": "lands-matter",
-    "taggingCount": 142,
+    "taggingCount": 143,
     "description": null
   },
   {
@@ -16856,19 +16958,25 @@
   {
     "name": "leaves body behind",
     "slug": "leaves-body-behind",
-    "taggingCount": 76,
+    "taggingCount": 77,
     "description": null
   },
   {
     "name": "leaves graveyard trigger",
     "slug": "leaves-graveyard-trigger",
-    "taggingCount": 38,
-    "description": null
+    "taggingCount": 45,
+    "description": "Cards that have triggers whenever a card (or cards) leave your graveyard "
   },
   {
     "name": "leaves trigger-self",
     "slug": "leaves-trigger-self",
     "taggingCount": 159,
+    "description": null
+  },
+  {
+    "name": "leaving graveyard matters",
+    "slug": "leaving-graveyard-matters",
+    "taggingCount": 7,
     "description": null
   },
   {
@@ -16940,8 +17048,20 @@
   {
     "name": "life divider",
     "slug": "life-divider",
-    "taggingCount": 27,
+    "taggingCount": 0,
     "description": "Effects that make players lose fractions of their life total. See also [set life total](/tags/card/set-life-total) and [life doubler](/tags/card/life-doubler)."
+  },
+  {
+    "name": "life divider-opponent",
+    "slug": "life-divider-opponent",
+    "taggingCount": 21,
+    "description": null
+  },
+  {
+    "name": "life divider-you",
+    "slug": "life-divider-you",
+    "taggingCount": 22,
+    "description": null
   },
   {
     "name": "life doubler",
@@ -16952,31 +17072,31 @@
   {
     "name": "life for cards",
     "slug": "life-for-cards",
-    "taggingCount": 266,
+    "taggingCount": 275,
     "description": "Get cards in exchange for your life (damage causes loss of life)."
   },
   {
     "name": "lifegain",
     "slug": "lifegain",
-    "taggingCount": 852,
+    "taggingCount": 863,
     "description": null
   },
   {
     "name": "lifegain increaser",
     "slug": "lifegain-increaser",
-    "taggingCount": 12,
+    "taggingCount": 13,
     "description": null
   },
   {
     "name": "lifegain matters",
     "slug": "lifegain-matters",
-    "taggingCount": 149,
+    "taggingCount": 163,
     "description": null
   },
   {
     "name": "lifegain-to-damage",
     "slug": "lifegain-to-damage",
-    "taggingCount": 12,
+    "taggingCount": 17,
     "description": "Transforms player lifegain into player damage."
   },
   {
@@ -16988,13 +17108,13 @@
   {
     "name": "life loss matters",
     "slug": "life-loss-matters",
-    "taggingCount": 135,
+    "taggingCount": 136,
     "description": null
   },
   {
     "name": "life payment",
     "slug": "life-payment",
-    "taggingCount": 330,
+    "taggingCount": 336,
     "description": "Cards that cost life to use; not necessarily with the \"pay\" keyword."
   },
   {
@@ -17026,6 +17146,12 @@
     "slug": "lobotomy",
     "taggingCount": 36,
     "description": "Exile all cards of a particular name from a player's hand, library, and/or graveyard. See also [nevermore](/tags/card/nevermore), which forbids certain cards from being cast."
+  },
+  {
+    "name": "location matters",
+    "slug": "location-matters",
+    "taggingCount": 1,
+    "description": null
   },
   {
     "name": "lockdown",
@@ -17084,7 +17210,7 @@
   {
     "name": "loot",
     "slug": "loot",
-    "taggingCount": 102,
+    "taggingCount": 105,
     "description": "Draw a card, then discard a card. Mainly blue. See also [rummage](/tags/card/rummage), the red version, which discards then draws."
   },
   {
@@ -17132,7 +17258,7 @@
   {
     "name": "magic term name",
     "slug": "magic-term-name",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": "Card names that are specifically terms used by Wizards of the Coast or fans of Magic: The Gathering"
   },
   {
@@ -17156,7 +17282,7 @@
   {
     "name": "mana dork",
     "slug": "mana-dork",
-    "taggingCount": 417,
+    "taggingCount": 425,
     "description": "Low-cost creatures which can repeatedly generate mana"
   },
   {
@@ -17174,7 +17300,7 @@
   {
     "name": "mana filter",
     "slug": "mana-filter",
-    "taggingCount": 126,
+    "taggingCount": 127,
     "description": "Convert mana to other colors."
   },
   {
@@ -17199,13 +17325,13 @@
     "name": "mana leak series",
     "slug": "mana-leak-series",
     "taggingCount": 4,
-    "description": "Soft counterspells with CMC N that cost &gt; N."
+    "description": "Soft counterspells with mana value N that cost more than N to pay off"
   },
   {
     "name": "manaless land",
     "slug": "manaless-land",
     "taggingCount": 47,
-    "description": "Lands that don't have any way to tap for mana. Typically considered a depreciated mechanic besides lands that are meant to search for other lands that tap for mana."
+    "description": "Lands that don't have any way to tap for mana. Typically considered a deprecated mechanic besides lands that are meant to search for other lands that tap for mana."
   },
   {
     "name": "manaless value",
@@ -17216,7 +17342,7 @@
   {
     "name": "mana producer",
     "slug": "mana-producer",
-    "taggingCount": 100,
+    "taggingCount": 101,
     "description": "non-land cards which generate mana"
   },
   {
@@ -17228,7 +17354,7 @@
   {
     "name": "mana rock",
     "slug": "mana-rock",
-    "taggingCount": 105,
+    "taggingCount": 106,
     "description": "Noncreature artifacts that net increase your mana."
   },
   {
@@ -17240,7 +17366,7 @@
   {
     "name": "mana sink",
     "slug": "mana-sink",
-    "taggingCount": 689,
+    "taggingCount": 748,
     "description": "Cards with repeatable effects that you can dump a bunch of mana (at least 3) into each turn."
   },
   {
@@ -17252,19 +17378,19 @@
   {
     "name": "mana spent matters",
     "slug": "mana-spent-matters",
-    "taggingCount": 22,
+    "taggingCount": 24,
     "description": "Effects that care about the amount, type, and/or qualities of mana spent to do a thing."
   },
   {
     "name": "mana storage",
     "slug": "mana-storage",
-    "taggingCount": 51,
+    "taggingCount": 52,
     "description": "Cards that can be used to store mana for later phases and/or turns. The storing methods are varied—many use counters to count stored mana, while others create tokens."
   },
   {
     "name": "mana value matters",
     "slug": "mana-value-matters",
-    "taggingCount": 720,
+    "taggingCount": 737,
     "description": null
   },
   {
@@ -17276,7 +17402,7 @@
   {
     "name": "marauder",
     "slug": "marauder",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "Enters and causes all players to sacrifice a creature."
   },
   {
@@ -17298,6 +17424,12 @@
     "description": "Creatures that sacrifice themselves for benefit."
   },
   {
+    "name": "mass-bounce",
+    "slug": "mass-bounce",
+    "taggingCount": 1,
+    "description": null
+  },
+  {
     "name": "mass fight",
     "slug": "mass-fight",
     "taggingCount": 12,
@@ -17312,7 +17444,7 @@
   {
     "name": "mass reanimation",
     "slug": "mass-reanimation",
-    "taggingCount": 53,
+    "taggingCount": 55,
     "description": "Reanimate everything (or every thing of a kind) from one or more graveyards (or potentially do this)."
   },
   {
@@ -17337,7 +17469,7 @@
     "name": "mechanical foreshadow",
     "slug": "mechanical-foreshadow",
     "taggingCount": 13,
-    "description": "Cards that refer to another card, type, or mechanic not yet seen in the game."
+    "description": "Cards that refer to another card, card type, or named mechanic that was not yet in the game (or sometimes later in Standard's rotation) until a later product's release. "
   },
   {
     "name": "melded",
@@ -17348,7 +17480,7 @@
   {
     "name": "meme",
     "slug": "meme",
-    "taggingCount": 123,
+    "taggingCount": 124,
     "description": "Cards that have become memes in Magic, or are explicitly based off of memes."
   },
   {
@@ -17372,7 +17504,7 @@
   {
     "name": "mill-any",
     "slug": "mill-any",
-    "taggingCount": 186,
+    "taggingCount": 187,
     "description": "Cards that let you choose a library to mill. Could be yours, could be theirs. It could also be an indirect choice, e.g. milling the controller of a targeted permanent."
   },
   {
@@ -17396,7 +17528,7 @@
   {
     "name": "mill-self",
     "slug": "mill-self",
-    "taggingCount": 322,
+    "taggingCount": 327,
     "description": "Cards that put cards from top of your own library to the graveyard. Check the tag \"mill\" for more."
   },
   {
@@ -17408,8 +17540,14 @@
   {
     "name": "minigame",
     "slug": "minigame",
-    "taggingCount": 97,
+    "taggingCount": 98,
     "description": "Engages one or more other players in a bet or mind game (not necessarily explicitly)."
+  },
+  {
+    "name": "mini refund",
+    "slug": "mini-refund",
+    "taggingCount": 313,
+    "description": "Immediately gives you a small amount of mana or untapped lands back (typically no more than about one-third of the mana cost you paid)"
   },
   {
     "name": "miniwheel",
@@ -17432,7 +17570,7 @@
   {
     "name": "misnomer",
     "slug": "misnomer",
-    "taggingCount": 29,
+    "taggingCount": 30,
     "description": "Cards with names that imply something that card isn't, such as a mechanic or a color."
   },
   {
@@ -17444,7 +17582,7 @@
   {
     "name": "mixed subtypes",
     "slug": "mixed-subtypes",
-    "taggingCount": 85,
+    "taggingCount": 86,
     "description": "These cards have subtypes on the same type line that belong to different card types. (For example, Dryad is a creature subtype and Forest is a land subtype.)"
   },
   {
@@ -17468,7 +17606,7 @@
   {
     "name": "modal",
     "slug": "modal",
-    "taggingCount": 516,
+    "taggingCount": 539,
     "description": "Spells which give you your choice from two or more distinct functions."
   },
   {
@@ -17492,13 +17630,13 @@
   {
     "name": "morbid",
     "slug": "morbid",
-    "taggingCount": 124,
+    "taggingCount": 128,
     "description": "Effects that care about at least one creature dying this turn."
   },
   {
     "name": "more expensive than mv",
     "slug": "more-expensive-than-mv",
-    "taggingCount": 947,
+    "taggingCount": 955,
     "description": "The actual cost you pay for an effect (or for an alternate mode) will often be higher than the card's mana value."
   },
   {
@@ -17522,7 +17660,7 @@
   {
     "name": "move counters",
     "slug": "move-counters",
-    "taggingCount": 65,
+    "taggingCount": 67,
     "description": null
   },
   {
@@ -17534,7 +17672,7 @@
   {
     "name": "mulch",
     "slug": "mulch",
-    "taggingCount": 105,
+    "taggingCount": 108,
     "description": "An effect that filters cards at the top of the library, putting remainders into the graveyard."
   },
   {
@@ -17546,7 +17684,7 @@
   {
     "name": "multi character card",
     "slug": "multi-character-card",
-    "taggingCount": 57,
+    "taggingCount": 73,
     "description": "This card represents multiple distinct identifiable characters on one face. Avoid using this for nameless mobs."
   },
   {
@@ -17564,13 +17702,13 @@
   {
     "name": "multiplayer",
     "slug": "multiplayer",
-    "taggingCount": 141,
+    "taggingCount": 146,
     "description": "Cards that interact with all of the players in the game. They might scale with the number of players or affect the turn order for example."
   },
   {
     "name": "multiple bodies",
     "slug": "multiple-bodies",
-    "taggingCount": 403,
+    "taggingCount": 410,
     "description": "One-shot effects that put two or more creatures onto the battlefield on resolution."
   },
   {
@@ -17580,21 +17718,21 @@
     "description": null
   },
   {
-    "name": "multiple race types",
-    "slug": "multiple-race-types",
+    "name": "multiple species types",
+    "slug": "multiple-species-types",
     "taggingCount": 96,
-    "description": null
+    "description": "Creatures that have two or more types that are considered to be a species, such as \"Human\" or \"Elf\""
   },
   {
     "name": "multiple targets",
     "slug": "multiple-targets",
-    "taggingCount": 1422,
+    "taggingCount": 1440,
     "description": "These cards can target more than one object or player. Not mutually exclusive with [single target instant/sorcery](/tags/card/single-target-instant-sorcery)."
   },
   {
     "name": "multi removal",
     "slug": "multi-removal",
-    "taggingCount": 610,
+    "taggingCount": 615,
     "description": "Removal for more than one, but less than all.  See also [spot removal](spot-removal) and [sweeper](sweeper)."
   },
   {
@@ -17606,13 +17744,13 @@
   {
     "name": "mutual sacrifice",
     "slug": "mutual-sacrifice",
-    "taggingCount": 28,
+    "taggingCount": 31,
     "description": "Everyone sacrifices something."
   },
   {
     "name": "named choice",
     "slug": "named-choice",
-    "taggingCount": 38,
+    "taggingCount": 39,
     "description": "Players choose something, but the choices are given names, rather than choosing the effect itself."
   },
   {
@@ -17630,8 +17768,14 @@
   {
     "name": "namesake spell",
     "slug": "namesake-spell",
-    "taggingCount": 1577,
+    "taggingCount": 1581,
     "description": "Spells (or, mostly spells) with names that identify them with a specific named character."
+  },
+  {
+    "name": "naturalize with set mechanic",
+    "slug": "naturalize-with-set-mechanic",
+    "taggingCount": 65,
+    "description": null
   },
   {
     "name": "naya ferocious",
@@ -17666,7 +17810,7 @@
   {
     "name": "nightveil theft",
     "slug": "nightveil-theft",
-    "taggingCount": 122,
+    "taggingCount": 123,
     "description": "Exile your opponent's stuff and cast it (and very similar variations on the concept)."
   },
   {
@@ -17696,7 +17840,7 @@
   {
     "name": "nonbasic-basic-land-type",
     "slug": "nonbasic-basic-land-type",
-    "taggingCount": 97,
+    "taggingCount": 106,
     "description": null
   },
   {
@@ -17708,7 +17852,7 @@
   {
     "name": "noncreature typal",
     "slug": "noncreature-typal",
-    "taggingCount": 1572,
+    "taggingCount": 1589,
     "description": "Cards that care about creature types, but not necessarily on a creature card—so they're compatible with the Kindred cards from Lorwyn, for example."
   },
   {
@@ -17732,7 +17876,7 @@
   {
     "name": "non mana ability mana",
     "slug": "non-mana-ability-mana",
-    "taggingCount": 157,
+    "taggingCount": 161,
     "description": "Abilities that produce mana, but aren't mana abilities (as defined by CR 605.1)"
   },
   {
@@ -17864,7 +18008,7 @@
   {
     "name": "one-sided fight",
     "slug": "one-sided-fight",
-    "taggingCount": 148,
+    "taggingCount": 149,
     "description": "A creature deals damage equal to its power to another. Like Fight, but without the chance to fight back. See also [fling](/tags/card/fling) which involves sacrificing the creature."
   },
   {
@@ -17876,7 +18020,7 @@
   {
     "name": "opaline effect",
     "slug": "opaline-effect",
-    "taggingCount": 15,
+    "taggingCount": 16,
     "description": "Whenever your stuff becomes the target of a spell and/or ability, you draw a card."
   },
   {
@@ -17888,7 +18032,7 @@
   {
     "name": "opponent chooses",
     "slug": "opponent-chooses",
-    "taggingCount": 106,
+    "taggingCount": 105,
     "description": null
   },
   {
@@ -17900,13 +18044,13 @@
   {
     "name": "opponent lifegain",
     "slug": "opponent-lifegain",
-    "taggingCount": 55,
+    "taggingCount": 56,
     "description": null
   },
   {
     "name": "opponent loses life",
     "slug": "opponent-loses-life",
-    "taggingCount": 862,
+    "taggingCount": 884,
     "description": null
   },
   {
@@ -17948,7 +18092,7 @@
   {
     "name": "out of color token",
     "slug": "out-of-color-token",
-    "taggingCount": 304,
+    "taggingCount": 307,
     "description": null
   },
   {
@@ -17960,7 +18104,7 @@
   {
     "name": "overrun",
     "slug": "overrun",
-    "taggingCount": 75,
+    "taggingCount": 76,
     "description": "Effects that grant trample and +P/+T"
   },
   {
@@ -18002,7 +18146,7 @@
   {
     "name": "paradox",
     "slug": "paradox",
-    "taggingCount": 36,
+    "taggingCount": 38,
     "description": "Cards that care about casting spells from anywhere other than your hand."
   },
   {
@@ -18062,7 +18206,7 @@
   {
     "name": "per-player",
     "slug": "per-player",
-    "taggingCount": 281,
+    "taggingCount": 285,
     "description": "A spell or ability that scales to become more powerful with the number of players; i. e, \"For each player, do X\""
   },
   {
@@ -18126,12 +18270,6 @@
     "description": "These tokens had Phyrexian variants added in Modern Horizons 2 errata."
   },
   {
-    "name": "physical aspects matter",
-    "slug": "physical-aspects-matter",
-    "taggingCount": 4,
-    "description": null
-  },
-  {
     "name": "pierce",
     "slug": "pierce",
     "taggingCount": 6,
@@ -18164,7 +18302,7 @@
   {
     "name": "pinger",
     "slug": "pinger",
-    "taggingCount": 355,
+    "taggingCount": 358,
     "description": "Effects that deal just 1-2 damage repeatedly."
   },
   {
@@ -18218,8 +18356,8 @@
   {
     "name": "players outside game matter",
     "slug": "players-outside-game-matter",
-    "taggingCount": 30,
-    "description": null
+    "taggingCount": 31,
+    "description": "Cards that involve people beyond the players in the game."
   },
   {
     "name": "player spotlight",
@@ -18242,7 +18380,7 @@
   {
     "name": "plunder",
     "slug": "plunder",
-    "taggingCount": 68,
+    "taggingCount": 69,
     "description": "Sacrifice something else to draw cards."
   },
   {
@@ -18272,7 +18410,7 @@
   {
     "name": "portmanteau",
     "slug": "portmanteau",
-    "taggingCount": 137,
+    "taggingCount": 140,
     "description": "Cards named with a portmanteau—a word that's a combination of two words."
   },
   {
@@ -18290,7 +18428,7 @@
   {
     "name": "power boost to all",
     "slug": "power-boost-to-all",
-    "taggingCount": 908,
+    "taggingCount": 913,
     "description": "Cards that provide power to all creatures you control. May be limited to certain types or colors."
   },
   {
@@ -18302,19 +18440,19 @@
   {
     "name": "power matters",
     "slug": "power-matters",
-    "taggingCount": 478,
+    "taggingCount": 479,
     "description": null
   },
   {
     "name": "power matters-individual",
     "slug": "power-matters-individual",
-    "taggingCount": 34,
+    "taggingCount": 35,
     "description": "Effects which care about the power of one creature (or multiple creatures individually, as opposed to as a total)."
   },
   {
     "name": "power matters-self",
     "slug": "power-matters-self",
-    "taggingCount": 279,
+    "taggingCount": 281,
     "description": null
   },
   {
@@ -18332,7 +18470,7 @@
   {
     "name": "pp counters matter",
     "slug": "pp-counters-matter",
-    "taggingCount": 326,
+    "taggingCount": 333,
     "description": null
   },
   {
@@ -18354,9 +18492,15 @@
     "description": "Cards named after Dungeons &amp; Dragons backgrounds that already exist! 🎲"
   },
   {
+    "name": "prepare matters",
+    "slug": "prepare-matters",
+    "taggingCount": 2,
+    "description": null
+  },
+  {
     "name": "prevent activation",
     "slug": "prevent-activation",
-    "taggingCount": 65,
+    "taggingCount": 66,
     "description": null
   },
   {
@@ -18368,13 +18512,13 @@
   {
     "name": "prevent blocker",
     "slug": "prevent-blocker",
-    "taggingCount": 243,
+    "taggingCount": 244,
     "description": null
   },
   {
     "name": "prevent cast",
     "slug": "prevent-cast",
-    "taggingCount": 56,
+    "taggingCount": 55,
     "description": null
   },
   {
@@ -18393,12 +18537,6 @@
     "name": "prevent extra turns",
     "slug": "prevent-extra-turns",
     "taggingCount": 4,
-    "description": null
-  },
-  {
-    "name": "prevent life payment",
-    "slug": "prevent-life-payment",
-    "taggingCount": 3,
     "description": null
   },
   {
@@ -18422,7 +18560,7 @@
   {
     "name": "prevents win/loss",
     "slug": "prevents-win-loss",
-    "taggingCount": 19,
+    "taggingCount": 18,
     "description": null
   },
   {
@@ -18434,13 +18572,13 @@
   {
     "name": "pridemate",
     "slug": "pridemate",
-    "taggingCount": 37,
+    "taggingCount": 39,
     "description": "Effects that put +1/+1 counters on something when you gain life."
   },
   {
     "name": "probe",
     "slug": "probe",
-    "taggingCount": 6,
+    "taggingCount": 7,
     "description": "Draw three cards, then discard two cards. Not to be confused with [compulsive research](compulsive-research) or [sift](sift)."
   },
   {
@@ -18464,7 +18602,7 @@
   {
     "name": "protects-creature",
     "slug": "protects-creature",
-    "taggingCount": 714,
+    "taggingCount": 721,
     "description": "Effects that can protect a creature, e.g. with protection,  hexproof, indestructible, etc."
   },
   {
@@ -18522,9 +18660,15 @@
     "description": null
   },
   {
+    "name": "pseudo-curse",
+    "slug": "pseudo-curse",
+    "taggingCount": 4,
+    "description": null
+  },
+  {
     "name": "pseudo-cycling",
     "slug": "pseudo-cycling",
-    "taggingCount": 4,
+    "taggingCount": 5,
     "description": null
   },
   {
@@ -18608,13 +18752,13 @@
   {
     "name": "punny name",
     "slug": "punny-name",
-    "taggingCount": 491,
+    "taggingCount": 500,
     "description": "Names that are puns or otherwise a play on words "
   },
   {
     "name": "pure draw",
     "slug": "pure-draw",
-    "taggingCount": 1243,
+    "taggingCount": 1257,
     "description": "Spells and abilities that let you draw (a) card(s) without discarding other cards or sacrificing other permanents."
   },
   {
@@ -18632,7 +18776,7 @@
   {
     "name": "quadratic",
     "slug": "quadratic",
-    "taggingCount": 74,
+    "taggingCount": 75,
     "description": "Cards with some kind of effect increases to the second power. This could mean something like a power increase, token creation, or otherwise. See [exponential](exponential) for a different, but similar kind of effect."
   },
   {
@@ -18650,7 +18794,7 @@
   {
     "name": "quick equip",
     "slug": "quick-equip",
-    "taggingCount": 98,
+    "taggingCount": 99,
     "description": "Non-Equip abilities that attach equipment."
   },
   {
@@ -18686,13 +18830,13 @@
   {
     "name": "rainbow land",
     "slug": "rainbow-land",
-    "taggingCount": 111,
+    "taggingCount": 112,
     "description": "A land that can net one or more mana of any color."
   },
   {
     "name": "ramp",
     "slug": "ramp",
-    "taggingCount": 830,
+    "taggingCount": 839,
     "description": "Effects that increase available mana for current or later turns."
   },
   {
@@ -18710,8 +18854,8 @@
   {
     "name": "random card",
     "slug": "random-card",
-    "taggingCount": 23,
-    "description": null
+    "taggingCount": 24,
+    "description": "Cards that involve bringing up a *Magic: The Gathering* card at random, either from the entire card pool or with certain specifications "
   },
   {
     "name": "random discard",
@@ -18752,7 +18896,7 @@
   {
     "name": "reanimate-artifact",
     "slug": "reanimate-artifact",
-    "taggingCount": 66,
+    "taggingCount": 68,
     "description": null
   },
   {
@@ -18764,7 +18908,7 @@
   {
     "name": "reanimate-aura",
     "slug": "reanimate-aura",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": null
   },
   {
@@ -18776,31 +18920,31 @@
   {
     "name": "reanimate-cast",
     "slug": "reanimate-cast",
-    "taggingCount": 146,
-    "description": "Cast a card from your graveyard."
+    "taggingCount": 145,
+    "description": "Cast a permanent spell from your graveyard."
   },
   {
     "name": "reanimate copy",
     "slug": "reanimate-copy",
-    "taggingCount": 48,
+    "taggingCount": 50,
     "description": "\"Brings back\" a copy of a permanent card in a graveyard instead of the original. Could be a token copy, could be turning another card into a copy of it."
   },
   {
     "name": "reanimate-creature",
     "slug": "reanimate-creature",
-    "taggingCount": 509,
+    "taggingCount": 515,
     "description": "Return creature cards currently in the graveyard to the battlefield. Not to be confused with [cheat death](/tags/card/cheat-death), which interacts right as the creature dies."
   },
   {
     "name": "reanimate-enchantment",
     "slug": "reanimate-enchantment",
-    "taggingCount": 30,
+    "taggingCount": 32,
     "description": null
   },
   {
     "name": "reanimate-equipment",
     "slug": "reanimate-equipment",
-    "taggingCount": 12,
+    "taggingCount": 13,
     "description": null
   },
   {
@@ -18854,7 +18998,7 @@
   {
     "name": "reanimate-nonland",
     "slug": "reanimate-nonland",
-    "taggingCount": 18,
+    "taggingCount": 21,
     "description": null
   },
   {
@@ -18878,7 +19022,7 @@
   {
     "name": "reanimate-self",
     "slug": "reanimate-self",
-    "taggingCount": 257,
+    "taggingCount": 260,
     "description": "These cards can return themselves to the battlefield if they're sitting in the graveyard. Not to be confused with [cheat death-self](cheat-death-self), where the card returns immediately after dying."
   },
   {
@@ -18986,7 +19130,7 @@
   {
     "name": "recycle",
     "slug": "recycle",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": "Sacrifice a thing to get another thing back from the graveyard."
   },
   {
@@ -19004,13 +19148,13 @@
   {
     "name": "reflexive trigger",
     "slug": "reflexive-trigger",
-    "taggingCount": 287,
+    "taggingCount": 291,
     "description": "An ability that triggers based on actions taken earlier during a spell or ability's resolution."
   },
   {
     "name": "refund",
     "slug": "refund",
-    "taggingCount": 625,
+    "taggingCount": 264,
     "description": "Immediately get mana or untapped lands back."
   },
   {
@@ -19034,7 +19178,7 @@
   {
     "name": "regrowth-any",
     "slug": "regrowth-any",
-    "taggingCount": 53,
+    "taggingCount": 54,
     "description": "Bring back a card of any card type from your graveyard to your hand."
   },
   {
@@ -19046,7 +19190,7 @@
   {
     "name": "regrowth-artifact",
     "slug": "regrowth-artifact",
-    "taggingCount": 60,
+    "taggingCount": 59,
     "description": null
   },
   {
@@ -19070,7 +19214,7 @@
   {
     "name": "regrowth-creature",
     "slug": "regrowth-creature",
-    "taggingCount": 325,
+    "taggingCount": 326,
     "description": null
   },
   {
@@ -19086,6 +19230,12 @@
     "description": null
   },
   {
+    "name": "regrowth-food",
+    "slug": "regrowth-food",
+    "taggingCount": 1,
+    "description": null
+  },
+  {
     "name": "regrowth-historic",
     "slug": "regrowth-historic",
     "taggingCount": 5,
@@ -19094,7 +19244,7 @@
   {
     "name": "regrowth-instant",
     "slug": "regrowth-instant",
-    "taggingCount": 67,
+    "taggingCount": 70,
     "description": null
   },
   {
@@ -19148,13 +19298,13 @@
   {
     "name": "regrowth-self",
     "slug": "regrowth-self",
-    "taggingCount": 188,
+    "taggingCount": 190,
     "description": null
   },
   {
     "name": "regrowth-sorcery",
     "slug": "regrowth-sorcery",
-    "taggingCount": 68,
+    "taggingCount": 71,
     "description": null
   },
   {
@@ -19173,7 +19323,7 @@
     "name": "relaxed commander restriction",
     "slug": "relaxed-commander-restriction",
     "taggingCount": 6,
-    "description": "Some Playtest card commanders have rules that allow you to run certain cards regardless of the commander's color identity. "
+    "description": "(Typically) playtest cards that bend the rules of what you can or cannot run in your commander deck, such as deck size or allowing you to run cards outside of the what the commander's color identity would allow."
   },
   {
     "name": "relentless",
@@ -19202,7 +19352,7 @@
   {
     "name": "removal-artifact",
     "slug": "removal-artifact",
-    "taggingCount": 333,
+    "taggingCount": 334,
     "description": null
   },
   {
@@ -19220,7 +19370,7 @@
   {
     "name": "removal-bounce",
     "slug": "removal-bounce",
-    "taggingCount": 354,
+    "taggingCount": 358,
     "description": null
   },
   {
@@ -19232,13 +19382,13 @@
   {
     "name": "removal-creature",
     "slug": "removal-creature",
-    "taggingCount": 2467,
+    "taggingCount": 2485,
     "description": null
   },
   {
     "name": "removal-destroy",
     "slug": "removal-destroy",
-    "taggingCount": 1667,
+    "taggingCount": 1683,
     "description": null
   },
   {
@@ -19256,19 +19406,19 @@
   {
     "name": "removal-exile",
     "slug": "removal-exile",
-    "taggingCount": 435,
+    "taggingCount": 440,
     "description": null
   },
   {
     "name": "removal-fight",
     "slug": "removal-fight",
-    "taggingCount": 136,
+    "taggingCount": 137,
     "description": null
   },
   {
     "name": "removal-land",
     "slug": "removal-land",
-    "taggingCount": 297,
+    "taggingCount": 298,
     "description": null
   },
   {
@@ -19286,25 +19436,25 @@
   {
     "name": "removal-nonland",
     "slug": "removal-nonland",
-    "taggingCount": 378,
+    "taggingCount": 386,
     "description": null
   },
   {
     "name": "removal-permanent",
     "slug": "removal-permanent",
-    "taggingCount": 208,
+    "taggingCount": 209,
     "description": null
   },
   {
     "name": "removal-planeswalker",
     "slug": "removal-planeswalker",
-    "taggingCount": 146,
+    "taggingCount": 148,
     "description": null
   },
   {
     "name": "removal-sacrifice",
     "slug": "removal-sacrifice",
-    "taggingCount": 380,
+    "taggingCount": 379,
     "description": null
   },
   {
@@ -19322,13 +19472,13 @@
   {
     "name": "removal-toughness",
     "slug": "removal-toughness",
-    "taggingCount": 596,
+    "taggingCount": 599,
     "description": null
   },
   {
     "name": "removal-tuck",
     "slug": "removal-tuck",
-    "taggingCount": 143,
+    "taggingCount": 144,
     "description": null
   },
   {
@@ -19370,7 +19520,7 @@
   {
     "name": "remove-from-stack",
     "slug": "remove-from-stack",
-    "taggingCount": 39,
+    "taggingCount": 40,
     "description": null
   },
   {
@@ -19478,7 +19628,7 @@
   {
     "name": "renew",
     "slug": "renew",
-    "taggingCount": 145,
+    "taggingCount": 147,
     "description": "Exile this card from your graveyard: Do a thing. Doesn't need to be the specific Renew keyword, just cards that have an ability to exile themselves in the graveyard."
   },
   {
@@ -19490,7 +19640,7 @@
   {
     "name": "repeatable artifact tokens",
     "slug": "repeatable-artifact-tokens",
-    "taggingCount": 169,
+    "taggingCount": 170,
     "description": null
   },
   {
@@ -19508,20 +19658,26 @@
   {
     "name": "repeatable creature tokens",
     "slug": "repeatable-creature-tokens",
-    "taggingCount": 1378,
+    "taggingCount": 1397,
     "description": "Repeatable ways to create creature tokens"
   },
   {
     "name": "repeatable crime",
     "slug": "repeatable-crime",
-    "taggingCount": 3587,
+    "taggingCount": 3607,
     "description": "Repeatable ways to commit crimes by targeting an opponent or something they control."
   },
   {
     "name": "repeatable draw",
     "slug": "repeatable-draw",
-    "taggingCount": 0,
+    "taggingCount": 2,
     "description": "Draw cards repeatedly, no matter if you go up on cards or not"
+  },
+  {
+    "name": "repeatable enchantment tokens",
+    "slug": "repeatable-enchantment-tokens",
+    "taggingCount": 1,
+    "description": null
   },
   {
     "name": "repeatable food",
@@ -19532,13 +19688,13 @@
   {
     "name": "repeatable impulse",
     "slug": "repeatable-impulse",
-    "taggingCount": 161,
+    "taggingCount": 162,
     "description": null
   },
   {
     "name": "repeatable impulsive draw",
     "slug": "repeatable-impulsive-draw",
-    "taggingCount": 150,
+    "taggingCount": 151,
     "description": null
   },
   {
@@ -19556,19 +19712,19 @@
   {
     "name": "repeatable lifegain",
     "slug": "repeatable-lifegain",
-    "taggingCount": 1317,
+    "taggingCount": 1341,
     "description": null
   },
   {
     "name": "repeatable loot",
     "slug": "repeatable-loot",
-    "taggingCount": 226,
+    "taggingCount": 228,
     "description": null
   },
   {
     "name": "repeatable maps",
     "slug": "repeatable-maps",
-    "taggingCount": 5,
+    "taggingCount": 6,
     "description": null
   },
   {
@@ -19602,15 +19758,27 @@
     "description": null
   },
   {
+    "name": "repeatable pp counters",
+    "slug": "repeatable-pp-counters",
+    "taggingCount": 379,
+    "description": "Repeatable ways to put +1/+1 counters on creatures"
+  },
+  {
     "name": "repeatable pure draw",
     "slug": "repeatable-pure-draw",
-    "taggingCount": 1241,
-    "description": null
+    "taggingCount": 1261,
+    "description": "Repeatable ways to draw a card with no additional cost or sacrifice, such as discarding a card"
   },
   {
     "name": "repeatable removal",
     "slug": "repeatable-removal",
-    "taggingCount": 1749,
+    "taggingCount": 1752,
+    "description": null
+  },
+  {
+    "name": "repeatable rescue",
+    "slug": "repeatable-rescue",
+    "taggingCount": 110,
     "description": null
   },
   {
@@ -19622,8 +19790,14 @@
   {
     "name": "repeatable rummage",
     "slug": "repeatable-rummage",
-    "taggingCount": 110,
+    "taggingCount": 111,
     "description": null
+  },
+  {
+    "name": "repeatable sacrifice outlet",
+    "slug": "repeatable-sacrifice-outlet",
+    "taggingCount": 210,
+    "description": "Repeatedly sacrifice stuff"
   },
   {
     "name": "repeatable seek",
@@ -19640,7 +19814,7 @@
   {
     "name": "repeatable treasures",
     "slug": "repeatable-treasures",
-    "taggingCount": 189,
+    "taggingCount": 191,
     "description": null
   },
   {
@@ -19814,7 +19988,7 @@
   {
     "name": "restock-to-bottom",
     "slug": "restock-to-bottom",
-    "taggingCount": 44,
+    "taggingCount": 45,
     "description": null
   },
   {
@@ -19844,8 +20018,8 @@
   {
     "name": "restricted mana",
     "slug": "restricted-mana",
-    "taggingCount": 206,
-    "description": null
+    "taggingCount": 211,
+    "description": "Mana that has restrictions on what you can or cannot use it on."
   },
   {
     "name": "retaliate to damage",
@@ -19868,19 +20042,19 @@
   {
     "name": "rhyming name",
     "slug": "rhyming-name",
-    "taggingCount": 153,
+    "taggingCount": 154,
     "description": "Cards whose names contain a rhyme, or come very close to it."
   },
   {
     "name": "rhystic",
     "slug": "rhystic",
-    "taggingCount": 238,
+    "taggingCount": 244,
     "description": "Effects that opponents can buy off if they pay mana."
   },
   {
     "name": "ritual",
     "slug": "ritual",
-    "taggingCount": 50,
+    "taggingCount": 52,
     "description": "Spells that add mana."
   },
   {
@@ -19934,7 +20108,7 @@
   {
     "name": "roman numeral",
     "slug": "roman-numeral",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "Cards with a roman numeral in the name."
   },
   {
@@ -19952,7 +20126,7 @@
   {
     "name": "rules nightmare",
     "slug": "rules-nightmare",
-    "taggingCount": 50,
+    "taggingCount": 51,
     "description": "Cards that are known for having interactions that are difficult or nearly impossible to resolve within comprehensive rules"
   },
   {
@@ -19964,7 +20138,7 @@
   {
     "name": "rummage",
     "slug": "rummage",
-    "taggingCount": 125,
+    "taggingCount": 128,
     "description": "Discard a card, then draw a card. Mainly red. See also [loot](/tags/card/loot), the blue version, which draws then discards."
   },
   {
@@ -19982,7 +20156,7 @@
   {
     "name": "saboteur",
     "slug": "saboteur",
-    "taggingCount": 531,
+    "taggingCount": 535,
     "description": "Effects that trigger when you deal damage to an opponent."
   },
   {
@@ -19994,19 +20168,19 @@
   {
     "name": "sacrifice outlet",
     "slug": "sacrifice-outlet",
-    "taggingCount": 3,
+    "taggingCount": 1,
     "description": null
   },
   {
     "name": "sacrifice outlet-artifact",
     "slug": "sacrifice-outlet-artifact",
-    "taggingCount": 289,
+    "taggingCount": 290,
     "description": null
   },
   {
     "name": "sacrifice outlet-creature",
     "slug": "sacrifice-outlet-creature",
-    "taggingCount": 870,
+    "taggingCount": 873,
     "description": null
   },
   {
@@ -20018,7 +20192,7 @@
   {
     "name": "sacrifice outlet-land",
     "slug": "sacrifice-outlet-land",
-    "taggingCount": 236,
+    "taggingCount": 237,
     "description": null
   },
   {
@@ -20030,7 +20204,7 @@
   {
     "name": "sacrifice outlet-permanent",
     "slug": "sacrifice-outlet-permanent",
-    "taggingCount": 54,
+    "taggingCount": 56,
     "description": null
   },
   {
@@ -20060,13 +20234,13 @@
   {
     "name": "scales with multiple",
     "slug": "scales-with-multiple",
-    "taggingCount": 67,
+    "taggingCount": 68,
     "description": "Cards that scale as you play more copies of themselves."
   },
   {
     "name": "scales with power",
     "slug": "scales-with-power",
-    "taggingCount": 70,
+    "taggingCount": 72,
     "description": "Effects which scale with the power of one or more creatures."
   },
   {
@@ -20078,7 +20252,7 @@
   {
     "name": "school name",
     "slug": "school-name",
-    "taggingCount": 3,
+    "taggingCount": 5,
     "description": null
   },
   {
@@ -20096,7 +20270,7 @@
   {
     "name": "second draw matters",
     "slug": "second-draw-matters",
-    "taggingCount": 53,
+    "taggingCount": 54,
     "description": "Cards that care when the player casting or controlling them draws their second card for the turn."
   },
   {
@@ -20354,7 +20528,7 @@
   {
     "name": "selective group hug",
     "slug": "selective-group-hug",
-    "taggingCount": 193,
+    "taggingCount": 195,
     "description": null
   },
   {
@@ -20372,7 +20546,7 @@
   {
     "name": "self-replacement effect",
     "slug": "self-replacement-effect",
-    "taggingCount": 352,
+    "taggingCount": 359,
     "description": "A resolving spell or ability partially or completely replacing one of its own effects."
   },
   {
@@ -20396,7 +20570,7 @@
   {
     "name": "shade pump",
     "slug": "shade-pump",
-    "taggingCount": 274,
+    "taggingCount": 276,
     "description": "Effects that give an arbitrary amount of +1/+1 until end of turn. See also [firebreathing] in red and [armoring] in white."
   },
   {
@@ -20414,14 +20588,26 @@
   {
     "name": "shapechange",
     "slug": "shapechange",
-    "taggingCount": 238,
+    "taggingCount": 242,
     "description": "Set creatures' power/toughness, not necessarily a nerf. See also [humble](/tags/card/humble)."
+  },
+  {
+    "name": "shapesharing",
+    "slug": "shapesharing",
+    "taggingCount": 60,
+    "description": "Something on the battlefield becomes a copy of something else."
   },
   {
     "name": "shardland",
     "slug": "shardland",
     "taggingCount": 5,
     "description": "Lands that produce mana from a \"shard\" (three allied colours)."
+  },
+  {
+    "name": "share counters",
+    "slug": "share-counters",
+    "taggingCount": 8,
+    "description": null
   },
   {
     "name": "shares name with a format",
@@ -20432,7 +20618,7 @@
   {
     "name": "shares name with a mechanic",
     "slug": "shares-name-with-a-mechanic",
-    "taggingCount": 43,
+    "taggingCount": 44,
     "description": "Regardless of whether it relates to that mechanic."
   },
   {
@@ -20516,19 +20702,19 @@
   {
     "name": "silence",
     "slug": "silence",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": "Prevent opponents from casting spells, and possibly also active abilities. "
   },
   {
     "name": "single english word name",
     "slug": "single-english-word-name",
-    "taggingCount": 1285,
+    "taggingCount": 1294,
     "description": "Cards named with a single word in English. This may be a compound word."
   },
   {
     "name": "single target instant/sorcery",
     "slug": "single-target-instant-sorcery",
-    "taggingCount": 4501,
+    "taggingCount": 4564,
     "description": "Instant/sorcery spells that may target only one target. This is materially important for some effects that care about single targets. Not mutually exclusive with [multiple targets](/tags/card/multiple-targets)."
   },
   {
@@ -20546,7 +20732,7 @@
   {
     "name": "skip turn",
     "slug": "skip-turn",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "Someone skips a turn. See also [prevent extra turns](/tags/card/prevent-extra-turns)."
   },
   {
@@ -20642,13 +20828,13 @@
   {
     "name": "sneak-land",
     "slug": "sneak-land",
-    "taggingCount": 70,
+    "taggingCount": 71,
     "description": "Cards that let you put lands on the battlefield from your hand without playing them."
   },
   {
     "name": "sneak-permanent",
     "slug": "sneak-permanent",
-    "taggingCount": 31,
+    "taggingCount": 32,
     "description": null
   },
   {
@@ -20696,19 +20882,19 @@
   {
     "name": "special action",
     "slug": "special-action",
-    "taggingCount": 24,
+    "taggingCount": 25,
     "description": "CR 116: Special actions are actions a player may take when they have priority that don’t use the stack. These are not to be confused with turn-based actions and state-based actions, which the game generates automatically."
   },
   {
     "name": "specific power matters",
     "slug": "specific-power-matters",
-    "taggingCount": 12,
+    "taggingCount": 13,
     "description": null
   },
   {
     "name": "specific toughness matters",
     "slug": "specific-toughness-matters",
-    "taggingCount": 6,
+    "taggingCount": 7,
     "description": null
   },
   {
@@ -20738,7 +20924,7 @@
   {
     "name": "splits on death",
     "slug": "splits-on-death",
-    "taggingCount": 55,
+    "taggingCount": 56,
     "description": "Cards with abilities that create multiple creature tokens when a creature dies."
   },
   {
@@ -20750,7 +20936,7 @@
   {
     "name": "spot removal",
     "slug": "spot-removal",
-    "taggingCount": 4068,
+    "taggingCount": 4887,
     "description": "Removal for one target specifically.  See also [sweeper](sweeper) and [multi removal](multi-removal)."
   },
   {
@@ -20780,7 +20966,7 @@
   {
     "name": "staple with set's mechanic",
     "slug": "staple-with-set-s-mechanic",
-    "taggingCount": 46,
+    "taggingCount": 52,
     "description": "A common card design that is related to one or more of the main mechanics in a set "
   },
   {
@@ -20805,7 +20991,7 @@
     "name": "state trigger",
     "slug": "state-trigger",
     "taggingCount": 66,
-    "description": "Cards that use a state trigger, which is a particular and rare kind of trigger."
+    "description": "Cards that use a state trigger, which is a particular and rare kind of trigger. A common one is \"When you control no [X]s, sacrifice this creature\". "
   },
   {
     "name": "static effect in graveyard",
@@ -20840,7 +21026,7 @@
   {
     "name": "storm-like",
     "slug": "storm-like",
-    "taggingCount": 16,
+    "taggingCount": 17,
     "description": "Cards exploring design space in the vicinity of the Storm mechanic. Maybe one of these will be the progenitor of a future fixed version of the mechanic?"
   },
   {
@@ -20876,7 +21062,7 @@
   {
     "name": "sunburst",
     "slug": "sunburst",
-    "taggingCount": 25,
+    "taggingCount": 27,
     "description": "Artifacts enter with a charge counter for each color of mana spent to cast them; creatures enter with +1/+1 counters."
   },
   {
@@ -20912,13 +21098,13 @@
   {
     "name": "surge",
     "slug": "surge",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": "Get a benefit if you've cast another spell this turn."
   },
   {
     "name": "surveil",
     "slug": "surveil",
-    "taggingCount": 262,
+    "taggingCount": 278,
     "description": "Cards that let you look at the top # cards of your library and put some into the graveyard."
   },
   {
@@ -20930,13 +21116,13 @@
   {
     "name": "swap removal",
     "slug": "swap-removal",
-    "taggingCount": 125,
+    "taggingCount": 127,
     "description": "Sorry I messed up your stuff. Here's a thing in exchange. (See also [humble](/tags/card/humble).)"
   },
   {
     "name": "sweeper",
     "slug": "sweeper",
-    "taggingCount": 734,
+    "taggingCount": 739,
     "description": "_o\\ Destroy all the things! See also [spot removal](spot-removal) and [multi removal](multi-removal)."
   },
   {
@@ -20948,7 +21134,7 @@
   {
     "name": "sweeper-one-sided",
     "slug": "sweeper-one-sided",
-    "taggingCount": 215,
+    "taggingCount": 216,
     "description": "Sweepers that are, or have high potential to be, one-sided."
   },
   {
@@ -20960,7 +21146,7 @@
   {
     "name": "symmetrical",
     "slug": "symmetrical",
-    "taggingCount": 741,
+    "taggingCount": 744,
     "description": "Cards that affect the whole battlefield/all players in symmetrical, equal manner. "
   },
   {
@@ -20978,7 +21164,7 @@
   {
     "name": "synergy-activated-ability",
     "slug": "synergy-activated-ability",
-    "taggingCount": 58,
+    "taggingCount": 60,
     "description": null
   },
   {
@@ -21008,7 +21194,7 @@
   {
     "name": "synergy-artifact",
     "slug": "synergy-artifact",
-    "taggingCount": 687,
+    "taggingCount": 688,
     "description": null
   },
   {
@@ -21038,7 +21224,7 @@
   {
     "name": "synergy-aura",
     "slug": "synergy-aura",
-    "taggingCount": 136,
+    "taggingCount": 137,
     "description": null
   },
   {
@@ -21074,7 +21260,7 @@
   {
     "name": "synergy-basic",
     "slug": "synergy-basic",
-    "taggingCount": 59,
+    "taggingCount": 60,
     "description": null
   },
   {
@@ -21104,7 +21290,7 @@
   {
     "name": "synergy-blocker-self",
     "slug": "synergy-blocker-self",
-    "taggingCount": 209,
+    "taggingCount": 210,
     "description": null
   },
   {
@@ -21218,7 +21404,7 @@
   {
     "name": "synergy-color-each",
     "slug": "synergy-color-each",
-    "taggingCount": 57,
+    "taggingCount": 29,
     "description": null
   },
   {
@@ -21260,7 +21446,7 @@
   {
     "name": "synergy-commander",
     "slug": "synergy-commander",
-    "taggingCount": 183,
+    "taggingCount": 185,
     "description": null
   },
   {
@@ -21434,7 +21620,7 @@
   {
     "name": "synergy-enchantment",
     "slug": "synergy-enchantment",
-    "taggingCount": 154,
+    "taggingCount": 155,
     "description": null
   },
   {
@@ -21494,7 +21680,7 @@
   {
     "name": "synergy-exiling",
     "slug": "synergy-exiling",
-    "taggingCount": 20,
+    "taggingCount": 21,
     "description": "These effects care about cards being exiled (as in the action)."
   },
   {
@@ -21698,7 +21884,7 @@
   {
     "name": "synergy-instant",
     "slug": "synergy-instant",
-    "taggingCount": 411,
+    "taggingCount": 458,
     "description": null
   },
   {
@@ -21866,7 +22052,7 @@
   {
     "name": "synergy-modified",
     "slug": "synergy-modified",
-    "taggingCount": 45,
+    "taggingCount": 46,
     "description": null
   },
   {
@@ -21896,7 +22082,7 @@
   {
     "name": "synergy-multicolor",
     "slug": "synergy-multicolor",
-    "taggingCount": 72,
+    "taggingCount": 73,
     "description": "Cards that care about you using multicolored cards."
   },
   {
@@ -21920,7 +22106,7 @@
   {
     "name": "synergy-name-sticker",
     "slug": "synergy-name-sticker",
-    "taggingCount": 21,
+    "taggingCount": 22,
     "description": null
   },
   {
@@ -21938,7 +22124,7 @@
   {
     "name": "synergy-noncreature",
     "slug": "synergy-noncreature",
-    "taggingCount": 252,
+    "taggingCount": 253,
     "description": null
   },
   {
@@ -22274,7 +22460,7 @@
   {
     "name": "synergy-sacrifice",
     "slug": "synergy-sacrifice",
-    "taggingCount": 100,
+    "taggingCount": 101,
     "description": null
   },
   {
@@ -22320,6 +22506,12 @@
     "description": null
   },
   {
+    "name": "synergy-sneak",
+    "slug": "synergy-sneak",
+    "taggingCount": 1,
+    "description": null
+  },
+  {
     "name": "synergy-snow",
     "slug": "synergy-snow",
     "taggingCount": 59,
@@ -22334,7 +22526,7 @@
   {
     "name": "synergy-sorcery",
     "slug": "synergy-sorcery",
-    "taggingCount": 410,
+    "taggingCount": 457,
     "description": null
   },
   {
@@ -22424,7 +22616,7 @@
   {
     "name": "synergy-theft",
     "slug": "synergy-theft",
-    "taggingCount": 27,
+    "taggingCount": 28,
     "description": null
   },
   {
@@ -22586,13 +22778,13 @@
   {
     "name": "tap fuel-creature",
     "slug": "tap-fuel-creature",
-    "taggingCount": 582,
+    "taggingCount": 586,
     "description": "Tap a creature to pay for/activate an effect"
   },
   {
     "name": "tap fuel-land",
     "slug": "tap-fuel-land",
-    "taggingCount": 24,
+    "taggingCount": 25,
     "description": null
   },
   {
@@ -22652,7 +22844,7 @@
   {
     "name": "tapper-creature",
     "slug": "tapper-creature",
-    "taggingCount": 587,
+    "taggingCount": 594,
     "description": null
   },
   {
@@ -22724,7 +22916,7 @@
   {
     "name": "temporary token",
     "slug": "temporary-token",
-    "taggingCount": 207,
+    "taggingCount": 209,
     "description": null
   },
   {
@@ -22784,7 +22976,7 @@
   {
     "name": "theft-creature",
     "slug": "theft-creature",
-    "taggingCount": 231,
+    "taggingCount": 232,
     "description": null
   },
   {
@@ -22802,7 +22994,7 @@
   {
     "name": "theft-land",
     "slug": "theft-land",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": null
   },
   {
@@ -22878,9 +23070,15 @@
     "description": null
   },
   {
+    "name": "third-spell-matters",
+    "slug": "third-spell-matters",
+    "taggingCount": 3,
+    "description": null
+  },
+  {
     "name": "thoughtseize",
     "slug": "thoughtseize",
-    "taggingCount": 141,
+    "taggingCount": 142,
     "description": "Opponent reveals their hand, and you choose a card for them to discard."
   },
   {
@@ -22928,7 +23126,7 @@
   {
     "name": "titan trigger",
     "slug": "titan-trigger",
-    "taggingCount": 147,
+    "taggingCount": 149,
     "description": "An ability that triggers on both entering the battlefield and attacking, similar to the Titan cycle from M11"
   },
   {
@@ -22941,25 +23139,25 @@
     "name": "token doubler",
     "slug": "token-doubler",
     "taggingCount": 17,
-    "description": null
+    "description": "If you would make X tokens, twice are made instead. "
   },
   {
     "name": "token errata",
     "slug": "token-errata",
-    "taggingCount": 44,
+    "taggingCount": 47,
     "description": "These cards used to make a different type of token, which has since been updated. For type lines, see [Type Errata](type-errata)"
   },
   {
     "name": "tokenfall",
     "slug": "tokenfall",
-    "taggingCount": 17,
+    "taggingCount": 18,
     "description": null
   },
   {
     "name": "token increaser",
     "slug": "token-increaser",
     "taggingCount": 13,
-    "description": null
+    "description": "Cards that increase the amount of tokens you make, either by increasing the amount of tokens that are to be made or adding additional tokens "
   },
   {
     "name": "tokenlink",
@@ -22970,8 +23168,8 @@
   {
     "name": "token replacer",
     "slug": "token-replacer",
-    "taggingCount": 6,
-    "description": null
+    "taggingCount": 7,
+    "description": "Cards that completely replace the tokens that will be created with other tokens. "
   },
   {
     "name": "token version of a card",
@@ -22988,7 +23186,7 @@
   {
     "name": "token without a card",
     "slug": "token-without-a-card",
-    "taggingCount": 13,
+    "taggingCount": 14,
     "description": "No cards make these tokens, probably due to errata."
   },
   {
@@ -23000,7 +23198,7 @@
   {
     "name": "tome",
     "slug": "tome",
-    "taggingCount": 121,
+    "taggingCount": 124,
     "description": "Providing incremental card advantage over time (usually by tapping to draw cards, although there are variants that [tutor](tutor), [impulsive draw](impulsive-draw), etc.) has been a staple effect for noncreature artifacts since the printing of Jayemdae Tome in Alpha."
   },
   {
@@ -23030,13 +23228,13 @@
   {
     "name": "tormenting voice",
     "slug": "tormenting-voice",
-    "taggingCount": 31,
+    "taggingCount": 32,
     "description": "A family of two-card rummage spells."
   },
   {
     "name": "toughness boost to all",
     "slug": "toughness-boost-to-all",
-    "taggingCount": 715,
+    "taggingCount": 718,
     "description": null
   },
   {
@@ -23054,7 +23252,7 @@
   {
     "name": "toughness matters-total",
     "slug": "toughness-matters-total",
-    "taggingCount": 4,
+    "taggingCount": 5,
     "description": null
   },
   {
@@ -23120,7 +23318,7 @@
   {
     "name": "triggered ability",
     "slug": "triggered-ability",
-    "taggingCount": 7680,
+    "taggingCount": 7718,
     "description": null
   },
   {
@@ -23132,14 +23330,14 @@
   {
     "name": "trigger from graveyard",
     "slug": "trigger-from-graveyard",
-    "taggingCount": 138,
+    "taggingCount": 140,
     "description": "Abilities that trigger from inside the graveyard."
   },
   {
     "name": "triggers at cleanup step",
     "slug": "triggers-at-cleanup-step",
-    "taggingCount": 14,
-    "description": null
+    "taggingCount": 2,
+    "description": "Cards that trigger at the cleanup step, rather than what would usually be the end step."
   },
   {
     "name": "triland",
@@ -23150,7 +23348,7 @@
   {
     "name": "trumpet blast",
     "slug": "trumpet-blast",
-    "taggingCount": 48,
+    "taggingCount": 31,
     "description": "Instants that give +N/+0 to all your (attacking) creatures until end of turn."
   },
   {
@@ -23181,7 +23379,7 @@
     "name": "turn control",
     "slug": "turn-control",
     "taggingCount": 10,
-    "description": null
+    "description": "Cards that make one player control another player's turn, either for the entire turn or for specific times during that turn. "
   },
   {
     "name": "turn-face-down",
@@ -23336,7 +23534,7 @@
   {
     "name": "tutor-card",
     "slug": "tutor-card",
-    "taggingCount": 108,
+    "taggingCount": 109,
     "description": "Cards that tutor any cards."
   },
   {
@@ -23360,7 +23558,7 @@
   {
     "name": "tutor-creature",
     "slug": "tutor-creature",
-    "taggingCount": 98,
+    "taggingCount": 99,
     "description": "Cards that tutor creature cards."
   },
   {
@@ -23522,7 +23720,7 @@
   {
     "name": "tutor-creature-legendary",
     "slug": "tutor-creature-legendary",
-    "taggingCount": 5,
+    "taggingCount": 6,
     "description": "Cards that tutor legendary creature cards."
   },
   {
@@ -23738,7 +23936,7 @@
   {
     "name": "tutor-instant",
     "slug": "tutor-instant",
-    "taggingCount": 22,
+    "taggingCount": 23,
     "description": "Cards that tutor instant cards."
   },
   {
@@ -23780,7 +23978,7 @@
   {
     "name": "tutor-land-basic",
     "slug": "tutor-land-basic",
-    "taggingCount": 318,
+    "taggingCount": 325,
     "description": "Cards that tutor basic land cards."
   },
   {
@@ -23870,7 +24068,7 @@
   {
     "name": "tutor-land-to-battlefield",
     "slug": "tutor-land-to-battlefield",
-    "taggingCount": 270,
+    "taggingCount": 274,
     "description": null
   },
   {
@@ -23960,7 +24158,7 @@
   {
     "name": "tutor-sorcery",
     "slug": "tutor-sorcery",
-    "taggingCount": 15,
+    "taggingCount": 16,
     "description": "Cards that tutor sorcery cards."
   },
   {
@@ -23978,19 +24176,19 @@
   {
     "name": "tutor-to-exile",
     "slug": "tutor-to-exile",
-    "taggingCount": 25,
+    "taggingCount": 26,
     "description": "Cards that tutor into exile for later use."
   },
   {
     "name": "tutor-to-graveyard",
     "slug": "tutor-to-graveyard",
-    "taggingCount": 33,
+    "taggingCount": 34,
     "description": "Tutor cards into your graveyard."
   },
   {
     "name": "tutor-to-hand",
     "slug": "tutor-to-hand",
-    "taggingCount": 537,
+    "taggingCount": 542,
     "description": "Cards that tutor cards to the player's hand."
   },
   {
@@ -24134,7 +24332,7 @@
   {
     "name": "typal-bat",
     "slug": "typal-bat",
-    "taggingCount": 11,
+    "taggingCount": 12,
     "description": null
   },
   {
@@ -24254,7 +24452,7 @@
   {
     "name": "typal coupling",
     "slug": "typal-coupling",
-    "taggingCount": 214,
+    "taggingCount": 215,
     "description": "Cards that care about two or more different creature types."
   },
   {
@@ -24440,7 +24638,7 @@
   {
     "name": "typal-fractal",
     "slug": "typal-fractal",
-    "taggingCount": 2,
+    "taggingCount": 3,
     "description": null
   },
   {
@@ -24596,7 +24794,7 @@
   {
     "name": "typal-insect",
     "slug": "typal-insect",
-    "taggingCount": 12,
+    "taggingCount": 13,
     "description": null
   },
   {
@@ -24825,11 +25023,17 @@
     "name": "typal-non-human",
     "slug": "typal-non-human",
     "taggingCount": 28,
-    "description": null
+    "description": "Cards that care about every creature that does not have the Human Creature Type"
   },
   {
     "name": "typal-non-lemur",
     "slug": "typal-non-lemur",
+    "taggingCount": 1,
+    "description": null
+  },
+  {
+    "name": "typal-non-pilot",
+    "slug": "typal-non-pilot",
     "taggingCount": 1,
     "description": null
   },
@@ -24920,7 +25124,7 @@
   {
     "name": "typal-pest",
     "slug": "typal-pest",
-    "taggingCount": 2,
+    "taggingCount": 4,
     "description": null
   },
   {
@@ -25154,7 +25358,7 @@
   {
     "name": "typal-snake",
     "slug": "typal-snake",
-    "taggingCount": 15,
+    "taggingCount": 16,
     "description": null
   },
   {
@@ -25184,13 +25388,13 @@
   {
     "name": "typal-spider",
     "slug": "typal-spider",
-    "taggingCount": 27,
+    "taggingCount": 28,
     "description": null
   },
   {
     "name": "typal-spirit",
     "slug": "typal-spirit",
-    "taggingCount": 129,
+    "taggingCount": 131,
     "description": null
   },
   {
@@ -25292,7 +25496,7 @@
   {
     "name": "typal-wall",
     "slug": "typal-wall",
-    "taggingCount": 12,
+    "taggingCount": 13,
     "description": null
   },
   {
@@ -25322,7 +25526,7 @@
   {
     "name": "typal-wizard",
     "slug": "typal-wizard",
-    "taggingCount": 75,
+    "taggingCount": 76,
     "description": null
   },
   {
@@ -25362,6 +25566,12 @@
     "description": null
   },
   {
+    "name": "type addition book",
+    "slug": "type-addition-book",
+    "taggingCount": 46,
+    "description": null
+  },
+  {
     "name": "type addition frog",
     "slug": "type-addition-frog",
     "taggingCount": 6,
@@ -25392,6 +25602,12 @@
     "description": "Gained the Phyrexian type, either after it was introduced with the big sweep at Modern Horizons 2 launch, or at a later date."
   },
   {
+    "name": "type addition rabbit",
+    "slug": "type-addition-rabbit",
+    "taggingCount": 2,
+    "description": null
+  },
+  {
     "name": "type addition sorcerer",
     "slug": "type-addition-sorcerer",
     "taggingCount": 22,
@@ -25400,13 +25616,13 @@
   {
     "name": "type change",
     "slug": "type-change",
-    "taggingCount": 280,
+    "taggingCount": 282,
     "description": null
   },
   {
     "name": "type errata",
     "slug": "type-errata",
-    "taggingCount": 509,
+    "taggingCount": 507,
     "description": "Cards that were printed with a type-line that has since been updated. For cards whose token generation has changed, see [Token Errata](token-errata). "
   },
   {
@@ -25640,7 +25856,7 @@
   {
     "name": "unblockable",
     "slug": "unblockable",
-    "taggingCount": 192,
+    "taggingCount": 194,
     "description": null
   },
   {
@@ -25688,13 +25904,13 @@
   {
     "name": "un-forecast",
     "slug": "un-forecast",
-    "taggingCount": 11,
+    "taggingCount": 12,
     "description": "Un-set cards that would later pave the way for black bordered mechanics "
   },
   {
     "name": "unheroic",
     "slug": "unheroic",
-    "taggingCount": 37,
+    "taggingCount": 49,
     "description": "Whenever you target something that's not yours, something good happens"
   },
   {
@@ -25704,16 +25920,16 @@
     "description": "Effects that trigger when something becomes tapped. For cards that care about tapped permanents, see [synergy-tapped](synergy-tapped) and [tapped matters-self](tapped-matters-self)."
   },
   {
-    "name": "unique character",
-    "slug": "unique-character",
-    "taggingCount": 2,
-    "description": null
-  },
-  {
     "name": "unique counter",
     "slug": "unique-counter",
     "taggingCount": 146,
     "description": "These cards use a type of counter no other card does."
+  },
+  {
+    "name": "unique counters matter",
+    "slug": "unique-counters-matter",
+    "taggingCount": 8,
+    "description": null
   },
   {
     "name": "unique creature type",
@@ -25724,7 +25940,7 @@
   {
     "name": "unique cr reference",
     "slug": "unique-cr-reference",
-    "taggingCount": 70,
+    "taggingCount": 71,
     "description": "There is an entire rule in the CR just to cover this card and no other card."
   },
   {
@@ -25754,7 +25970,7 @@
   {
     "name": "unique mana cost",
     "slug": "unique-mana-cost",
-    "taggingCount": 319,
+    "taggingCount": 325,
     "description": "This card's mana cost isn't found on any other card."
   },
   {
@@ -25772,7 +25988,13 @@
   {
     "name": "unique planeswalker type",
     "slug": "unique-planeswalker-type",
-    "taggingCount": 36,
+    "taggingCount": 37,
+    "description": null
+  },
+  {
+    "name": "unique plane type",
+    "slug": "unique-plane-type",
+    "taggingCount": 71,
     "description": null
   },
   {
@@ -25808,7 +26030,7 @@
   {
     "name": "unique type line",
     "slug": "unique-type-line",
-    "taggingCount": 2095,
+    "taggingCount": 2127,
     "description": "No other card has this same type line. Acorn, playtest, and rebalanced cards may count as unique, but they don't make non-acorn, non-playtest, non-rebalanced cards stop counting as unique."
   },
   {
@@ -25826,13 +26048,13 @@
   {
     "name": "unnoted tracked information",
     "slug": "unnoted-tracked-information",
-    "taggingCount": 218,
+    "taggingCount": 222,
     "description": "Spells or abilities that require tracking events without explicitly noting them. See also [noted tracked information](noted-tracked-information)."
   },
   {
     "name": "unpreventable-damage",
     "slug": "unpreventable-damage",
-    "taggingCount": 35,
+    "taggingCount": 36,
     "description": null
   },
   {
@@ -25892,7 +26114,7 @@
   {
     "name": "untapper-creature",
     "slug": "untapper-creature",
-    "taggingCount": 434,
+    "taggingCount": 435,
     "description": null
   },
   {
@@ -25940,7 +26162,7 @@
   {
     "name": "untracked indefinite effect",
     "slug": "untracked-indefinite-effect",
-    "taggingCount": 302,
+    "taggingCount": 311,
     "description": "Effects that last forever but aren't tracked by anything. For these purposes we're not counting ETB clones."
   },
   {
@@ -25952,7 +26174,7 @@
   {
     "name": "upkeep cost",
     "slug": "upkeep-cost",
-    "taggingCount": 229,
+    "taggingCount": 230,
     "description": null
   },
   {
@@ -25976,13 +26198,13 @@
   {
     "name": "utility land",
     "slug": "utility-land",
-    "taggingCount": 557,
+    "taggingCount": 566,
     "description": null
   },
   {
     "name": "utility mana rock",
     "slug": "utility-mana-rock",
-    "taggingCount": 226,
+    "taggingCount": 228,
     "description": null
   },
   {
@@ -25994,7 +26216,7 @@
   {
     "name": "vanity card",
     "slug": "vanity-card",
-    "taggingCount": 62,
+    "taggingCount": 63,
     "description": "Cards named after specific people or real things "
   },
   {
@@ -26018,13 +26240,13 @@
   {
     "name": "virtual french vanilla",
     "slug": "virtual-french-vanilla",
-    "taggingCount": 1240,
+    "taggingCount": 1251,
     "description": "Creatures and vehicles that are french vanilla (having only keyword abilities) after entering the battlefield. They may have \"enters the battlefield\" or \"on cast\" trigger."
   },
   {
     "name": "virtual legendary",
     "slug": "virtual-legendary",
-    "taggingCount": 230,
+    "taggingCount": 237,
     "description": "This card represents a one-of-a-kind creature or object, and could conceivably have been legendary. Usually cards are in this category because they were printed before legendary existed or have a mechanical need to not be legendary."
   },
   {
@@ -26036,13 +26258,19 @@
   {
     "name": "virtual vanilla",
     "slug": "virtual-vanilla",
-    "taggingCount": 1537,
+    "taggingCount": 1547,
     "description": "These creatures are effectively just vanilla after entering the battlefield. They may have an enters-the-battlefield or on-cast trigger."
+  },
+  {
+    "name": "vivid",
+    "slug": "vivid",
+    "taggingCount": 28,
+    "description": "Cards that care about the number of colors among permanents you control."
   },
   {
     "name": "voting",
     "slug": "voting",
-    "taggingCount": 33,
+    "taggingCount": 34,
     "description": null
   },
   {
@@ -26066,7 +26294,7 @@
   {
     "name": "weaker in singleton formats",
     "slug": "weaker-in-singleton-formats",
-    "taggingCount": 80,
+    "taggingCount": 81,
     "description": "Cards that have reduced use in formats that do not allow more than one card with the same name to be used, such as in Commander or Highlander."
   },
   {
@@ -26090,13 +26318,13 @@
   {
     "name": "wheel-one-sided",
     "slug": "wheel-one-sided",
-    "taggingCount": 42,
+    "taggingCount": 45,
     "description": null
   },
   {
     "name": "wheel-symmetrical",
     "slug": "wheel-symmetrical",
-    "taggingCount": 37,
+    "taggingCount": 38,
     "description": "Wheel effects that effect each player, sometimes with no choice on whether they want to or not. "
   },
   {
@@ -26124,12 +26352,6 @@
     "description": "Permanents that can be given to opponents and have detrimental effects."
   },
   {
-    "name": "wild pair power toughness 1",
-    "slug": "wild-pair-power-toughness-1",
-    "taggingCount": 61,
-    "description": null
-  },
-  {
     "name": "wind drake with set's mechanic",
     "slug": "wind-drake-with-set-s-mechanic",
     "taggingCount": 31,
@@ -26138,7 +26360,7 @@
   {
     "name": "wingman",
     "slug": "wingman",
-    "taggingCount": 30,
+    "taggingCount": 31,
     "description": "Creatures with flying that give other creatures flying until end of turn when they attack."
   },
   {
@@ -26174,13 +26396,13 @@
   {
     "name": "x cost matters",
     "slug": "x-cost-matters",
-    "taggingCount": 13,
+    "taggingCount": 20,
     "description": null
   },
   {
     "name": "x doesn't matter",
     "slug": "x-doesn-t-matter",
-    "taggingCount": 11,
+    "taggingCount": 12,
     "description": "Cards that don't explicitly care about the value of the {X} in their costs (usually because [mana spent matters](mana-spent-matters) in some other way)."
   },
   {
@@ -26193,12 +26415,12 @@
     "name": "you matter",
     "slug": "you-matter",
     "taggingCount": 6,
-    "description": null
+    "description": "Cards that care about physical attributes of the player playing it "
   },
   {
     "name": "young pyromancer ability",
     "slug": "young-pyromancer-ability",
-    "taggingCount": 34,
+    "taggingCount": 35,
     "description": "Whenever you cast an instant or sorcery spell, create a creature token. "
   },
   {

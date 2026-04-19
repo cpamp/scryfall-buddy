@@ -1,7 +1,7 @@
 {
   "name": "scryfall-plugin",
   "private": true,
-  "version": "0.2.1",
+  "version": "0.3.0",
   "scripts": {
     "fetch:tags": "node tools/fetch-tagger-tags.js",
     "build:docs": "node scripts/build-docs.js",

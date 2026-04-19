@@ -27,7 +27,7 @@ function createFirefoxManifest() {
       gecko: {
         id: FIREFOX_EXTENSION_ID,
         data_collection_permissions: {
-          required: ["searchTerms"],
+          required: ["websiteContent"],
         },
       },
     },
